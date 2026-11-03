@@ -1,0 +1,58 @@
+---
+layout: default
+---
+{% assign t = site.data.i18n.en %}
+{% assign active = site.devices | where: "maintained", true %}
+<section class="hero">
+  <div class="container">
+    <p class="eyebrow" data-i18n="eyebrow">{{ t.eyebrow }}</p>
+    <h1>{{ site.title }}</h1>
+    <p class="lead" data-i18n="hero_lead">{{ t.hero_lead }}</p>
+    <div class="stats">
+      <div><strong>{{ site.devices | size }}</strong><span data-i18n="stat_devices">{{ t.stat_devices }}</span></div>
+      <div><strong>{{ active | size }}</strong><span data-i18n="stat_active">{{ t.stat_active }}</span></div>
+      <div><strong>{{ site.data.commons | size }}</strong><span data-i18n="stat_platforms">{{ t.stat_platforms }}</span></div>
+    </div>
+    <div class="hero-actions">
+      <a class="btn" href="#devices" data-i18n="btn_view_devices">{{ t.btn_view_devices }}</a>
+      <a class="btn btn-ghost" href="{{ site.telegram }}" target="_blank" rel="noopener" data-i18n="btn_telegram">{{ t.btn_telegram }}</a>
+    </div>
+  </div>
+</section>
+
+<section id="devices" class="container">
+  <div class="toolbar">
+    <input id="search" type="search" placeholder="{{ t.search_placeholder }}" data-i18n-placeholder="search_placeholder" autocomplete="off" aria-label="Search devices">
+
+    <div class="chips" data-group="common">
+      <button class="chip active" data-filter="all" type="button" data-i18n="filter_all">{{ t.filter_all }}</button>
+      {% for c in site.data.commons %}{% assign n = site.devices | where: "common", c.id | size %}{% if n > 0 %}<button class="chip" data-filter="{{ c.id }}" type="button">{{ c.name }} <span class="count">{{ n }}</span></button>{% endif %}{% endfor %}
+    </div>
+
+    {% capture versions %}{% for d in site.devices %}{{ d.android }}{% unless forloop.last %},{% endunless %}{% endfor %}{% endcapture %}
+    {% assign versions = versions | split: "," | uniq | sort | reverse %}
+    <div class="chips" data-group="android">
+      <button class="chip active" data-filter="all" type="button" data-i18n="filter_all_android">{{ t.filter_all_android }}</button>
+      {% for v in versions %}{% assign n = 0 %}{% for d in site.devices %}{% capture a %}{{ d.android }}{% endcapture %}{% if a == v %}{% assign n = n | plus: 1 %}{% endif %}{% endfor %}<button class="chip" data-filter="{{ v }}" type="button">Android {{ v }} <span class="count">{{ n }}</span></button>{% endfor %}
+    </div>
+
+    <label class="toggle"><input id="only-active" type="checkbox"> <span data-i18n="only_active">{{ t.only_active }}</span></label>
+  </div>
+
+  {% for c in site.data.commons %}
+  {% assign devs = site.devices | where: "common", c.id | sort: "order" %}
+  {% if devs.size > 0 %}
+  <div class="family" id="{{ c.id }}" data-common-group="{{ c.id }}">
+    <div class="family-head">
+      <h2>{{ c.name }}</h2>
+      <span class="muted">{{ devs.size }} <span data-i18n="stat_devices">{{ t.stat_devices }}</span></span>
+    </div>
+    <div class="grid">
+      {% for d in devs %}{% include device-card.html device=d %}{% endfor %}
+    </div>
+  </div>
+  {% endif %}
+  {% endfor %}
+
+  <p id="no-results" class="empty" hidden data-i18n="no_results">{{ t.no_results }}</p>
+</section>

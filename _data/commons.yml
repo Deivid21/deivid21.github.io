@@ -1,0 +1,20 @@
+# Common device trees. The id must match each device's `common` field.
+# This list order is the order of the sections on the home page.
+# Optional per common: tree: https://... (shown on every device of that common)
+
+- id: msm8953
+  name: Moto MSM8953
+- id: msm8998
+  name: Moto MSM8998
+- id: exynos9610
+  name: Moto Exynos9610
+- id: sm6225
+  name: Moto SM6225
+- id: sm6375
+  name: Moto SM6375
+- id: sm7435
+  name: Moto SM7435
+- id: sm8250
+  name: Moto SM8250
+- id: sm8350
+  name: Moto SM8350

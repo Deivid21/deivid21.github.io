@@ -1,0 +1,94 @@
+# Interface strings. English is the default; Spanish is applied by the EN/ES toggle.
+# Use them in templates as data-i18n="key". Add a key to both languages.
+
+en:
+  nav_devices: Devices
+  nav_guides: Guides
+  eyebrow: Custom ROMs · Firmware · Resources
+  hero_lead: ROMs, firmware and resources for Motorola devices. Pick your device to see its downloads, changelogs and guides.
+  stat_devices: devices
+  stat_active: active
+  stat_platforms: common trees
+  btn_view_devices: Browse devices
+  btn_telegram: Telegram channel
+  search_placeholder: Search by name, codename, platform or ROM…
+  filter_all: All
+  filter_all_android: All versions
+  only_active: Active only
+  no_results: No devices match your search.
+  active: Active
+  discontinued: Discontinued
+  no_builds: No builds yet
+  coming_soon: Coming soon
+  no_builds_long: There are no builds for this device yet. Follow the Telegram channel for updates.
+  spec_vendor: Vendor
+  spec_soc: SoC
+  spec_common: Common tree
+  spec_platform: Platform
+  spec_ram: RAM
+  spec_release: Released
+  spec_variants: Variants
+  device_tree: Device tree
+  kernel: Kernel
+  downloads: Downloads
+  download: Download
+  changelog: Changelog
+  copy: Copy
+  copied: Copied!
+  extras: Extras
+  notes: Notes
+  guides_for_device: Guides for this device
+  guides_title: Guides
+  guides_lead: Installing, updating and stock firmware.
+  updated: Updated
+  status_stable: Stable
+  status_beta: Beta
+  status_test: Test
+  footer_disclaimer: Unofficial builds. Flash at your own risk.
+  footer_images: "Device images:"
+
+es:
+  nav_devices: Dispositivos
+  nav_guides: Guías
+  eyebrow: Custom ROMs · Firmware · Recursos
+  hero_lead: ROMs, firmwares y recursos para dispositivos Motorola. Elige tu dispositivo para ver sus descargas, changelogs y guías.
+  stat_devices: dispositivos
+  stat_active: activos
+  stat_platforms: árboles comunes
+  btn_view_devices: Ver dispositivos
+  btn_telegram: Canal de Telegram
+  search_placeholder: Buscar por nombre, codename, plataforma o ROM…
+  filter_all: Todos
+  filter_all_android: Todas las versiones
+  only_active: Solo activos
+  no_results: No hay dispositivos que coincidan.
+  active: Activo
+  discontinued: Descontinuado
+  no_builds: Sin builds aún
+  coming_soon: Próximamente
+  no_builds_long: Todavía no hay builds para este dispositivo. Sigue el canal de Telegram para enterarte.
+  spec_vendor: Fabricante
+  spec_soc: SoC
+  spec_common: Árbol común
+  spec_platform: Plataforma
+  spec_ram: RAM
+  spec_release: Lanzamiento
+  spec_variants: Variantes
+  device_tree: Árbol de dispositivo
+  kernel: Kernel
+  downloads: Descargas
+  download: Descargar
+  changelog: Changelog
+  copy: Copiar
+  copied: ¡Copiado!
+  extras: Extras
+  notes: Notas
+  guides_for_device: Guías para este dispositivo
+  guides_title: Guías
+  guides_lead: Instalación, actualización y firmware stock.
+  updated: Actualizado
+  status_stable: Estable
+  status_beta: Beta
+  status_test: Test
+  footer_disclaimer: Builds no oficiales. Flashea bajo tu propio riesgo.
+  footer_images: "Imágenes de dispositivos:"

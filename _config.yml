@@ -1,0 +1,51 @@
+# ── Site ─────────────────────────────────────────────
+title: Deivid21 Hub
+description: ROMs, firmware and resources for Motorola devices
+author: Deivid21
+url: "https://deivid21.github.io"
+baseurl: ""
+lang: en
+
+# ── Links ────────────────────────────────────────────
+telegram: https://t.me/Deivid21Hub
+github: https://github.com/Deivid21
+gitlab: https://gitlab.com/Deivid21
+
+# Device images (LineageOS wiki). <codename>.png is appended
+lineage_img: https://raw.githubusercontent.com/LineageOS/lineage_wiki/refs/heads/main/images/devices/
+
+# ROM links, built from the device codename. {codename} is replaced automatically.
+# A ROM entry in a device file can override them with its own download: / changelog:
+rom_links:
+  LineageOS:
+    download: https://download.lineageos.org/devices/{codename}/builds
+    changelog: https://download.lineageos.org/devices/{codename}/changes
+  Evolution X:
+    download: https://evolution-x.org/device/{codename}
+
+# ── Collections ──────────────────────────────────────
+collections:
+  devices:
+    output: true
+    permalink: /devices/:name/
+  guides:
+    output: true
+    permalink: /guides/:name/
+
+defaults:
+  - scope: { path: "", type: devices }
+    values: { layout: device }
+  - scope: { path: "", type: guides }
+    values: { layout: guide }
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - tools

@@ -1,0 +1,21 @@
+---
+layout: default
+title: Guides
+permalink: /guides/
+---
+{% assign t = site.data.i18n.en %}
+<div class="container narrow">
+  <h1 data-i18n="guides_title">{{ t.guides_title }}</h1>
+  <p class="lead" data-i18n="guides_lead">{{ t.guides_lead }}</p>
+  <ul class="guide-list">
+    {% assign sorted = site.guides | sort: "order" %}
+    {% for g in sorted %}
+    <li>
+      <a href="{{ g.url | relative_url }}">
+        <strong{% if g.title_es %} data-es="{{ g.title_es | escape }}"{% endif %}>{{ g.title }}</strong>
+        {% if g.description %}<span class="muted"{% if g.description_es %} data-es="{{ g.description_es | escape }}"{% endif %}>{{ g.description }}</span>{% endif %}
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
