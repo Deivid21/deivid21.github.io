@@ -148,8 +148,8 @@ html[lang="es"] .lang-toggle [data-lang-opt="es"] { background: var(--accent); c
   transition: transform .15s ease, border-color .15s ease, background .15s ease;
 }
 .device-card:hover { transform: translateY(-3px); border-color: var(--accent); background: var(--card-hover); text-decoration: none; }
-.device-img { aspect-ratio: 1; display: grid; place-items: center; padding: 18px; background: var(--bg-soft); }
-.device-img img { max-height: 100%; object-fit: contain; }
+.device-img { height: 190px; padding: 16px; background: var(--bg-soft); }
+.device-img img { width: 100%; height: 100%; object-fit: contain; }
 .device-info { padding: 12px 14px 14px; }
 .device-info h3 { font-size: 1rem; margin: 0 0 2px; }
 .codename { color: var(--muted); font-size: .85rem; }
@@ -160,8 +160,8 @@ html[lang="es"] .lang-toggle [data-lang-opt="es"] { background: var(--accent); c
 .breadcrumb { color: var(--muted); font-size: .9rem; margin: 24px 0; }
 .breadcrumb a { color: var(--muted); }
 .device-hero { display: grid; grid-template-columns: 280px 1fr; gap: 40px; align-items: center; margin-bottom: 40px; }
-.device-hero-img { background: var(--bg-soft); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; display: grid; place-items: center; aspect-ratio: 1; }
-.device-hero-img img { max-height: 100%; object-fit: contain; }
+.device-hero-img { height: 320px; background: var(--bg-soft); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; }
+.device-hero-img img { width: 100%; height: 100%; object-fit: contain; }
 .device-hero h1 { font-size: clamp(1.8rem, 5vw, 2.6rem); }
 .specs { display: grid; grid-template-columns: max-content 1fr; gap: 6px 20px; margin: 20px 0; }
 .specs dt { color: var(--muted); }
@@ -201,7 +201,8 @@ html[lang="es"] .lang-toggle [data-lang-opt="es"] { background: var(--accent); c
 /* ── Responsive ─────────────────────────────────────── */
 @media (max-width: 720px) {
   .device-hero { grid-template-columns: 1fr; gap: 24px; }
-  .device-hero-img { max-width: 240px; }
+  .device-hero-img { height: 260px; }
+  .device-img { height: 150px; padding: 12px; }
   .grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; }
   .nav-links a { padding: 6px 8px; font-size: .9rem; }
   .brand span { display: none; }
