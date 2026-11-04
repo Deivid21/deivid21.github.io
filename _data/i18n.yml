@@ -45,6 +45,8 @@ en:
   info_android: Android
   info_version: Version
   info_last_build: Last build
+  info_size: Size
+  info_forum: XDA thread
   download: Download
   changelog: Changelog
   copy: Copy
@@ -102,6 +104,8 @@ es:
   info_android: Android
   info_version: Versión
   info_last_build: Última build
+  info_size: Tamaño
+  info_forum: Hilo en XDA
   download: Descargar
   changelog: Changelog
   copy: Copiar

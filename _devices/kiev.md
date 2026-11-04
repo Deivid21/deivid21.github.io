@@ -12,7 +12,6 @@ maintained: true
 
 roms:
   - name: LineageOS
-    android: 17
     # version: ""
     # status: active      # active | discontinued
     # date: 2026-11-03
