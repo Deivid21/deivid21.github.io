@@ -1,0 +1,12 @@
+{% assign t = site.data.i18n.en %}
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>© {{ 'now' | date: '%Y' }} {{ site.author }} · <span data-i18n="footer_disclaimer">{{ t.footer_disclaimer }}</span></p>
+    <p class="footer-links">
+      <a href="{{ site.telegram }}" target="_blank" rel="noopener">Telegram</a>
+      <a href="{{ site.github }}" target="_blank" rel="noopener">GitHub</a>
+      <a href="{{ site.gitlab }}" target="_blank" rel="noopener">GitLab</a>
+    </p>
+    <p class="muted small"><span data-i18n="footer_images">{{ t.footer_images }}</span> <a href="https://wiki.lineageos.org/devices/" target="_blank" rel="noopener">LineageOS Wiki</a> · <a href="https://github.com/LineageOS/lineage_wiki" target="_blank" rel="noopener">GitHub</a></p>
+  </div>
+</footer>

@@ -1,0 +1,14 @@
+# Interface strings. English is the default; Spanish is applied by the EN/ES toggle.
+# Use them in templates as data-i18n="key". Add a key to both languages.
+
+en:
+  nav_devices: Devices
+  nav_guides: Guides
+  footer_disclaimer: Flash at your own risk.
+  footer_images: "Device info & resources:"
+
+es:
+  nav_devices: Dispositivos
+  nav_guides: Guías
+  footer_disclaimer: Flashea bajo tu propio riesgo.
+  footer_images: "Información y recursos de dispositivos:"
