@@ -5,8 +5,8 @@ layout: default
 {% assign cm = site.data.commons | where: "id", page.common | first %}
 <div class="container">
   <nav class="breadcrumb">
-    <a href="{{ '/' | relative_url }}#devices" data-i18n="nav_devices">{{ t.nav_devices }}</a> /
-    {% if cm %}<a href="{{ '/' | relative_url }}#{{ cm.id }}">{{ cm.name }}</a> /{% endif %}
+    <a href="{{ '/devices/' | relative_url }}" data-i18n="nav_devices">{{ t.nav_devices }}</a> /
+    {% if cm %}<a href="{{ '/devices/' | relative_url }}#{{ cm.id }}">{{ cm.name }}</a> /{% endif %}
     <span>{{ page.codename }}</span>
   </nav>
 
