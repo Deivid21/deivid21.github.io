@@ -257,3 +257,73 @@ document.addEventListener('click', e => {
     document.dispatchEvent(new Event('devices:android-updated'));
   });
 })();
+
+// ── Copy buttons on code blocks ─────────────────────────
+document.querySelectorAll('pre.code').forEach(pre => {
+  const btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'copy';
+  btn.dataset.i18n = 'copy';
+  btn.textContent = t('copy');
+  btn.addEventListener('click', e => {
+    e.stopPropagation();
+    navigator.clipboard.writeText(pre.querySelector('code').textContent.trim()).then(() => {
+      btn.textContent = t('copied');
+      setTimeout(() => (btn.textContent = t('copy')), 1500);
+    });
+  });
+  pre.appendChild(btn);
+});
+
+// ── Moto Camera: device search and setup for the picked device ──
+(() => {
+  const table = document.getElementById('mc-devices');
+  if (!table) return;
+  const rows = [...table.querySelectorAll('tbody tr')];
+  const search = document.getElementById('mc-search');
+  const empty = document.getElementById('mc-empty');
+  const chips = [...document.querySelectorAll('.mc-repo-pick .chip')];
+  const repos = JSON.parse(document.getElementById('mc-repos').textContent);
+  const selected = document.getElementById('mc-selected');
+  const makefile = document.querySelector('#mc-makefile code');
+
+  search.addEventListener('input', () => {
+    const q = search.value.trim().toLowerCase();
+    let n = 0;
+    rows.forEach(r => { const ok = !q || r.dataset.search.includes(q); r.hidden = !ok; if (ok) n++; });
+    empty.hidden = n > 0;
+  });
+
+  function showRepo(name) {
+    chips.forEach(c => c.classList.toggle('active', c.dataset.repo === name));
+    document.querySelectorAll('[data-repo-block]').forEach(b => { b.hidden = b.dataset.repoBlock !== name; });
+  }
+  chips.forEach(c => c.addEventListener('click', () => showRepo(c.dataset.repo)));
+
+  function pick(row, scroll) {
+    rows.forEach(r => r.classList.toggle('selected', r === row));
+    const { codename, repo, setting, name } = row.dataset;
+    const repoInfo = repos.find(r => r.name === repo);
+    const version = (setting.match(/TARGET_MOTCAMERA(\d)/) || [])[1];
+    showRepo(repo);
+    makefile.textContent = `# Moto Camera ${version}\n${setting}\n\n${repoInfo.inherit}`;
+    selected.innerHTML = '';
+    const label = document.createElement('span');
+    label.dataset.i18n = 'mc_setup_for';
+    label.textContent = t('mc_setup_for');
+    selected.append(label, ` ${name} (${codename}) · ${repo}`);
+    selected.hidden = false;
+    document.getElementById('mc-picked').hidden = true;
+    history.replaceState(null, '', `#device=${codename}`);
+    if (scroll) document.getElementById('setup').scrollIntoView({ behavior: 'smooth' });
+  }
+  rows.forEach(r => {
+    r.addEventListener('click', e => { if (!e.target.closest('a')) pick(r, true); });
+    r.addEventListener('keydown', e => { if (e.key === 'Enter') pick(r, true); });
+  });
+
+  // Deep link: /moto-camera/#device=<codename>
+  const m = location.hash.match(/^#device=([\w-]+)/);
+  const row = m && rows.find(r => r.dataset.codename === m[1]);
+  if (row) pick(row, true);
+})();

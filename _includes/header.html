@@ -7,8 +7,9 @@
     </a>
     <nav class="nav-links">
       <a href="{{ '/devices/' | relative_url }}" {% if page.layout == 'device' or page.url == '/devices/' %}class="active"{% endif %} data-i18n="nav_devices">{{ t.nav_devices }}</a>
+      <a href="{{ '/moto-camera/' | relative_url }}" {% if page.url == '/moto-camera/' %}class="active"{% endif %}><span class="nav-short-hide">Moto </span>Camera</a>
       <a href="{{ '/guides/' | relative_url }}" {% if page.layout == 'guide' or page.url == '/guides/' %}class="active"{% endif %} data-i18n="nav_guides">{{ t.nav_guides }}</a>
-      <a href="{{ site.telegram }}" target="_blank" rel="noopener">Telegram</a>
+      <a class="nav-telegram" href="{{ site.telegram }}" target="_blank" rel="noopener">Telegram</a>
       <a class="nav-donate{% if page.url == '/donate/' %} active{% endif %}" href="{{ '/donate/' | relative_url }}">
         {% include icons/githubsponsors.svg %}<span data-i18n="nav_donate">{{ t.nav_donate }}</span>
       </a>
