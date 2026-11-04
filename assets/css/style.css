@@ -408,3 +408,9 @@ pre.code .copy { position: absolute; top: 8px; right: 8px; background: var(--car
 .device-mc-body code { font-size: .85em; }
 .device-mc .project-cta { margin: 0; white-space: nowrap; }
 @media (max-width: 640px) { .device-mc { flex-wrap: wrap; } .device-mc .project-cta { width: 100%; } }
+
+/* ── 404 page ───────────────────────────────────────── */
+.notfound { padding: 96px 0 72px; text-align: center; background: radial-gradient(ellipse 70% 60% at 50% 0%, var(--accent-soft), transparent 70%); }
+.notfound .lead { margin-inline: auto; }
+.notfound .hero-actions { justify-content: center; }
+.notfound-code { margin: 0; font-size: clamp(5rem, 22vw, 9rem); font-weight: 700; line-height: 1; letter-spacing: -.04em; color: var(--accent); opacity: .9; }
