@@ -62,16 +62,37 @@ if (getLang() === 'es') applyLang('es');
   }
 
   document.querySelectorAll('.chips[data-group]').forEach(row => {
-    const chips = row.querySelectorAll('.chip');
-    chips.forEach(chip => chip.addEventListener('click', () => {
-      chips.forEach(c => c.classList.remove('active'));
+    row.addEventListener('click', e => {
+      const chip = e.target.closest('.chip');
+      if (!chip) return;
+      row.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
       chip.classList.add('active');
       filters[row.dataset.group] = chip.dataset.filter;
       apply();
-    }));
+    });
   });
   search.addEventListener('input', apply);
   onlyActive.addEventListener('change', apply);
+
+  // Rebuild the Android chips when cards learn their real latest version
+  document.addEventListener('devices:android-updated', () => {
+    const row = document.querySelector('.chips[data-group="android"]');
+    const counts = {};
+    document.querySelectorAll('.device-card').forEach(c => { counts[c.dataset.android] = (counts[c.dataset.android] || 0) + 1; });
+    delete counts[''];
+    if (!(filters.android in counts)) filters.android = 'all';
+    row.querySelectorAll('.chip:not([data-filter="all"])').forEach(c => c.remove());
+    Object.keys(counts).sort((a, b) => b - a).forEach(v => {
+      const b = document.createElement('button');
+      b.className = 'chip' + (filters.android === v ? ' active' : '');
+      b.type = 'button';
+      b.dataset.filter = v;
+      b.innerHTML = `Android ${v} <span class="count">${counts[v]}</span>`;
+      row.appendChild(b);
+    });
+    row.querySelector('[data-filter="all"]').classList.toggle('active', filters.android === 'all');
+    apply();
+  });
 
   // Open pre-filtered from a link like /#sm6225
   const hash = location.hash.slice(1);
@@ -186,5 +207,53 @@ document.addEventListener('click', e => {
       .then(info => info && fill(card, info))
       .catch(() => {})
       .finally(() => card.classList.remove('rom-loading'));
+  });
+})();
+
+// ── Latest Android version on home page cards ──────────
+// A card shows the newest Android version with a published build:
+// official LineageOS (hudson build targets), official Evolution X
+// (branches listed on its website) and builds in the device file.
+(() => {
+  const cards = document.querySelectorAll('.device-card[data-codename]');
+  const srcEl = document.getElementById('rom-sources');
+  if (!cards.length || !srcEl) return;
+  const SRC = JSON.parse(srcEl.textContent || '{}');
+  const grab = (url, as) => fetch(url).then(r => (r.ok ? r[as]() : null)).catch(() => null);
+
+  Promise.all([
+    grab(SRC.lineageos.targets, 'text'),
+    grab(SRC['evolution-x'].devices, 'json'),
+    grab(SRC['evolution-x'].versions, 'json'),
+  ]).then(([targets, evoDevices, evoVersions]) => {
+    if (!targets && !(evoDevices && evoVersions)) return;  // keep build-time values
+
+    const lineage = {};
+    (targets || '').split('\n').forEach(line => {
+      const f = line.trim().split(/\s+/);
+      if (f.length > 2 && !f[0].startsWith('#')) lineage[f[0]] = parseInt(f[2].replace('lineage-', ''), 10) - 7;
+    });
+    const evoAndroid = Object.fromEntries((evoVersions || []).map(v => [v.branch, parseInt(v.version, 10)]));
+    const evo = {};
+    (evoDevices || []).forEach(d => {
+      const v = d.branches.map(b => evoAndroid[b]).filter(Boolean);
+      if (v.length) evo[d.codename] = Math.max(...v);
+    });
+
+    cards.forEach(card => {
+      const cn = card.dataset.codename;
+      const roms = card.dataset.official.split(',');
+      const found = [parseInt(card.dataset.androidKnown, 10) || 0];
+      if (roms.includes('lineageos') && lineage[cn]) found.push(lineage[cn]);
+      if (roms.includes('evolution-x') && evo[cn]) found.push(evo[cn]);
+      const latest = Math.max(...found);
+      if (!latest) return;  // nothing published yet: keep the planned version
+      const v = String(latest);
+      card.dataset.search = card.dataset.search.replace(/android \d+ a\d+/, `android ${v} a${v}`);
+      card.dataset.android = v;
+      const el = card.querySelector('[data-field="android"]');
+      if (el) el.textContent = v;
+    });
+    document.dispatchEvent(new Event('devices:android-updated'));
   });
 })();
