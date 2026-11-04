@@ -89,3 +89,102 @@ document.addEventListener('click', e => {
     setTimeout(() => (btn.textContent = t('copy')), 1500);
   });
 });
+
+// ── Official build info (LineageOS / Evolution X) ───────
+// Official ROM cards are filled with live data from each project. If a
+// request fails, the card keeps the values written in the device file.
+(() => {
+  const cards = document.querySelectorAll('details.rom[data-type="official"]');
+  const srcEl = document.getElementById('rom-sources');
+  if (!cards.length || !srcEl) return;
+  const SRC = JSON.parse(srcEl.textContent || '{}');
+
+  const cache = {};
+  const get = (url, as = 'json') => (cache[url] ??= fetch(url).then(r => {
+    if (!r.ok) throw new Error(r.status);
+    return as === 'json' ? r.json() : r.text();
+  }));
+  const fmt = (tpl, vars) => tpl.replace(/\{(\w+)\}/g, (_, k) => vars[k]);
+  const lineageAndroid = v => String(parseInt(v, 10) - 7);  // lineage-24.0 → Android 17
+
+  const loaders = {
+    async lineageos(codename, android) {
+      const src = SRC.lineageos;
+      const [builds, targets] = await Promise.all([
+        get(fmt(src.builds, { codename })).catch(() => []),
+        get(src.targets, 'text').catch(() => ''),
+      ]);
+      const target = targets.split('\n').map(l => l.trim().split(/\s+/)).find(f => f[0] === codename);
+      const b = builds.filter(x => !android || lineageAndroid(x.version) === android)[0];
+      if (!b && !target) return null;
+      const file = b && b.files && b.files[0];
+      return {
+        available: !!b,
+        status: target ? 'active' : 'discontinued',
+        android: b ? lineageAndroid(b.version) : lineageAndroid(target[2].replace('lineage-', '')),
+        version: b && b.version,
+        date: b && b.datetime * 1000,
+        sha256: file && file.sha256,
+        size: file && file.size,
+      };
+    },
+    async 'evolution-x'(codename, android) {
+      const src = SRC['evolution-x'];
+      const [devices, versions] = await Promise.all([get(src.devices), get(src.versions)]);
+      const dev = devices.find(d => d.codename === codename);
+      if (!dev) return null;
+      const androidOf = Object.fromEntries(versions.map(v => [v.branch, String(v.version).split('_')[0]]));
+      const branch = versions.map(v => v.branch)
+        .filter(b => !b.endsWith('-vanilla') && dev.branches.includes(b) && (!android || androidOf[b] === android))[0];
+      if (!branch) return null;
+      const data = await get(fmt(src.builds, { branch, codename }));
+      const r = data.response && data.response[0];
+      if (!r) return null;
+      return {
+        available: true,
+        status: r.currently_maintained ? 'active' : 'discontinued',
+        android: androidOf[branch],
+        version: r.version,
+        date: r.timestamp * 1000,
+        sha256: r.sha256,
+        size: r.size,
+        forum: r.forum,
+      };
+    },
+  };
+
+  function fill(card, info) {
+    const set = (field, value) => card.querySelectorAll(`[data-field="${field}"]`).forEach(el => { el.textContent = value; });
+    const show = (sel, on = true) => card.querySelectorAll(sel).forEach(el => { el.hidden = !on; });
+    if (info.available) {
+      card.classList.remove('rom-soon');
+      show('[data-field="soon"]', false);
+      show('[data-field="actions"]');
+    }
+    if (info.android) { set('android', info.android); show('[data-field="android-tag"]'); }
+    if (info.version) set('version', info.version);
+    if (info.date) set('date', new Date(info.date).toISOString().slice(0, 10));
+    if (info.status) {
+      const dd = card.querySelector('[data-field="status"]');
+      dd.innerHTML = `<span class="dot dot-${info.status}"></span><span data-i18n="${info.status}"></span>`;
+      dd.lastChild.textContent = t(info.status);
+    }
+    if (info.size) { set('size', (info.size / 1024 ** 3).toFixed(2) + ' GB'); show('[data-row="size"]'); }
+    if (info.sha256) {
+      set('sha256', info.sha256);
+      card.querySelector('.copy').dataset.copy = info.sha256;
+      show('[data-field="hash"]');
+    }
+    if (info.forum) { card.querySelector('[data-field="forum"]').href = info.forum; show('[data-row="forum"]'); }
+  }
+
+  cards.forEach(card => {
+    const load = loaders[card.dataset.rom];
+    if (!load) return;
+    card.classList.add('rom-loading');
+    load(card.dataset.codename, card.dataset.android)
+      .then(info => info && fill(card, info))
+      .catch(() => {})
+      .finally(() => card.classList.remove('rom-loading'));
+  });
+})();

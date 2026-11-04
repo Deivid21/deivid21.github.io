@@ -28,6 +28,17 @@ rom_links:
   Evolution X:
     download: https://evolution-x.org/device/{codename}
 
+# Live build info for official ROMs, loaded in the browser on each device page.
+# {codename} and {branch} are replaced automatically.
+official_sources:
+  lineageos:
+    builds: https://download.lineageos.org/api/v2/devices/{codename}/builds
+    targets: https://raw.githubusercontent.com/LineageOS/hudson/main/lineage-build-targets
+  evolution-x:
+    devices: https://raw.githubusercontent.com/Evolution-X/www_gitres/main/devices/devices.json
+    versions: https://raw.githubusercontent.com/Evolution-X/www_gitres/main/version/versions.json
+    builds: https://raw.githubusercontent.com/Evolution-X/OTA/{branch}/builds/{codename}.json
+
 # ── Collections ──────────────────────────────────────
 collections:
   devices:

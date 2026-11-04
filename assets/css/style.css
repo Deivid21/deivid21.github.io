@@ -298,3 +298,4 @@ details.rom .rom-notes { margin: 0 20px 16px; }
   details.rom { position: relative; }
   .rom-title { flex-basis: 100%; padding-right: 28px; }
 }
+details.rom.rom-loading .rom-info dd { opacity: .5; }

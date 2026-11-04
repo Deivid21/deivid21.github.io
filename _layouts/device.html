@@ -87,6 +87,10 @@ layout: default
           <dd data-field="version">{{ rom.version | default: "—" }}</dd>
           <dt data-i18n="info_last_build">{{ t.info_last_build }}</dt>
           <dd data-field="date">{% if rom.date %}{{ rom.date | date: "%Y-%m-%d" }}{% else %}—{% endif %}</dd>
+          <dt data-i18n="info_size" data-row="size"{% unless rom.filesize %} hidden{% endunless %}>{{ t.info_size }}</dt>
+          <dd data-field="size" data-row="size"{% unless rom.filesize %} hidden{% endunless %}>{{ rom.filesize }}</dd>
+          <dt data-row="forum" hidden>XDA</dt>
+          <dd data-row="forum" hidden><a data-field="forum" href="#" target="_blank" rel="noopener" data-i18n="info_forum">{{ t.info_forum }}</a></dd>
         </dl>
         <div class="hash" data-field="hash"{% unless rom.sha256 %} hidden{% endunless %}>
           <span class="muted small">SHA256</span>
@@ -105,6 +109,10 @@ layout: default
     <h2 data-i18n="downloads">{{ t.downloads }}</h2>
     <p class="muted" data-i18n="no_builds_long">{{ t.no_builds_long }}</p>
   </section>
+  {% endif %}
+
+  {% if page.roms.size > 0 %}
+  <script id="rom-sources" type="application/json">{{ site.official_sources | jsonify }}</script>
   {% endif %}
 
   {% if page.extras %}

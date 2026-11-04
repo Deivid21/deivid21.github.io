@@ -32,7 +32,7 @@ for _, r in df.iterrows():
         L.append('roms:')
         released = r.get('Released', 'Yes').lower() != 'no'
         for n in roms:
-            L += [f'  - name: {n}', f'    android: {android}']
+            L += [f'  - name: {n}']  # official: Android version and build info load live
             if not released: L.append('    released: false')
             L += ['    # version: ""', '    # status: active      # active | discontinued', '    # date: 2026-11-03']
     else:
