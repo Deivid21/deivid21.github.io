@@ -11,7 +11,6 @@ maintained: true
 
 roms:
   - name: Evolution X
-    released: false
     # version: ""
     # status: active      # active | discontinued
     # date: 2026-11-03
