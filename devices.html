@@ -2,6 +2,7 @@
 layout: default
 title: Devices
 permalink: /devices/
+description: Every Motorola device I maintain, with official and test builds of LineageOS and Evolution X, live build info and guides.
 ---
 {% assign t = site.data.i18n.en %}
 {% assign active = site.devices | where: "maintained", true | where_exp: "d", "d.stage != 'coming-soon'" %}

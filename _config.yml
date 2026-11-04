@@ -54,6 +54,10 @@ defaults:
   - scope: { path: "", type: guides }
     values: { layout: guide }
 
+# Plugins supported by GitHub Pages
+plugins:
+  - jekyll-sitemap
+
 markdown: kramdown
 kramdown:
   input: GFM
