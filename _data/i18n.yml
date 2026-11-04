@@ -4,6 +4,14 @@
 en:
   nav_devices: Devices
   nav_guides: Guides
+  nav_donate: Donate
+  donate_title: Support my work
+  donate_lead: Every build, device tree and guide here is made in my free time. If my work helps you, consider supporting it so I can keep maintaining more devices.
+  donate_github_desc: Sponsor monthly or make a one-time contribution through GitHub.
+  donate_github_btn: Sponsor on GitHub
+  donate_paypal_desc: Send a quick one-time donation of any amount.
+  donate_paypal_btn: Donate with PayPal
+  donate_thanks: Thank you for your support! ❤
   eyebrow: Custom ROMs · Firmware · Resources
   hero_lead: ROMs, firmware and resources for Motorola devices. Pick your device to see its downloads, changelogs and guides.
   stat_devices: devices
@@ -50,6 +58,14 @@ en:
 es:
   nav_devices: Dispositivos
   nav_guides: Guías
+  nav_donate: Donar
+  donate_title: Apoya mi trabajo
+  donate_lead: Cada build, árbol de dispositivo y guía de este sitio lo hago en mi tiempo libre. Si mi trabajo te sirve, considera apoyarlo para seguir manteniendo más dispositivos.
+  donate_github_desc: Patrocina mensualmente o haz un aporte único a través de GitHub.
+  donate_github_btn: Patrocinar en GitHub
+  donate_paypal_desc: Envía una donación única del monto que quieras.
+  donate_paypal_btn: Donar con PayPal
+  donate_thanks: ¡Gracias por tu apoyo! ❤
   eyebrow: Custom ROMs · Firmware · Recursos
   hero_lead: ROMs, firmwares y recursos para dispositivos Motorola. Elige tu dispositivo para ver sus descargas, changelogs y guías.
   stat_devices: dispositivos
