@@ -94,7 +94,7 @@ if (getLang() === 'es') applyLang('es');
     apply();
   });
 
-  // Open pre-filtered from a link like /#sm6225
+  // Open pre-filtered from a link like /devices/#sm6225
   const hash = location.hash.slice(1);
   const pre = hash && document.querySelector(`.chips[data-group="common"] .chip[data-filter="${CSS.escape(hash)}"]`);
   if (pre) pre.click();

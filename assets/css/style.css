@@ -300,3 +300,5 @@ details.rom .rom-notes { margin: 0 20px 16px; }
   .rom-title { flex-basis: 100%; padding-right: 28px; }
 }
 details.rom.rom-loading .rom-info dd { opacity: .5; }
+
+.hero-compact { padding: 48px 0 32px; }

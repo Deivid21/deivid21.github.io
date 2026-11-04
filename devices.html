@@ -1,21 +1,19 @@
 ---
 layout: default
+title: Devices
+permalink: /devices/
 ---
 {% assign t = site.data.i18n.en %}
 {% assign active = site.devices | where: "maintained", true | where_exp: "d", "d.stage != 'coming-soon'" %}
-<section class="hero">
+<section class="hero hero-compact">
   <div class="container">
     <p class="eyebrow" data-i18n="eyebrow">{{ t.eyebrow }}</p>
-    <h1>{{ site.title }}</h1>
-    <p class="lead" data-i18n="hero_lead">{{ t.hero_lead }}</p>
+    <h1 data-i18n="devices_title">{{ t.devices_title }}</h1>
+    <p class="lead" data-i18n="devices_lead">{{ t.devices_lead }}</p>
     <div class="stats">
       <div><strong>{{ site.devices | size }}</strong><span data-i18n="stat_devices">{{ t.stat_devices }}</span></div>
       <div><strong>{{ active | size }}</strong><span data-i18n="stat_active">{{ t.stat_active }}</span></div>
       <div><strong>{{ site.data.commons | size }}</strong><span data-i18n="stat_platforms">{{ t.stat_platforms }}</span></div>
-    </div>
-    <div class="hero-actions">
-      <a class="btn" href="#devices" data-i18n="btn_view_devices">{{ t.btn_view_devices }}</a>
-      <a class="btn btn-ghost" href="{{ site.telegram }}" target="_blank" rel="noopener" data-i18n="btn_telegram">{{ t.btn_telegram }}</a>
     </div>
   </div>
 </section>
