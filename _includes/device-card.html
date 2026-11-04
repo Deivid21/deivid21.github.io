@@ -16,7 +16,7 @@
     <div class="tags">
       {% if d.android %}<span class="tag">A{{ d.android }}</span>{% endif %}
       {% assign released = d.roms | where_exp: "r", "r.released != false" %}
-      {% if released.size == 0 %}<span class="tag tag-plain" data-i18n="no_builds">{{ t.no_builds }}</span>{% endif %}
+      {% if released.size == 0 %}<span class="tag tag-dev" data-i18n="in_development">{{ t.in_development }}</span>{% endif %}
       {% if d.maintained %}<span class="tag tag-ok" data-i18n="active">{{ t.active }}</span>{% else %}<span class="tag tag-off" data-i18n="discontinued">{{ t.discontinued }}</span>{% endif %}
     </div>
   </div>

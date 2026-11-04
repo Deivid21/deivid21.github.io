@@ -26,7 +26,7 @@ en:
   no_results: No devices match your search.
   active: Active
   discontinued: Discontinued
-  no_builds: No builds yet
+  in_development: In Development
   coming_soon: Coming soon
   no_builds_long: There are no builds for this device yet. Follow the Telegram channel for updates.
   spec_vendor: Vendor
@@ -85,7 +85,7 @@ es:
   no_results: No hay dispositivos que coincidan.
   active: Activo
   discontinued: Descontinuado
-  no_builds: Sin builds aún
+  in_development: En desarrollo
   coming_soon: Próximamente
   no_builds_long: Todavía no hay builds para este dispositivo. Sigue el canal de Telegram para enterarte.
   spec_vendor: Fabricante
