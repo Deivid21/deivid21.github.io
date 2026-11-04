@@ -1,6 +1,7 @@
 ---
 codename: sofiap
-name: "Moto G Pro & Moto G Stylus"
+name: "Moto G Pro"
+aka: ["Moto G Stylus"]
 vendor: Motorola
 common: sm6125
 platform: sm6125

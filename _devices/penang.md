@@ -1,6 +1,7 @@
 ---
 codename: penang
-name: "Moto G53 5G, Moto G53j 5G, Moto G53s 5G & Moto G53y 5G"
+name: "Moto G53 5G"
+aka: ["Moto G53j 5G", "Moto G53s 5G", "Moto G53y 5G"]
 vendor: Motorola
 common: sm6375
 platform: sm4350

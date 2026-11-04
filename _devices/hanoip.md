@@ -1,6 +1,7 @@
 ---
 codename: hanoip
-name: "Moto G60 & Moto G40 Fusion"
+name: "Moto G60"
+aka: ["Moto G40 Fusion"]
 vendor: Motorola
 common: sm7150
 platform: sm7150

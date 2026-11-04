@@ -1,6 +1,7 @@
 ---
 codename: rhodep
-name: "Moto G82 5G & Moto G71s"
+name: "Moto G82 5G"
+aka: ["Moto G71s"]
 vendor: Motorola
 common: sm6375
 platform: sm6375

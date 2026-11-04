@@ -1,6 +1,7 @@
 ---
 codename: fogos
-name: "Moto G34 5G, Moto G34s & Moto G45 5G"
+name: "Moto G34 5G"
+aka: ["Moto G34s", "Moto G45 5G"]
 vendor: Motorola
 common: sm6375
 platform: sm6375
