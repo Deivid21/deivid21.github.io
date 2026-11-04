@@ -1,0 +1,93 @@
+---
+layout: default
+---
+{% assign t = site.data.i18n.en %}
+{% assign active = site.devices | where: "maintained", true | where_exp: "d", "d.stage != 'coming-soon'" %}
+{% assign mc = site.data.motcamera %}
+{% assign showcase = "rhode,bangkk,tundra" | split: "," %}
+<section class="hero home-hero">
+  <div class="container">
+    <p class="eyebrow" data-i18n="eyebrow">{{ t.eyebrow }}</p>
+    <h1>{{ site.title }}</h1>
+    <p class="lead">
+      <span data-lang="en">Custom ROMs, device trees and tools for Motorola devices, all in one place.</span>
+      <span data-lang="es">Custom ROMs, árboles de dispositivo y herramientas para dispositivos Motorola, todo en un solo lugar.</span>
+    </p>
+    <div class="hero-actions">
+      <a class="btn" href="{{ '/devices/' | relative_url }}" data-i18n="btn_view_devices">{{ t.btn_view_devices }}</a>
+      <a class="btn btn-ghost" href="{{ site.telegram }}" target="_blank" rel="noopener" data-i18n="btn_telegram">{{ t.btn_telegram }}</a>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <h2 class="section-title"><span data-lang="en">Projects</span><span data-lang="es">Proyectos</span></h2>
+  <div class="projects">
+
+    <a class="project project-devices" href="{{ '/devices/' | relative_url }}">
+      <div class="project-body">
+        <span class="project-kicker"><span data-lang="en">ROMs & downloads</span><span data-lang="es">ROMs y descargas</span></span>
+        <h3 data-i18n="devices_title">{{ t.devices_title }}</h3>
+        <p>
+          <span data-lang="en">Official and test builds of LineageOS and Evolution X for every Motorola device I maintain, with live build info, changelogs and guides.</span>
+          <span data-lang="es">Builds oficiales y de prueba de LineageOS y Evolution X para cada dispositivo Motorola que mantengo, con información de builds en vivo, changelogs y guías.</span>
+        </p>
+        <div class="project-stats">
+          <div><strong>{{ site.devices | size }}</strong><span data-i18n="stat_devices">{{ t.stat_devices }}</span></div>
+          <div><strong>{{ active | size }}</strong><span data-i18n="stat_active">{{ t.stat_active }}</span></div>
+          <div><strong>{{ site.data.commons | size }}</strong><span data-i18n="stat_platforms">{{ t.stat_platforms }}</span></div>
+        </div>
+        <span class="project-cta"><span data-i18n="btn_view_devices">{{ t.btn_view_devices }}</span> →</span>
+      </div>
+      <div class="project-phones" aria-hidden="true">
+        {% for cn in showcase %}
+        <img src="{{ site.lineage_img }}{{ cn }}.png" alt="" loading="lazy"
+             onerror="this.onerror=null;this.src='{{ '/assets/img/device-placeholder.svg' | relative_url }}'">
+        {% endfor %}
+      </div>
+    </a>
+
+    <a class="project project-camera" href="{{ '/moto-camera/' | relative_url }}">
+      <img class="project-banner" src="{{ mc.image }}" alt="Moto Camera" loading="lazy" width="416" height="235">
+      <span class="project-kicker"><span data-lang="en">For custom ROMs</span><span data-lang="es">Para custom ROMs</span></span>
+      <h3>Moto Camera Prebuilt</h3>
+      <p>
+        <span data-lang="en">Keep the stock Motorola camera on your custom ROM: Moto Camera 2, 3 and 4 with AI, Photo Editor and more.</span>
+        <span data-lang="es">Conserva la cámara original de Motorola en tu custom ROM: Moto Camera 2, 3 y 4 con AI, Photo Editor y más.</span>
+      </p>
+      <div class="project-stats">
+        <div><strong>{{ mc.devices | size }}</strong><span data-i18n="stat_devices">{{ t.stat_devices }}</span></div>
+        <div><strong>{{ mc.repos | size }}</strong><span data-lang="en">platform repos</span><span data-lang="es">repos por plataforma</span></div>
+      </div>
+      <span class="project-cta"><span data-lang="en">Set it up</span><span data-lang="es">Configurarlo</span> →</span>
+    </a>
+
+    <a class="project project-small" href="{{ '/guides/' | relative_url }}">
+      <span class="project-icon project-icon-muted">{% include icons/book.svg %}</span>
+      <h3 data-i18n="guides_title">{{ t.guides_title }}</h3>
+      <p data-i18n="guides_lead">{{ t.guides_lead }}</p>
+      <span class="project-cta"><span data-lang="en">Read the guides</span><span data-lang="es">Ver las guías</span> →</span>
+    </a>
+
+    <a class="project project-small" href="{{ site.telegram }}" target="_blank" rel="noopener">
+      <span class="project-icon project-icon-muted">{% include icons/send.svg %}</span>
+      <h3>Telegram</h3>
+      <p>
+        <span data-lang="en">New builds, changelogs and news first. Questions and feedback are welcome.</span>
+        <span data-lang="es">Builds nuevas, changelogs y novedades primero. Preguntas y comentarios son bienvenidos.</span>
+      </p>
+      <span class="project-cta"><span data-lang="en">Join the channel</span><span data-lang="es">Unirme al canal</span> →</span>
+    </a>
+
+    <a class="project project-small" href="{{ '/donate/' | relative_url }}">
+      <span class="project-icon project-icon-muted">{% include icons/githubsponsors.svg %}</span>
+      <h3 data-i18n="donate_title">{{ t.donate_title }}</h3>
+      <p>
+        <span data-lang="en">Everything here is made in my free time. A donation helps me keep maintaining more devices.</span>
+        <span data-lang="es">Todo esto lo hago en mi tiempo libre. Una donación me ayuda a seguir manteniendo más dispositivos.</span>
+      </p>
+      <span class="project-cta"><span data-i18n="nav_donate">{{ t.nav_donate }}</span> →</span>
+    </a>
+
+  </div>
+</div>
