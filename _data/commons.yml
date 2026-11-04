@@ -6,6 +6,8 @@
   name: Moto MSM8953
 - id: msm8998
   name: Moto MSM8998
+- id: sdm710
+  name: Moto SDM710
 - id: exynos9610
   name: Moto Exynos9610
 - id: sm6225
