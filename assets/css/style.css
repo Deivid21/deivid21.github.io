@@ -79,6 +79,22 @@ html[lang="es"] .lang-toggle [data-lang-opt="es"] { background: var(--accent); c
 .nav-links a { color: var(--muted); padding: 6px 12px; border-radius: 8px; font-weight: 500; font-size: .95rem; }
 .nav-links a:hover, .nav-links a.active { color: var(--text); background: var(--bg-soft); text-decoration: none; }
 
+/* ── Hero ───────────────────────────────────────────── */
+.hero {
+  padding: 72px 0 48px;
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, var(--accent-soft), transparent 70%);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 32px;
+}
+.eyebrow { color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: .08em; font-size: .8rem; margin: 0 0 8px; }
+.hero h1 { font-size: clamp(2.2rem, 6vw, 3.4rem); letter-spacing: -.02em; }
+.lead { font-size: 1.1rem; color: var(--muted); max-width: 640px; }
+.stats { display: flex; gap: 32px; margin: 28px 0; flex-wrap: wrap; }
+.stats div { display: flex; flex-direction: column; }
+.stats strong { font-size: 1.8rem; }
+.stats span { color: var(--muted); font-size: .9rem; }
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
 /* ── Botones / tags ─────────────────────────────────── */
 .btn {
   display: inline-flex; align-items: center; gap: 6px;
@@ -100,6 +116,24 @@ html[lang="es"] .lang-toggle [data-lang-opt="es"] { background: var(--accent); c
 .tag-beta, .tag-test { background: rgba(210,153,34,.15); color: var(--warn); }
 .tag-off { background: rgba(240,97,109,.14); color: var(--off); }
 .tag-plain { background: var(--bg-soft); color: var(--muted); }
+
+/* ── Toolbar ────────────────────────────────────────── */
+.toolbar { display: flex; flex-direction: column; gap: 14px; margin-bottom: 32px; }
+#search {
+  width: 100%; padding: 12px 16px; font: inherit;
+  background: var(--card); color: var(--text);
+  border: 1px solid var(--border); border-radius: 12px;
+}
+#search:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.chips { display: flex; gap: 8px; flex-wrap: wrap; }
+.chip {
+  font: inherit; font-size: .88rem; font-weight: 500; cursor: pointer;
+  padding: 6px 14px; border-radius: 999px;
+  background: var(--card); color: var(--muted); border: 1px solid var(--border);
+}
+.chip:hover { color: var(--text); }
+.chip.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+.toggle { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); font-size: .9rem; cursor: pointer; }
 
 /* ── Familias y tarjetas ────────────────────────────── */
 .family { margin-bottom: 44px; scroll-margin-top: 80px; }
