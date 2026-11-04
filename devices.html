@@ -44,7 +44,8 @@ description: Every Motorola device I maintain, with official and test builds of 
   <div class="family" id="{{ c.id }}" data-common-group="{{ c.id }}">
     <div class="family-head">
       <h2>{{ c.name }}</h2>
-      <span class="muted">{{ devs.size }} <span data-i18n="stat_devices">{{ t.stat_devices }}</span></span>
+      {% if devs.size == 1 %}{% assign count_key = "stat_device" %}{% else %}{% assign count_key = "stat_devices" %}{% endif %}
+      <span class="muted">{{ devs.size }} <span data-i18n="{{ count_key }}">{{ t[count_key] }}</span></span>
     </div>
     <div class="grid">
       {% for d in devs %}{% include device-card.html device=d %}{% endfor %}
