@@ -29,6 +29,8 @@ en:
   active: Active
   discontinued: Discontinued
   in_development: In Development
+  mc_search: Search by device, codename or repo…
+  mc_setup_for: "Setup for"
   coming_soon: Coming Soon
   coming_soon_long: Development for this device hasn't started yet. Follow the Telegram channel for updates.
   no_builds_long: There are no builds for this device yet. Follow the Telegram channel for updates.
@@ -91,6 +93,8 @@ es:
   active: Activo
   discontinued: Descontinuado
   in_development: En desarrollo
+  mc_search: Busca por dispositivo, codename o repo…
+  mc_setup_for: "Configuración para"
   coming_soon: Próximamente
   coming_soon_long: El desarrollo para este dispositivo aún no comienza. Sigue el canal de Telegram para enterarte.
   no_builds_long: Todavía no hay builds para este dispositivo. Sigue el canal de Telegram para enterarte.
