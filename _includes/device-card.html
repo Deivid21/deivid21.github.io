@@ -1,0 +1,23 @@
+{% assign t = site.data.i18n.en %}
+{% assign d = include.device %}
+<a class="device-card" href="{{ d.url | relative_url }}"
+   data-common="{{ d.common }}"
+   data-android="{{ d.android }}"
+   data-search="{{ d.name | downcase }} {{ d.aka | join: ' ' | downcase }} {{ d.codename }} {{ d.platform }} {{ d.common }} {{ d.soc | downcase }} android {{ d.android }} a{{ d.android }} {% for r in d.roms %}{{ r.name | downcase }} {% endfor %}">
+  <div class="device-img">
+    <img src="{{ site.lineage_img }}{{ d.image | default: d.codename }}.png"
+         alt="{{ d.name }}" loading="lazy"
+         onerror="this.onerror=null;this.src='{{ '/assets/img/device-placeholder.svg' | relative_url }}'">
+  </div>
+  <div class="device-info">
+    <h3>{{ d.name }}</h3>
+    {% if d.aka %}<p class="aka">{{ d.aka | join: " · " }}</p>{% endif %}
+    <code class="codename">{{ d.codename }} · {{ d.platform }}</code>
+    <div class="tags">
+      {% if d.android %}<span class="tag">A{{ d.android }}</span>{% endif %}
+      {% assign released = d.roms | where_exp: "r", "r.released != false" %}
+      {% if released.size == 0 %}<span class="tag tag-plain" data-i18n="no_builds">{{ t.no_builds }}</span>{% endif %}
+      {% if d.maintained %}<span class="tag tag-ok" data-i18n="active">{{ t.active }}</span>{% else %}<span class="tag tag-off" data-i18n="discontinued">{{ t.discontinued }}</span>{% endif %}
+    </div>
+  </div>
+</a>

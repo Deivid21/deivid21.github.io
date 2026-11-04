@@ -31,3 +31,12 @@ document.getElementById('lang-toggle')?.addEventListener('click', () => {
 
 if (getLang() === 'es') applyLang('es');
 
+// ── Copy hash button ─────────────────────────────────────
+document.addEventListener('click', e => {
+  const btn = e.target.closest('.copy');
+  if (!btn) return;
+  navigator.clipboard.writeText(btn.dataset.copy).then(() => {
+    btn.textContent = t('copied');
+    setTimeout(() => (btn.textContent = t('copy')), 1500);
+  });
+});

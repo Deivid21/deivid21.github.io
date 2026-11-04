@@ -1,0 +1,123 @@
+---
+layout: default
+---
+{% assign t = site.data.i18n.en %}
+{% assign cm = site.data.commons | where: "id", page.common | first %}
+<div class="container">
+  <nav class="breadcrumb">
+    <a href="{{ '/' | relative_url }}#devices" data-i18n="nav_devices">{{ t.nav_devices }}</a> /
+    {% if cm %}<a href="{{ '/' | relative_url }}#{{ cm.id }}">{{ cm.name }}</a> /{% endif %}
+    <span>{{ page.codename }}</span>
+  </nav>
+
+  <section class="device-hero">
+    <div class="device-hero-img">
+      <img src="{{ site.lineage_img }}{{ page.image | default: page.codename }}.png"
+           alt="{{ page.name }}"
+           onerror="this.onerror=null;this.src='{{ '/assets/img/device-placeholder.svg' | relative_url }}'">
+    </div>
+    <div class="device-hero-info">
+      <h1>{{ page.name }}</h1>
+      {% if page.aka %}<p class="aka big">{{ page.aka | join: " · " }}</p>{% endif %}
+      <code class="codename big">{{ page.codename }}</code>
+      {% if page.maintained %}<span class="tag tag-ok" data-i18n="active">{{ t.active }}</span>{% else %}<span class="tag tag-off" data-i18n="discontinued">{{ t.discontinued }}</span>{% endif %}
+
+      <dl class="specs">
+        {% if page.vendor %}<dt data-i18n="spec_vendor">{{ t.spec_vendor }}</dt><dd>{{ page.vendor }}</dd>{% endif %}
+        {% if cm %}<dt data-i18n="spec_common">{{ t.spec_common }}</dt><dd>{{ cm.name }}</dd>{% endif %}
+        {% if page.platform %}<dt data-i18n="spec_platform">{{ t.spec_platform }}</dt><dd><code>{{ page.platform }}</code></dd>{% endif %}
+        {% if page.soc %}<dt data-i18n="spec_soc">{{ t.spec_soc }}</dt><dd>{{ page.soc }}</dd>{% endif %}
+        {% if page.ram %}<dt data-i18n="spec_ram">{{ t.spec_ram }}</dt><dd>{{ page.ram }}</dd>{% endif %}
+        {% if page.release %}<dt data-i18n="spec_release">{{ t.spec_release }}</dt><dd>{{ page.release }}</dd>{% endif %}
+        {% if page.variants %}<dt data-i18n="spec_variants">{{ t.spec_variants }}</dt><dd>{{ page.variants | join: ", " }}</dd>{% endif %}
+      </dl>
+
+      {% assign tree = page.tree | default: cm.tree %}
+      {% if tree or page.kernel %}
+      <div class="source-links">
+        {% if tree %}<a class="btn btn-ghost" href="{{ tree }}" target="_blank" rel="noopener" data-i18n="device_tree">{{ t.device_tree }}</a>{% endif %}
+        {% if page.kernel %}<a class="btn btn-ghost" href="{{ page.kernel }}" target="_blank" rel="noopener" data-i18n="kernel">{{ t.kernel }}</a>{% endif %}
+      </div>
+      {% endif %}
+    </div>
+  </section>
+
+  {% if page.warning %}
+  <div class="warning" role="note"><strong>⚠</strong> <span{% if page.warning_es %} data-es="{{ page.warning_es | escape }}"{% endif %}>{{ page.warning }}</span></div>
+  {% endif %}
+
+  {% if page.roms.size > 0 %}
+  <section class="block">
+    <h2 data-i18n="downloads">{{ t.downloads }}</h2>
+    <div class="rom-list">
+      {% for rom in page.roms %}
+      {% assign links = site.rom_links[rom.name] %}
+      {% assign dl = rom.download | default: links.download | replace: "{codename}", page.codename %}
+      {% assign cl = rom.changelog | default: links.changelog | replace: "{codename}", page.codename %}
+      {% assign soon = false %}{% if rom.released == false %}{% assign soon = true %}{% endif %}
+      {% assign st = rom.status | downcase %}
+      {% assign st_key = "status_" | append: st %}
+      <article class="rom{% if soon %} rom-soon{% endif %}">
+        <div class="rom-head">
+          <div>
+            <h3>{{ rom.name }} {% if rom.version %}<span class="muted">{{ rom.version }}</span>{% endif %}</h3>
+            <div class="tags">
+              <span class="tag">Android {{ rom.android }}</span>
+              {% if soon %}<span class="tag tag-plain" data-i18n="coming_soon">{{ t.coming_soon }}</span>{% endif %}
+              {% if rom.status and soon == false %}<span class="tag tag-{{ st }}" data-i18n="{{ st_key }}">{{ t[st_key] | default: rom.status }}</span>{% endif %}
+              {% if rom.variant %}<span class="tag">{{ rom.variant }}</span>{% endif %}
+              {% if rom.date %}<span class="tag tag-plain">{{ rom.date | date: "%Y-%m-%d" }}</span>{% endif %}
+            </div>
+          </div>
+          <div class="rom-actions">
+            {% unless soon %}{% if dl != "" %}<a class="btn" href="{{ dl }}" target="_blank" rel="noopener" data-i18n="download">{{ t.download }}</a>{% endif %}
+            {% if cl != "" %}<a class="btn btn-ghost" href="{{ cl }}" target="_blank" rel="noopener" data-i18n="changelog">{{ t.changelog }}</a>{% endif %}{% endunless %}
+          </div>
+        </div>
+        {% if rom.sha256 %}
+        <div class="hash">
+          <span class="muted small">SHA256</span>
+          <code>{{ rom.sha256 }}</code>
+          <button class="copy" data-copy="{{ rom.sha256 }}" type="button" data-i18n="copy">{{ t.copy }}</button>
+        </div>
+        {% endif %}
+        {% if rom.notes %}<p class="rom-notes"{% if rom.notes_es %} data-es="{{ rom.notes_es | escape }}"{% endif %}>{{ rom.notes }}</p>{% endif %}
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+  {% else %}
+  <section class="block">
+    <h2 data-i18n="downloads">{{ t.downloads }}</h2>
+    <p class="muted" data-i18n="no_builds_long">{{ t.no_builds_long }}</p>
+  </section>
+  {% endif %}
+
+  {% if page.extras %}
+  <section class="block">
+    <h2 data-i18n="extras">{{ t.extras }}</h2>
+    <ul class="extras">
+      {% for x in page.extras %}
+      <li><a href="{{ x.url }}" target="_blank" rel="noopener"{% if x.name_es %} data-es="{{ x.name_es | escape }}"{% endif %}>{{ x.name }}</a>{% if x.desc %} <span class="muted">— <span{% if x.desc_es %} data-es="{{ x.desc_es | escape }}"{% endif %}>{{ x.desc }}</span></span>{% endif %}</li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+
+  {% assign body = content | strip %}
+  {% if body != "" %}
+  <section class="block prose">
+    <h2 data-i18n="notes">{{ t.notes }}</h2>
+    {{ content }}
+  </section>
+  {% endif %}
+
+  {% capture guide_items %}{% for g in site.guides %}{% if g.devices contains page.codename or g.devices contains 'all' or g.platforms contains page.platform %}<li><a href="{{ g.url | relative_url }}"{% if g.title_es %} data-es="{{ g.title_es | escape }}"{% endif %}>{{ g.title }}</a></li>{% endif %}{% endfor %}{% endcapture %}
+  {% assign guide_items = guide_items | strip %}
+  {% if guide_items != "" %}
+  <section class="block">
+    <h2 data-i18n="guides_for_device">{{ t.guides_for_device }}</h2>
+    <ul class="extras">{{ guide_items }}</ul>
+  </section>
+  {% endif %}
+</div>

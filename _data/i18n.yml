@@ -4,11 +4,61 @@
 en:
   nav_devices: Devices
   nav_guides: Guides
+  active: Active
+  discontinued: Discontinued
+  no_builds: No builds yet
+  coming_soon: Coming soon
+  no_builds_long: There are no builds for this device yet. Follow the Telegram channel for updates.
+  spec_vendor: Vendor
+  spec_soc: SoC
+  spec_common: Common tree
+  spec_platform: Platform
+  spec_ram: RAM
+  spec_release: Released
+  spec_variants: Variants
+  device_tree: Device tree
+  kernel: Kernel
+  downloads: Downloads
+  download: Download
+  changelog: Changelog
+  copy: Copy
+  copied: Copied!
+  extras: Extras
+  notes: Notes
+  guides_for_device: Guides for this device
+  status_stable: Stable
+  status_beta: Beta
+  status_test: Test
   footer_disclaimer: Flash at your own risk.
   footer_images: "Device info & resources:"
 
 es:
   nav_devices: Dispositivos
   nav_guides: Guías
+  active: Activo
+  discontinued: Descontinuado
+  no_builds: Sin builds aún
+  coming_soon: Próximamente
+  no_builds_long: Todavía no hay builds para este dispositivo. Sigue el canal de Telegram para enterarte.
+  spec_vendor: Fabricante
+  spec_soc: SoC
+  spec_common: Árbol común
+  spec_platform: Plataforma
+  spec_ram: RAM
+  spec_release: Lanzamiento
+  spec_variants: Variantes
+  device_tree: Árbol de dispositivo
+  kernel: Kernel
+  downloads: Descargas
+  download: Descargar
+  changelog: Changelog
+  copy: Copiar
+  copied: ¡Copiado!
+  extras: Extras
+  notes: Notas
+  guides_for_device: Guías para este dispositivo
+  status_stable: Estable
+  status_beta: Beta
+  status_test: Test
   footer_disclaimer: Flashea bajo tu propio riesgo.
   footer_images: "Información y recursos de dispositivos:"
