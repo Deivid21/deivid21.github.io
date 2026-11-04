@@ -1,7 +1,7 @@
 ---
 codename: guamp
-name: "Moto G9 Play & Moto G9"
-aka: ["Lenovo K12 Note"]
+name: "Moto G9 Play"
+aka: ["Moto G9", "Lenovo K12 Note"]
 vendor: Motorola
 common: sm6225
 platform: sm6115

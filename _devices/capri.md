@@ -1,7 +1,7 @@
 ---
 codename: capri
-name: "Moto G10 & Moto G10 Power"
-aka: ["Lenovo K13 Note"]
+name: "Moto G10"
+aka: ["Moto G10 Power", "Lenovo K13 Note"]
 vendor: Motorola
 common: sm6225
 platform: sm4250
