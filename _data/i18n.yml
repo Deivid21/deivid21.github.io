@@ -53,7 +53,7 @@ en:
   status_beta: Beta
   status_test: Test
   footer_disclaimer: Flash at your own risk.
-  footer_images: "Device images:"
+  footer_images: "Device info & resources:"
 
 es:
   nav_devices: Dispositivos
@@ -107,4 +107,4 @@ es:
   status_beta: Beta
   status_test: Test
   footer_disclaimer: Flashea bajo tu propio riesgo.
-  footer_images: "Imágenes de dispositivos:"
+  footer_images: "Información y recursos de dispositivos:"
