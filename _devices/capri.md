@@ -7,7 +7,7 @@ common: sm6225
 platform: sm4250
 soc: "Snapdragon 460"
 android: 17
-order: 12
+order: 13
 maintained: true
 
 roms:

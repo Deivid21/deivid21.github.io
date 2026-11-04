@@ -7,7 +7,7 @@ common: msm8998
 platform: msm8998
 soc: "Snapdragon 835"
 android: 15
-order: 29
+order: 30
 maintained: true
 
 roms:

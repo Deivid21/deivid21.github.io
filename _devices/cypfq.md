@@ -6,7 +6,7 @@ common: sm6375
 platform: sm4350
 soc: "Snapdragon 480+"
 android: 17
-order: 17
+order: 18
 maintained: true
 
 roms:

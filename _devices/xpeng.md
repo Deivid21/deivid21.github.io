@@ -7,7 +7,7 @@ common: sm8350
 platform: sm8350
 soc: "Snapdragon 888+"
 android: 17
-order: 16
+order: 17
 maintained: true
 
 roms:

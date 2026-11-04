@@ -6,7 +6,7 @@ common: sm6225
 platform: sm6225
 soc: "Snapdragon 680"
 android: 17
-order: 19
+order: 20
 maintained: true
 
 roms:
