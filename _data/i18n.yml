@@ -27,7 +27,8 @@ en:
   active: Active
   discontinued: Discontinued
   in_development: In Development
-  coming_soon: Coming soon
+  coming_soon: Coming Soon
+  coming_soon_long: Development for this device hasn't started yet. Follow the Telegram channel for updates.
   no_builds_long: There are no builds for this device yet. Follow the Telegram channel for updates.
   spec_vendor: Vendor
   spec_soc: SoC
@@ -87,6 +88,7 @@ es:
   discontinued: Descontinuado
   in_development: En desarrollo
   coming_soon: Próximamente
+  coming_soon_long: El desarrollo para este dispositivo aún no comienza. Sigue el canal de Telegram para enterarte.
   no_builds_long: Todavía no hay builds para este dispositivo. Sigue el canal de Telegram para enterarte.
   spec_vendor: Fabricante
   spec_soc: SoC

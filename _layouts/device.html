@@ -20,7 +20,7 @@ layout: default
       <h1>{{ page.name }}</h1>
       {% if page.aka %}<p class="aka big">{{ page.aka | join: " · " }}</p>{% endif %}
       <code class="codename big">{{ page.codename }}</code>
-      {% if page.maintained %}<span class="tag tag-ok" data-i18n="active">{{ t.active }}</span>{% else %}<span class="tag tag-off" data-i18n="discontinued">{{ t.discontinued }}</span>{% endif %}
+      {% if page.stage == "coming-soon" %}<span class="tag tag-soon" data-i18n="coming_soon">{{ t.coming_soon }}</span>{% elsif page.maintained %}<span class="tag tag-ok" data-i18n="active">{{ t.active }}</span>{% else %}<span class="tag tag-off" data-i18n="discontinued">{{ t.discontinued }}</span>{% endif %}
 
       <dl class="specs">
         {% if page.vendor %}<dt data-i18n="spec_vendor">{{ t.spec_vendor }}</dt><dd>{{ page.vendor }}</dd>{% endif %}
@@ -68,7 +68,7 @@ layout: default
             <h3>{{ rom.name }} <span data-i18n="{{ type_key }}">{{ t[type_key] }}</span></h3>
             <div class="tags">
               <span class="tag" data-field="android-tag"{% unless rom.android %} hidden{% endunless %}>Android <span data-field="android">{{ rom.android }}</span></span>
-              <span class="tag tag-plain" data-field="soon" data-i18n="coming_soon"{% unless soon %} hidden{% endunless %}>{{ t.coming_soon }}</span>
+              <span class="tag tag-dev" data-field="soon" data-i18n="in_development"{% unless soon %} hidden{% endunless %}>{{ t.in_development }}</span>
               {% if rom.variant %}<span class="tag">{{ rom.variant }}</span>{% endif %}
             </div>
           </div>
@@ -107,7 +107,7 @@ layout: default
   {% else %}
   <section class="block">
     <h2 data-i18n="downloads">{{ t.downloads }}</h2>
-    <p class="muted" data-i18n="no_builds_long">{{ t.no_builds_long }}</p>
+    {% if page.stage == "coming-soon" %}<p class="muted" data-i18n="coming_soon_long">{{ t.coming_soon_long }}</p>{% else %}<p class="muted" data-i18n="no_builds_long">{{ t.no_builds_long }}</p>{% endif %}
   </section>
   {% endif %}
 
