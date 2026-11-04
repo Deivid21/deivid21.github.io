@@ -6,7 +6,7 @@ common: sm7435
 platform: sm6450
 soc: "Snapdragon 6 Gen 1"
 android: 17
-order: 38
+order: 40
 maintained: true
 
 roms:

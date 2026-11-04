@@ -6,7 +6,7 @@ common: sm8350
 platform: sm7325
 soc: "Snapdragon 778G+"
 android: 17
-order: 35
+order: 37
 maintained: true
 
 roms:

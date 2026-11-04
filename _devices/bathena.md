@@ -6,7 +6,7 @@ common: sm6225
 platform: sm6115
 soc: "Snapdragon 662"
 android: 17
-order: 32
+order: 34
 maintained: true
 
 roms:

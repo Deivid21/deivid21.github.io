@@ -6,7 +6,7 @@ common: exynos9610
 platform: exynos9609
 soc: "Exynos 9609"
 android: 17
-order: 39
+order: 41
 maintained: true
 
 roms:
