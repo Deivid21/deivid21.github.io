@@ -27,13 +27,13 @@ for _, r in df.iterrows():
     if r.get('Warning (EN)'): L.append(f'warning: {q(r["Warning (EN)"])}')
     if r.get('Warning (ES)'): L.append(f'warning_es: {q(r["Warning (ES)"])}')
     L += [f'order: {order}', 'maintained: true', '']
-    roms = [n for n, col in (('Evolution X', 'Evolution X'), ('LineageOS', 'LineageOS')) if r[col].lower() == 'yes']
+    # ROM columns: Yes = published, Soon = coming soon (in development), No = not offered
+    roms = [(n, r[n].lower()) for n in ('Evolution X', 'LineageOS') if r[n].lower() in ('yes', 'soon')]
     if roms:
         L.append('roms:')
-        released = r.get('Released', 'Yes').lower() != 'no'
-        for n in roms:
+        for n, state in roms:
             L += [f'  - name: {n}']  # official: Android version and build info load live
-            if not released: L.append('    released: false')
+            if state == 'soon': L.append('    released: false')
             L += ['    # version: ""', '    # status: active      # active | discontinued', '    # date: 2026-11-03']
     else:
         L.append('roms: []')
