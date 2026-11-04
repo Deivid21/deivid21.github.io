@@ -29,11 +29,11 @@ layout: default
       {% for c in site.data.commons %}{% assign n = site.devices | where: "common", c.id | size %}{% if n > 0 %}<button class="chip" data-filter="{{ c.id }}" type="button">{{ c.name }} <span class="count">{{ n }}</span></button>{% endif %}{% endfor %}
     </div>
 
-    {% capture versions %}{% for d in site.devices %}{{ d.android }}{% unless forloop.last %},{% endunless %}{% endfor %}{% endcapture %}
+    {% capture versions %}{% for d in site.devices %}{% include device-android.html device=d %}{% unless forloop.last %},{% endunless %}{% endfor %}{% endcapture %}
     {% assign versions = versions | split: "," | uniq | sort | reverse %}
     <div class="chips" data-group="android">
       <button class="chip active" data-filter="all" type="button" data-i18n="filter_all_android">{{ t.filter_all_android }}</button>
-      {% for v in versions %}{% assign n = 0 %}{% for d in site.devices %}{% capture a %}{{ d.android }}{% endcapture %}{% if a == v %}{% assign n = n | plus: 1 %}{% endif %}{% endfor %}<button class="chip" data-filter="{{ v }}" type="button">Android {{ v }} <span class="count">{{ n }}</span></button>{% endfor %}
+      {% for v in versions %}{% assign n = 0 %}{% for d in site.devices %}{% capture a %}{% include device-android.html device=d %}{% endcapture %}{% if a == v %}{% assign n = n | plus: 1 %}{% endif %}{% endfor %}<button class="chip" data-filter="{{ v }}" type="button">Android {{ v }} <span class="count">{{ n }}</span></button>{% endfor %}
     </div>
 
     <label class="toggle"><input id="only-active" type="checkbox"> <span data-i18n="only_active">{{ t.only_active }}</span></label>
@@ -54,5 +54,6 @@ layout: default
   {% endif %}
   {% endfor %}
 
+  <script id="rom-sources" type="application/json">{{ site.official_sources | jsonify }}</script>
   <p id="no-results" class="empty" hidden data-i18n="no_results">{{ t.no_results }}</p>
 </section>
