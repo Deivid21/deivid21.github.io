@@ -171,6 +171,7 @@ html[lang="es"] .lang-toggle [data-lang-opt="es"] { background: var(--accent); c
 .block { margin-bottom: 40px; }
 .block h2 { font-size: 1.3rem; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
 .rom-list { display: flex; flex-direction: column; gap: 14px; }
+.rom-list + .rom-list { margin-top: 14px; }
 .rom { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; }
 .rom-head { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
 .rom h3 { margin: 0; font-size: 1.1rem; }
