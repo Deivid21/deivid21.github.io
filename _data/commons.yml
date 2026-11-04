@@ -10,6 +10,8 @@
   name: Moto SDM710
 - id: exynos9610
   name: Moto Exynos9610
+- id: sm6125
+  name: Moto SM6125
 - id: sm6225
   name: Moto SM6225
 - id: sm6375
