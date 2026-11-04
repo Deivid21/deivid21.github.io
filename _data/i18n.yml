@@ -41,6 +41,10 @@ en:
   downloads: Downloads
   official_builds: Official Builds
   test_builds: Test Builds
+  info_status: Status
+  info_android: Android
+  info_version: Version
+  info_last_build: Last build
   download: Download
   changelog: Changelog
   copy: Copy
@@ -51,9 +55,6 @@ en:
   guides_title: Guides
   guides_lead: Installing, updating and stock firmware.
   updated: Updated
-  status_stable: Stable
-  status_beta: Beta
-  status_test: Test
   footer_disclaimer: Flash at your own risk.
   footer_images: "Device info & resources:"
 
@@ -97,6 +98,10 @@ es:
   downloads: Descargas
   official_builds: Builds oficiales
   test_builds: Builds de prueba
+  info_status: Estado
+  info_android: Android
+  info_version: Versión
+  info_last_build: Última build
   download: Descargar
   changelog: Changelog
   copy: Copiar
@@ -107,8 +112,5 @@ es:
   guides_title: Guías
   guides_lead: Instalación, actualización y firmware stock.
   updated: Actualizado
-  status_stable: Estable
-  status_beta: Beta
-  status_test: Test
   footer_disclaimer: Flashea bajo tu propio riesgo.
   footer_images: "Información y recursos de dispositivos:"

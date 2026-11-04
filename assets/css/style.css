@@ -274,3 +274,27 @@ html[lang="es"] .lang-toggle [data-lang-opt="es"] { background: var(--accent); c
   .nav-donate span { display: none; }
 }
 .brand img { flex: none; }
+
+/* ── Collapsible ROM cards ──────────────────────────── */
+details.rom { padding: 0; }
+details.rom > summary { flex-wrap: nowrap; list-style: none; cursor: pointer; padding: 18px 20px; border-radius: var(--radius); }
+details.rom > summary::-webkit-details-marker { display: none; }
+details.rom > summary:hover { background: var(--card-hover); }
+details.rom[open] > summary { border-bottom: 1px solid var(--border); border-radius: var(--radius) var(--radius) 0 0; }
+.rom-title { flex: 1; min-width: 0; }
+.rom-chevron { width: 10px; height: 10px; flex: none; margin-left: 4px; border-right: 2px solid var(--muted); border-bottom: 2px solid var(--muted); transform: rotate(45deg); transition: transform .2s ease; }
+details.rom[open] .rom-chevron { transform: rotate(-135deg); }
+.rom-info { display: grid; grid-template-columns: max-content 1fr; gap: 8px 24px; margin: 0; padding: 16px 20px; }
+.rom-info dt { color: var(--muted); }
+.rom-info dd { margin: 0; font-weight: 500; display: flex; align-items: center; gap: 8px; }
+details.rom .hash { margin: 0 20px 16px; }
+details.rom .rom-notes { margin: 0 20px 16px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--muted); }
+.dot-active { background: var(--ok); }
+.dot-discontinued { background: var(--off); }
+@media (max-width: 720px) {
+  details.rom > summary { flex-wrap: wrap; }
+  .rom-chevron { position: absolute; right: 18px; top: 24px; }
+  details.rom { position: relative; }
+  .rom-title { flex-basis: 100%; padding-right: 28px; }
+}

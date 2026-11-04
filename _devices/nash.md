@@ -14,11 +14,11 @@ roms:
   - name: Evolution X
     android: 15
     # version: ""
-    # status: Stable      # Stable | Beta | Test
+    # status: active      # active | discontinued
     # date: 2026-11-03
   - name: LineageOS
     android: 15
     # version: ""
-    # status: Stable      # Stable | Beta | Test
+    # status: active      # active | discontinued
     # date: 2026-11-03
 ---
