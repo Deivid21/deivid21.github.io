@@ -354,3 +354,48 @@ pre.code .copy { position: absolute; top: 8px; right: 8px; background: var(--car
 }
 .stats strong code { font-size: .8em; }
 @media (max-width: 420px) { .nav-short-hide { display: none; } }
+
+/* ── Home page ──────────────────────────────────────── */
+.home-hero { padding: 88px 0 64px; }
+.home-hero h1 { font-size: clamp(2.6rem, 8vw, 4.2rem); margin-bottom: .25em; }
+.section-title { font-size: 1.3rem; margin: 8px 0 18px; }
+.projects { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.project {
+  position: relative; overflow: hidden;
+  display: flex; flex-direction: column; align-items: flex-start; gap: 6px;
+  padding: 24px; border-radius: 18px;
+  background: var(--card); border: 1px solid var(--border); color: var(--text);
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+.project:hover { transform: translateY(-3px); border-color: var(--accent); box-shadow: 0 14px 34px -18px var(--accent); text-decoration: none; }
+.project h3 { font-size: 1.3rem; margin: 2px 0 0; }
+.project p { color: var(--muted); margin: 0 0 8px; }
+.project-kicker { color: var(--accent); font-size: .75rem; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; }
+.project-icon { display: grid; place-items: center; width: 48px; height: 48px; margin-bottom: 8px; border-radius: 13px; background: var(--accent-soft); color: var(--accent); font-size: 24px; }
+.project-icon-muted { background: var(--bg-soft); color: var(--text); }
+.project-stats { display: flex; gap: 26px; margin: 6px 0 14px; }
+.project-stats div { display: flex; flex-direction: column; }
+.project-stats strong { font-size: 1.6rem; line-height: 1.1; }
+.project-stats span { color: var(--muted); font-size: .85rem; }
+.project-cta { margin-top: auto; color: var(--accent); font-weight: 600; }
+.project-devices { grid-column: span 2; flex-direction: row; align-items: stretch; gap: 20px; padding: 0; background: linear-gradient(120deg, var(--card) 45%, var(--accent-soft)); }
+.project-devices .project-body { flex: 1 1 52%; display: flex; flex-direction: column; align-items: flex-start; gap: 6px; padding: 28px; }
+.project-phones { flex: 1 1 48%; display: flex; align-items: flex-end; justify-content: center; gap: 0; padding: 28px 20px 0; }
+.project-phones img { flex: 1 1 0; min-width: 0; height: 270px; object-fit: contain; object-position: bottom; filter: drop-shadow(0 12px 18px rgba(0,0,0,.35)); transition: transform .25s ease; }
+.project-phones img:nth-child(2) { height: 310px; z-index: 1; }
+.project-devices:hover .project-phones img { transform: translateY(-4px); }
+.project-camera { background: linear-gradient(160deg, var(--card) 55%, var(--accent-soft)); }
+.project-banner { width: calc(100% + 48px); max-width: none; height: auto; aspect-ratio: 416 / 235; object-fit: cover; margin: -24px -24px 12px; border-bottom: 1px solid var(--border); }
+@media (max-width: 900px) {
+  .projects { grid-template-columns: 1fr 1fr; }
+  .project-devices { grid-column: span 2; }
+}
+@media (max-width: 640px) {
+  .home-hero { padding: 56px 0 40px; }
+  .projects { grid-template-columns: 1fr; }
+  .project-devices { grid-column: auto; flex-direction: column; }
+  .project-devices .project-body { padding: 24px 24px 0; }
+  .project-phones { padding-top: 8px; }
+  .project-phones img { height: 150px; }
+  .project-phones img:nth-child(2) { height: 170px; }
+}
