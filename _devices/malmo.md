@@ -8,7 +8,7 @@ platform: sm6375
 soc: "Snapdragon 6s Gen 3"
 android: 17
 stage: coming-soon
-order: 47
+order: 29
 maintained: true
 
 roms: []

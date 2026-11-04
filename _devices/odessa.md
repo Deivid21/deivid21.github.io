@@ -7,7 +7,7 @@ platform: sm7150
 soc: "Snapdragon 730G"
 android: 17
 stage: coming-soon
-order: 49
+order: 48
 maintained: true
 
 roms: []

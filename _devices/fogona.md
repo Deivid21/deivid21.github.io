@@ -7,7 +7,7 @@ platform: sm6225
 soc: "Snapdragon 680"
 android: 17
 stage: coming-soon
-order: 46
+order: 33
 maintained: true
 
 roms: []
