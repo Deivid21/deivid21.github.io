@@ -62,33 +62,39 @@ layout: default
       {% assign cl = rom.changelog | default: links.changelog | replace: "{codename}", page.codename %}
       {% assign soon = false %}{% if rom.released == false %}{% assign soon = true %}{% endif %}
       {% assign st = rom.status | downcase %}
-      {% assign st_key = "status_" | append: st %}
-      <article class="rom{% if soon %} rom-soon{% endif %}">
-        <div class="rom-head">
-          <div>
-            <h3>{{ rom.name }} <span data-i18n="{{ type_key }}">{{ t[type_key] }}</span> {% if rom.version %}<span class="muted">{{ rom.version }}</span>{% endif %}</h3>
+      <details class="rom{% if soon %} rom-soon{% endif %}" data-rom="{{ rom.name | slugify }}" data-type="{{ type }}" data-codename="{{ page.codename }}"{% if rom.android %} data-android="{{ rom.android }}"{% endif %}>
+        <summary class="rom-head">
+          <div class="rom-title">
+            <h3>{{ rom.name }} <span data-i18n="{{ type_key }}">{{ t[type_key] }}</span></h3>
             <div class="tags">
-              <span class="tag">Android {{ rom.android }}</span>
-              {% if soon %}<span class="tag tag-plain" data-i18n="coming_soon">{{ t.coming_soon }}</span>{% endif %}
-              {% if rom.status and soon == false %}<span class="tag tag-{{ st }}" data-i18n="{{ st_key }}">{{ t[st_key] | default: rom.status }}</span>{% endif %}
+              <span class="tag" data-field="android-tag"{% unless rom.android %} hidden{% endunless %}>Android <span data-field="android">{{ rom.android }}</span></span>
+              <span class="tag tag-plain" data-field="soon" data-i18n="coming_soon"{% unless soon %} hidden{% endunless %}>{{ t.coming_soon }}</span>
               {% if rom.variant %}<span class="tag">{{ rom.variant }}</span>{% endif %}
-              {% if rom.date %}<span class="tag tag-plain">{{ rom.date | date: "%Y-%m-%d" }}</span>{% endif %}
             </div>
           </div>
-          <div class="rom-actions">
-            {% unless soon %}{% if dl != "" %}<a class="btn" href="{{ dl }}" target="_blank" rel="noopener" data-i18n="download">{{ t.download }}</a>{% endif %}
-            {% if cl != "" %}<a class="btn btn-ghost" href="{{ cl }}" target="_blank" rel="noopener" data-i18n="changelog">{{ t.changelog }}</a>{% endif %}{% endunless %}
+          <div class="rom-actions" data-field="actions"{% if soon %} hidden{% endif %}>
+            {% if dl != "" %}<a class="btn" href="{{ dl }}" target="_blank" rel="noopener" data-i18n="download">{{ t.download }}</a>{% endif %}
+            {% if cl != "" %}<a class="btn btn-ghost" href="{{ cl }}" target="_blank" rel="noopener" data-i18n="changelog">{{ t.changelog }}</a>{% endif %}
           </div>
-        </div>
-        {% if rom.sha256 %}
-        <div class="hash">
+          <span class="rom-chevron" aria-hidden="true"></span>
+        </summary>
+        <dl class="rom-info">
+          <dt data-i18n="info_status">{{ t.info_status }}</dt>
+          <dd data-field="status">{% if st == "active" or st == "discontinued" %}<span class="dot dot-{{ st }}"></span><span data-i18n="{{ st }}">{{ t[st] }}</span>{% else %}—{% endif %}</dd>
+          <dt data-i18n="info_android">{{ t.info_android }}</dt>
+          <dd data-field="android">{{ rom.android | default: "—" }}</dd>
+          <dt data-i18n="info_version">{{ t.info_version }}</dt>
+          <dd data-field="version">{{ rom.version | default: "—" }}</dd>
+          <dt data-i18n="info_last_build">{{ t.info_last_build }}</dt>
+          <dd data-field="date">{% if rom.date %}{{ rom.date | date: "%Y-%m-%d" }}{% else %}—{% endif %}</dd>
+        </dl>
+        <div class="hash" data-field="hash"{% unless rom.sha256 %} hidden{% endunless %}>
           <span class="muted small">SHA256</span>
-          <code>{{ rom.sha256 }}</code>
+          <code data-field="sha256">{{ rom.sha256 }}</code>
           <button class="copy" data-copy="{{ rom.sha256 }}" type="button" data-i18n="copy">{{ t.copy }}</button>
         </div>
-        {% endif %}
         {% if rom.notes %}<p class="rom-notes"{% if rom.notes_es %} data-es="{{ rom.notes_es | escape }}"{% endif %}>{{ rom.notes }}</p>{% endif %}
-      </article>
+      </details>
       {% endfor %}
     </div>
     {% endif %}

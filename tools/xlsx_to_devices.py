@@ -34,7 +34,7 @@ for _, r in df.iterrows():
         for n in roms:
             L += [f'  - name: {n}', f'    android: {android}']
             if not released: L.append('    released: false')
-            L += ['    # version: ""', '    # status: Stable      # Stable | Beta | Test', '    # date: 2026-11-03']
+            L += ['    # version: ""', '    # status: active      # active | discontinued', '    # date: 2026-11-03']
     else:
         L.append('roms: []')
     L += ['---', '']
