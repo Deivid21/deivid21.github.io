@@ -44,7 +44,7 @@ en:
   status_stable: Stable
   status_beta: Beta
   status_test: Test
-  footer_disclaimer: Unofficial builds. Flash at your own risk.
+  footer_disclaimer: Flash at your own risk.
   footer_images: "Device images:"
 
 es:
@@ -90,5 +90,5 @@ es:
   status_stable: Estable
   status_beta: Beta
   status_test: Test
-  footer_disclaimer: Builds no oficiales. Flashea bajo tu propio riesgo.
+  footer_disclaimer: Flashea bajo tu propio riesgo.
   footer_images: "Imágenes de dispositivos:"
