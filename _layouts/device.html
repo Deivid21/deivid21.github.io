@@ -115,6 +115,21 @@ layout: default
   <script id="rom-sources" type="application/json">{{ site.official_sources | jsonify }}</script>
   {% endif %}
 
+  {% assign mcd = site.data.motcamera.devices | where: "codename", page.codename | first %}
+  {% if mcd %}
+  <section class="block">
+    <h2>Moto Camera</h2>
+    <a class="device-mc" href="{{ '/moto-camera/' | relative_url }}#device={{ page.codename }}">
+      <span class="project-icon">{% include icons/camera.svg %}</span>
+      <span class="device-mc-body">
+        <strong><span data-lang="en">Moto Camera Prebuilt supports this device</span><span data-lang="es">Moto Camera Prebuilt es compatible con este dispositivo</span></strong>
+        <span class="muted">{{ mcd.repo }} · <code>{{ mcd.setting }}</code></span>
+      </span>
+      <span class="project-cta"><span data-lang="en">Setup guide</span><span data-lang="es">Guía de configuración</span> →</span>
+    </a>
+  </section>
+  {% endif %}
+
   {% if page.extras %}
   <section class="block">
     <h2 data-i18n="extras">{{ t.extras }}</h2>

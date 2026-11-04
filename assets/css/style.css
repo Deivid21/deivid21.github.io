@@ -399,3 +399,12 @@ pre.code .copy { position: absolute; top: 8px; right: 8px; background: var(--car
   .project-phones img { height: 150px; }
   .project-phones img:nth-child(2) { height: 170px; }
 }
+
+/* ── Moto Camera link on device pages ───────────────── */
+.device-mc { display: flex; align-items: center; gap: 16px; padding: 16px 20px; border-radius: var(--radius); background: var(--card); border: 1px solid var(--border); color: var(--text); transition: border-color .15s ease; }
+.device-mc:hover { border-color: var(--accent); text-decoration: none; }
+.device-mc .project-icon { margin: 0; flex: none; }
+.device-mc-body { flex: 1; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.device-mc-body code { font-size: .85em; }
+.device-mc .project-cta { margin: 0; white-space: nowrap; }
+@media (max-width: 640px) { .device-mc { flex-wrap: wrap; } .device-mc .project-cta { width: 100%; } }
