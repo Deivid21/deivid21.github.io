@@ -1,7 +1,7 @@
 ---
 codename: hiphi
 name: "Motorola Edge 30 Pro"
-aka: ["Motorola Edge+ 2023", "Motorola Edge X30"]
+aka: ["Motorola Edge+ (2022)", "Motorola Edge X30"]
 vendor: Motorola
 common: sm8475
 platform: sm8450
