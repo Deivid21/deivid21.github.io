@@ -1,10 +1,17 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
-<meta name="description" content="{{ page.description | default: site.description }}">
-<meta property="og:title" content="{{ page.title | default: site.title }}">
-<meta property="og:description" content="{{ page.description | default: site.description }}">
-{% if page.codename %}<meta property="og:image" content="{{ site.lineage_img }}{{ page.image | default: page.codename }}.png">{% endif %}
+{% if page.codename %}{% capture page_desc %}Downloads, build info and guides for the {{ page.name }} ({{ page.codename }}): official and test builds of LineageOS and Evolution X.{% endcapture %}{% capture page_img %}{{ site.lineage_img }}{{ page.image | default: page.codename }}.png{% endcapture %}{% else %}{% assign page_desc = page.description | default: site.description %}{% capture page_img %}{{ page.og_image | default: '/assets/img/social-card.png' | absolute_url }}{% endcapture %}{% endif %}
+{% if page.codename %}{% capture page_title %}{{ page.name }} ({{ page.codename }}){% endcapture %}{% else %}{% assign page_title = page.title %}{% endif %}
+<title>{% if page_title %}{{ page_title }} · {% endif %}{{ site.title }}</title>
+<meta name="description" content="{{ page_desc | strip | escape }}">
+<link rel="canonical" href="{{ page.url | absolute_url }}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{ site.title }}">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+<meta property="og:title" content="{{ page_title | default: site.title }}">
+<meta property="og:description" content="{{ page_desc | strip | escape }}">
+<meta property="og:image" content="{{ page_img | strip }}">
+<meta name="twitter:card" content="{% if page.codename %}summary{% else %}summary_large_image{% endif %}">
 <meta name="theme-color" content="#0d1117">
 <link rel="icon" href="{{ '/assets/img/favicon.svg' | relative_url }}" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
