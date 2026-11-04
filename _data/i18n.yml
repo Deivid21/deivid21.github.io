@@ -39,6 +39,8 @@ en:
   device_tree: Device tree
   kernel: Kernel
   downloads: Downloads
+  official_builds: Official Builds
+  test_builds: Test Builds
   download: Download
   changelog: Changelog
   copy: Copy
@@ -93,6 +95,8 @@ es:
   device_tree: Árbol de dispositivo
   kernel: Kernel
   downloads: Descargas
+  official_builds: Builds oficiales
+  test_builds: Builds de prueba
   download: Descargar
   changelog: Changelog
   copy: Copiar

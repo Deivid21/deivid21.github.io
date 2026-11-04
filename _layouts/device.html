@@ -49,9 +49,15 @@ layout: default
   {% if page.roms.size > 0 %}
   <section class="block">
     <h2 data-i18n="downloads">{{ t.downloads }}</h2>
-    <div class="rom-list">
-      {% for rom in page.roms %}
-      {% assign links = site.rom_links[rom.name] %}
+    {% assign rom_types = "official,test" | split: "," %}
+    {% for type in rom_types %}
+    {% assign type_roms = "" | split: "" %}
+    {% for rom in page.roms %}{% assign rt = rom.type | default: "official" %}{% if rt == type %}{% assign type_roms = type_roms | push: rom %}{% endif %}{% endfor %}
+    {% if type_roms.size > 0 %}
+    {% assign type_key = type | append: "_builds" %}
+    <div class="rom-list rom-list-{{ type }}">
+      {% for rom in type_roms %}
+      {% if type == "official" %}{% assign links = site.rom_links[rom.name] %}{% else %}{% assign links = "" %}{% endif %}
       {% assign dl = rom.download | default: links.download | replace: "{codename}", page.codename %}
       {% assign cl = rom.changelog | default: links.changelog | replace: "{codename}", page.codename %}
       {% assign soon = false %}{% if rom.released == false %}{% assign soon = true %}{% endif %}
@@ -60,7 +66,7 @@ layout: default
       <article class="rom{% if soon %} rom-soon{% endif %}">
         <div class="rom-head">
           <div>
-            <h3>{{ rom.name }} {% if rom.version %}<span class="muted">{{ rom.version }}</span>{% endif %}</h3>
+            <h3>{{ rom.name }} <span data-i18n="{{ type_key }}">{{ t[type_key] }}</span> {% if rom.version %}<span class="muted">{{ rom.version }}</span>{% endif %}</h3>
             <div class="tags">
               <span class="tag">Android {{ rom.android }}</span>
               {% if soon %}<span class="tag tag-plain" data-i18n="coming_soon">{{ t.coming_soon }}</span>{% endif %}
@@ -85,6 +91,8 @@ layout: default
       </article>
       {% endfor %}
     </div>
+    {% endif %}
+    {% endfor %}
   </section>
   {% else %}
   <section class="block">
