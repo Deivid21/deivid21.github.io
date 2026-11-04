@@ -1,0 +1,19 @@
+---
+codename: kiev
+name: "Moto G 5G"
+aka: ["Motorola One 5G Ace"]
+vendor: Motorola
+common: sm8250
+platform: sm7225
+soc: "Snapdragon 750G"
+android: 17
+order: 9
+maintained: true
+
+roms:
+  - name: LineageOS
+    android: 17
+    # version: ""
+    # status: Stable      # Stable | Beta | Test
+    # date: 2026-11-03
+---
