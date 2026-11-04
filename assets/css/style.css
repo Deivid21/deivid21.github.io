@@ -82,7 +82,7 @@ html[lang="es"] .lang-toggle [data-lang-opt="es"] { background: var(--accent); c
 /* ── Hero ───────────────────────────────────────────── */
 .hero {
   padding: 72px 0 48px;
-  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(219, 97, 162, .16), transparent 70%);
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, var(--accent-soft), transparent 70%);
   border-bottom: 1px solid var(--border);
   margin-bottom: 32px;
 }
@@ -110,7 +110,7 @@ html[lang="es"] .lang-toggle [data-lang-opt="es"] { background: var(--accent); c
 .tag {
   display: inline-block; font-size: .75rem; font-weight: 600;
   padding: 2px 9px; border-radius: 999px;
-  background: rgba(219, 97, 162, .14); color: #db61a2;
+  background: var(--accent-soft); color: var(--accent);
 }
 .tag-ok, .tag-stable { background: rgba(63,185,80,.15); color: var(--ok); }
 .tag-beta, .tag-test { background: rgba(210,153,34,.15); color: var(--warn); }
@@ -223,17 +223,17 @@ html[lang="es"] .lang-toggle [data-lang-opt="es"] { background: var(--accent); c
 /* ── Donate button (header) ─────────────────────────── */
 .nav-links a.nav-donate {
   display: inline-flex; align-items: center; gap: 6px;
-  color: #db61a2; border: 1px solid rgba(219, 97, 162, .45);
+  color: #fff; background: var(--accent); border: 1px solid var(--accent);
 }
-.nav-links a.nav-donate:hover, .nav-links a.nav-donate.active { color: #fff; background: #bf3989; border-color: #bf3989; }
+.nav-links a.nav-donate:hover, .nav-links a.nav-donate.active { color: #fff; background: var(--accent); border-color: var(--accent); filter: brightness(1.12); }
 
 /* ── Donate page ────────────────────────────────────── */
 .donate-hero {
   text-align: center; padding: 64px 0 40px;
-  background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(219, 97, 162, .16), transparent 70%);
+  background: radial-gradient(ellipse 70% 60% at 50% 0%, var(--accent-soft), transparent 70%);
 }
 .donate-hero .lead { margin-inline: auto; }
-.donate-heart { display: inline-grid; place-items: center; width: 64px; height: 64px; margin-bottom: 16px; border-radius: 50%; background: rgba(219, 97, 162, .14); color: #db61a2; font-size: 30px; animation: beat 2.4s ease-in-out infinite; }
+.donate-heart { display: inline-grid; place-items: center; width: 64px; height: 64px; margin-bottom: 16px; border-radius: 50%; background: var(--accent-soft); color: var(--accent); font-size: 30px; animation: beat 2.4s ease-in-out infinite; }
 @keyframes beat { 0%, 100% { transform: scale(1); } 12% { transform: scale(1.12); } 24% { transform: scale(1); } 36% { transform: scale(1.08); } }
 @media (prefers-reduced-motion: reduce) { .donate-heart { animation: none; } }
 
