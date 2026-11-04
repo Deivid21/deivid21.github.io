@@ -2,7 +2,7 @@
 layout: default
 ---
 {% assign t = site.data.i18n.en %}
-{% assign active = site.devices | where: "maintained", true %}
+{% assign active = site.devices | where: "maintained", true | where_exp: "d", "d.stage != 'coming-soon'" %}
 <section class="hero">
   <div class="container">
     <p class="eyebrow" data-i18n="eyebrow">{{ t.eyebrow }}</p>
