@@ -11,6 +11,11 @@ telegram: https://t.me/Deivid21Hub
 github: https://github.com/Deivid21
 gitlab: https://gitlab.com/Deivid21
 
+# Donations
+donate:
+  github_sponsors: https://github.com/sponsors/Deivid21
+  paypal: https://paypal.me/Deivid21
+
 # Device images (LineageOS wiki). <codename>.png is appended
 lineage_img: https://raw.githubusercontent.com/LineageOS/lineage_wiki/refs/heads/main/images/devices/
 

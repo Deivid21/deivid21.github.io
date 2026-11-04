@@ -1,0 +1,39 @@
+---
+layout: default
+title: Donate
+permalink: /donate/
+---
+{% assign t = site.data.i18n.en %}
+<section class="donate-hero">
+  <div class="container narrow">
+    <span class="donate-heart">{% include icons/githubsponsors.svg %}</span>
+    <h1 data-i18n="donate_title">{{ t.donate_title }}</h1>
+    <p class="lead" data-i18n="donate_lead">{{ t.donate_lead }}</p>
+  </div>
+</section>
+
+<div class="container narrow">
+  <div class="donate-grid">
+    <a class="donate-card donate-github" href="{{ site.donate.github_sponsors }}" target="_blank" rel="noopener">
+      <span class="donate-logo">{% include icons/github.svg %}</span>
+      <h2>GitHub Sponsors</h2>
+      <p data-i18n="donate_github_desc">{{ t.donate_github_desc }}</p>
+      <span class="donate-btn">
+        {% include icons/github.svg %}
+        <span data-i18n="donate_github_btn">{{ t.donate_github_btn }}</span>
+      </span>
+    </a>
+
+    <a class="donate-card donate-paypal" href="{{ site.donate.paypal }}" target="_blank" rel="noopener">
+      <span class="donate-logo">{% include icons/paypal.svg %}</span>
+      <h2>PayPal</h2>
+      <p data-i18n="donate_paypal_desc">{{ t.donate_paypal_desc }}</p>
+      <span class="donate-btn">
+        {% include icons/paypal.svg %}
+        <span data-i18n="donate_paypal_btn">{{ t.donate_paypal_btn }}</span>
+      </span>
+    </a>
+  </div>
+
+  <p class="donate-thanks muted" data-i18n="donate_thanks">{{ t.donate_thanks }}</p>
+</div>
