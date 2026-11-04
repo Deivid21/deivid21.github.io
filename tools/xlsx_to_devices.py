@@ -26,8 +26,9 @@ for _, r in df.iterrows():
     if android: L.append(f'android: {android}')
     if r.get('Warning (EN)'): L.append(f'warning: {q(r["Warning (EN)"])}')
     if r.get('Warning (ES)'): L.append(f'warning_es: {q(r["Warning (ES)"])}')
+    if r.get('Stage', '').lower() == 'coming soon': L.append('stage: coming-soon')  # development not started
     L += [f'order: {order}', 'maintained: true', '']
-    # ROM columns: Yes = published, Soon = coming soon (in development), No = not offered
+    # ROM columns: Yes = published, Soon = in development (not published yet), No = not offered
     roms = [(n, r[n].lower()) for n in ('Evolution X', 'LineageOS') if r[n].lower() in ('yes', 'soon')]
     if roms:
         L.append('roms:')

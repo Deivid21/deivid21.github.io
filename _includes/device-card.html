@@ -23,8 +23,9 @@
     <div class="tags">
       {% if shown %}<span class="tag">A<span data-field="android">{{ shown }}</span></span>{% endif %}
       {% assign released = d.roms | where_exp: "r", "r.released != false" %}
-      {% if released.size == 0 %}<span class="tag tag-dev" data-i18n="in_development">{{ t.in_development }}</span>{% endif %}
-      {% if d.maintained %}<span class="tag tag-ok" data-i18n="active">{{ t.active }}</span>{% else %}<span class="tag tag-off" data-i18n="discontinued">{{ t.discontinued }}</span>{% endif %}
+      {% if d.stage == "coming-soon" %}<span class="tag tag-soon" data-i18n="coming_soon">{{ t.coming_soon }}</span>
+      {% elsif released.size == 0 %}<span class="tag tag-dev" data-i18n="in_development">{{ t.in_development }}</span>{% endif %}
+      {% if d.stage == "coming-soon" %}{% elsif d.maintained %}<span class="tag tag-ok" data-i18n="active">{{ t.active }}</span>{% else %}<span class="tag tag-off" data-i18n="discontinued">{{ t.discontinued }}</span>{% endif %}
     </div>
   </div>
 </a>
