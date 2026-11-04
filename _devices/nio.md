@@ -7,7 +7,7 @@ common: sm8250
 platform: sm8250
 soc: "Snapdragon 870"
 android: 17
-order: 14
+order: 15
 maintained: true
 
 roms:
