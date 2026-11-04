@@ -38,6 +38,9 @@ en:
   extras: Extras
   notes: Notes
   guides_for_device: Guides for this device
+  guides_title: Guides
+  guides_lead: Installing, updating and stock firmware.
+  updated: Updated
   status_stable: Stable
   status_beta: Beta
   status_test: Test
@@ -81,6 +84,9 @@ es:
   extras: Extras
   notes: Notas
   guides_for_device: Guías para este dispositivo
+  guides_title: Guías
+  guides_lead: Instalación, actualización y firmware stock.
+  updated: Actualizado
   status_stable: Estable
   status_beta: Beta
   status_test: Test
