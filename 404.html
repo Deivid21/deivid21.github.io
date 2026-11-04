@@ -1,0 +1,22 @@
+---
+layout: default
+title: Page not found
+permalink: /404.html
+sitemap: false
+---
+{% assign t = site.data.i18n.en %}
+<section class="notfound">
+  <div class="container narrow">
+    <p class="notfound-code">404</p>
+    <h1><span data-lang="en">Page not found</span><span data-lang="es">Página no encontrada</span></h1>
+    <p class="lead">
+      <span data-lang="en">This page doesn't exist or was moved. If you followed a link to a device, it may have a new address — try the device list.</span>
+      <span data-lang="es">Esta página no existe o se movió. Si llegaste desde el enlace de un dispositivo, puede que tenga una dirección nueva: búscalo en la lista de dispositivos.</span>
+    </p>
+    <div class="hero-actions">
+      <a class="btn" href="{{ '/' | relative_url }}"><span data-lang="en">Go home</span><span data-lang="es">Ir al inicio</span></a>
+      <a class="btn btn-ghost" href="{{ '/devices/' | relative_url }}" data-i18n="btn_view_devices">{{ t.btn_view_devices }}</a>
+      <a class="btn btn-ghost" href="{{ '/moto-camera/' | relative_url }}">Moto Camera</a>
+    </div>
+  </div>
+</section>
