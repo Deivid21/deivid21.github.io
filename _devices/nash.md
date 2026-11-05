@@ -16,8 +16,4 @@ roms:
     # version: ""
     # status: active      # active | discontinued
     # date: 2026-11-03
-  - name: LineageOS
-    # version: ""
-    # status: active      # active | discontinued
-    # date: 2026-11-03
 ---
