@@ -2,11 +2,28 @@
 #   pip install pandas openpyxl
 #   python3 tools/xlsx_to_devices.py tools/devices.xlsx _devices
 # Download/changelog links are built from the codename (see rom_links in _config.yml).
-# WARNING: overwrites every file in _devices/ (custom notes and extras included).
+# Rewrites every file in _devices/, keeping test builds (type: test) and notes below the front matter.
 import sys, os, glob, pandas as pd
 src, out = sys.argv[1], sys.argv[2]
 df = pd.read_excel(src, sheet_name='Devices', dtype=str)
-for f in glob.glob(out + '/*.md'): os.remove(f)
+# Keep what the spreadsheet doesn't hold: test builds (type: test) and any
+# text after the front matter. Everything else is regenerated.
+kept = {}
+for f in glob.glob(out + '/*.md'):
+    text = open(f).read()
+    parts = text.split('---\n', 2)
+    front, body = (parts[1], parts[2]) if len(parts) == 3 else ('', '')
+    blocks, cur = [], None
+    for line in front.splitlines(keepends=True):
+        if line.startswith('  - '):
+            cur = [line]; blocks.append(cur)
+        elif cur is not None and line.startswith('    '):
+            cur.append(line)
+        else:
+            cur = None
+    tests = [''.join(b) for b in blocks if any(l.strip() == 'type: test' for l in b)]
+    kept[os.path.basename(f)[:-3]] = (tests, body)
+    os.remove(f)
 order, skipped, made = 0, [], []
 def q(s): return '"' + s.replace('"', '\\"') + '"'
 for _, r in df.iterrows():
@@ -32,12 +49,14 @@ for _, r in df.iterrows():
     roms = [(n, r[n].lower()) for n in ('Evolution X', 'LineageOS') if r[n].lower() in ('yes', 'soon')]
     if roms:
         L.append('roms:')
-        for n, state in roms:
-            L += [f'  - name: {n}']  # official: Android version and build info load live
-            if state == 'soon': L.append('    released: false')
-            L += ['    # version: ""', '    # status: active      # active | discontinued', '    # date: 2026-11-03']
-    else:
-        L.append('roms: []')
-    L += ['---', '']
+    for n, state in roms:
+        L += [f'  - name: {n}']  # official: Android version and build info load live
+        if state == 'soon': L.append('    released: false')
+        L += ['    # version: ""', '    # status: active      # active | discontinued', '    # date: 2026-11-03']
+    tests, body = kept.get(cn, ([], ''))
+    if not roms:
+        L.append('roms: []' if not tests else 'roms:')
+    L += [t.rstrip('\n') for t in tests]
+    L += ['---', body.rstrip('\n'), ''] if body.strip() else ['---', '']
     open(f'{out}/{cn}.md', 'w').write('\n'.join(L)); made.append(cn)
 print(len(made), 'devices'); print('skipped (no codename):', skipped)
