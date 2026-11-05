@@ -62,7 +62,8 @@ layout: default
       {% assign cl = rom.changelog | default: links.changelog | replace: "{codename}", page.codename %}
       {% assign soon = false %}{% if rom.released == false %}{% assign soon = true %}{% endif %}
       {% assign st = rom.status | downcase %}
-      <details class="rom{% if soon %} rom-soon{% endif %}" data-rom="{{ rom.name | slugify }}" data-type="{{ type }}" data-codename="{{ page.codename }}"{% if rom.android %} data-android="{{ rom.android }}"{% endif %}>
+      {% capture card_id %}{% if rom.id %}{{ rom.id }}{% else %}{{ rom.name | slugify }}-{{ type }}{% if type == "test" and rom.android %}-a{{ rom.android }}{% endif %}{% endif %}{% endcapture %}
+      <details class="rom{% if soon %} rom-soon{% endif %}" id="{{ card_id | strip }}" data-rom="{{ rom.name | slugify }}" data-type="{{ type }}" data-codename="{{ page.codename }}"{% if rom.android %} data-android="{{ rom.android }}"{% endif %}>
         <summary class="rom-head">
           <div class="rom-title">
             <h3>{{ rom.name }} <span data-i18n="{{ type_key }}">{{ t[type_key] }}</span></h3>
@@ -89,8 +90,11 @@ layout: default
           <dd data-field="date">{% if rom.date %}{{ rom.date | date: "%Y-%m-%d" }}{% else %}—{% endif %}</dd>
           <dt data-i18n="info_size" data-row="size"{% unless rom.filesize %} hidden{% endunless %}>{{ t.info_size }}</dt>
           <dd data-field="size" data-row="size"{% unless rom.filesize %} hidden{% endunless %}>{{ rom.filesize }}</dd>
-          <dt data-row="forum" hidden>XDA</dt>
-          <dd data-row="forum" hidden><a data-field="forum" href="#" target="_blank" rel="noopener" data-i18n="info_forum">{{ t.info_forum }}</a></dd>
+          {% if rom.security_patch %}<dt data-i18n="info_security_patch">{{ t.info_security_patch }}</dt><dd>{{ rom.security_patch }}</dd>{% endif %}
+          {% if rom.gapps != nil %}{% if rom.gapps %}{% assign gk = "gapps_included" %}{% else %}{% assign gk = "gapps_not_included" %}{% endif %}<dt>GApps</dt><dd data-i18n="{{ gk }}">{{ t[gk] }}</dd>{% endif %}
+          <dt data-row="forum"{% unless rom.forum %} hidden{% endunless %}>XDA</dt>
+          <dd data-row="forum"{% unless rom.forum %} hidden{% endunless %}><a data-field="forum" href="{{ rom.forum | default: '#' }}" target="_blank" rel="noopener" data-i18n="info_forum">{{ t.info_forum }}</a></dd>
+          {% if rom.files %}<dt data-i18n="info_files">{{ t.info_files }}</dt><dd class="rom-files">{% for f in rom.files %}<a href="{{ f.url }}" target="_blank" rel="noopener">{{ f.name }}</a>{% endfor %}</dd>{% endif %}
         </dl>
         <div class="hash" data-field="hash"{% unless rom.sha256 %} hidden{% endunless %}>
           <span class="muted small">SHA256</span>
@@ -98,6 +102,7 @@ layout: default
           <button class="copy" data-copy="{{ rom.sha256 }}" type="button" data-i18n="copy">{{ t.copy }}</button>
         </div>
         {% if rom.notes %}<p class="rom-notes"{% if rom.notes_es %} data-es="{{ rom.notes_es | escape }}"{% endif %}>{{ rom.notes }}</p>{% endif %}
+        <div class="rom-share"><button class="copy-link" type="button" data-anchor="{{ card_id | strip }}" data-i18n="copy_link">{{ t.copy_link }}</button></div>
       </details>
       {% endfor %}
     </div>

@@ -340,3 +340,28 @@ document.querySelectorAll('pre.code').forEach(pre => {
   const row = m && rows.find(r => r.dataset.codename === m[1]);
   if (row) pick(row, true);
 })();
+
+// ── Direct links to a ROM card: /devices/<codename>/#lineageos-test-a17 ──
+(() => {
+  const cards = document.querySelectorAll('details.rom[id]');
+  if (!cards.length) return;
+  function openFromHash(scroll) {
+    const id = decodeURIComponent(location.hash.slice(1));
+    const card = id && document.getElementById(id);
+    if (!card || !card.matches('details.rom')) return;
+    card.open = true;
+    card.classList.add('rom-target');
+    setTimeout(() => card.classList.remove('rom-target'), 2400);
+    if (scroll) card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  openFromHash(true);
+  window.addEventListener('hashchange', () => openFromHash(true));
+  document.addEventListener('click', e => {
+    const btn = e.target.closest('.copy-link');
+    if (!btn) return;
+    const url = location.origin + location.pathname + '#' + btn.dataset.anchor;
+    history.replaceState(null, '', '#' + btn.dataset.anchor);
+    const done = () => { btn.textContent = t('link_copied'); setTimeout(() => (btn.textContent = t('copy_link')), 1800); };
+    if (navigator.clipboard) navigator.clipboard.writeText(url).then(done, () => {});
+  });
+})();

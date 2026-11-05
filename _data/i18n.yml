@@ -51,6 +51,12 @@ en:
   info_android: Android
   info_version: Version
   info_last_build: Last build
+  info_security_patch: Security patch
+  info_files: Extra files
+  gapps_included: Included
+  gapps_not_included: Not included
+  copy_link: Copy link to this build
+  link_copied: Link copied!
   info_size: Size
   info_forum: XDA thread
   download: Download
@@ -116,6 +122,12 @@ es:
   info_android: Android
   info_version: Versión
   info_last_build: Última build
+  info_security_patch: Parche de seguridad
+  info_files: Archivos extra
+  gapps_included: Incluidas
+  gapps_not_included: No incluidas
+  copy_link: Copiar enlace a esta build
+  link_copied: ¡Enlace copiado!
   info_size: Tamaño
   info_forum: Hilo en XDA
   download: Descargar
