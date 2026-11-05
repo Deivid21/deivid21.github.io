@@ -20,7 +20,8 @@ layout: default
       <h1>{{ page.name }}</h1>
       {% if page.aka %}<p class="aka big">{{ page.aka | join: " · " }}</p>{% endif %}
       <code class="codename big">{{ page.codename }}</code>
-      {% if page.stage == "coming-soon" %}<span class="tag tag-soon" data-i18n="coming_soon">{{ t.coming_soon }}</span>{% elsif page.maintained %}<span class="tag tag-ok" data-i18n="active">{{ t.active }}</span>{% else %}<span class="tag tag-off" data-i18n="discontinued">{{ t.discontinued }}</span>{% endif %}
+      {% assign page_released = page.roms | where_exp: "r", "r.released != false" %}
+      {% if page.stage == "coming-soon" %}<span class="tag tag-soon" data-i18n="coming_soon">{{ t.coming_soon }}</span>{% elsif page_released.size == 0 %}<span class="tag tag-dev" data-i18n="in_development">{{ t.in_development }}</span>{% elsif page.maintained %}<span class="tag tag-ok" data-i18n="active">{{ t.active }}</span>{% else %}<span class="tag tag-off" data-i18n="discontinued">{{ t.discontinued }}</span>{% endif %}
 
       <dl class="specs">
         {% if page.vendor %}<dt data-i18n="spec_vendor">{{ t.spec_vendor }}</dt><dd>{{ page.vendor }}</dd>{% endif %}

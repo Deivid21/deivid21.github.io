@@ -5,7 +5,8 @@ permalink: /devices/
 description: Every Motorola device I maintain, with official and test builds of LineageOS and Evolution X, live build info and guides.
 ---
 {% assign t = site.data.i18n.en %}
-{% assign active = site.devices | where: "maintained", true | where_exp: "d", "d.stage != 'coming-soon'" %}
+{% comment %} Active = maintained, development started and at least one published ROM {% endcomment %}
+{% assign active = "" | split: "" %}{% for d in site.devices %}{% if d.maintained and d.stage != "coming-soon" %}{% assign rel = d.roms | where_exp: "r", "r.released != false" %}{% if rel.size > 0 %}{% assign active = active | push: d %}{% endif %}{% endif %}{% endfor %}
 <section class="hero hero-compact">
   <div class="container">
     <p class="eyebrow" data-i18n="eyebrow">{{ t.eyebrow }}</p>
