@@ -414,3 +414,5 @@ pre.code .copy { position: absolute; top: 8px; right: 8px; background: var(--car
 .notfound .lead { margin-inline: auto; }
 .notfound .hero-actions { justify-content: center; }
 .notfound-code { margin: 0; font-size: clamp(5rem, 22vw, 9rem); font-weight: 700; line-height: 1; letter-spacing: -.04em; color: var(--accent); opacity: .9; }
+.mc-version-pick { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 18px; }
+.mc-version-pick .count { font-family: var(--mono); }

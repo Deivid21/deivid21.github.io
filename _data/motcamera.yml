@@ -1,6 +1,5 @@
-# Moto Camera prebuilts for custom ROMs — source: MotCamera-common README (android-17).
+# Moto Camera prebuilts for custom ROMs — source: MotCamera-common README (android-17) and MotCamera2 README (android-15, devices that stayed there).
 # Repo URLs are built as <gitlab><name>; clone folders as vendor/motorola/<name>.
-branch: android-17
 gitlab: https://gitlab.com/Deivid21/proprietary_vendor_motorola_
 image: https://play-lh.googleusercontent.com/C7-93qnLZBbZSe0geh2tIalXLzyBoiq0pAnHLxDyC3Z96Sipfis9hzGJ-OSeZ9kwSO_qttNyvzSkoTaSvq-n=w416-h235-rw
 example_commit: https://github.com/Evolution-X-Devices/device_motorola_bangkk/commit/49025e7626cb2057be25acb57bee4795aeb74798
@@ -41,6 +40,13 @@ repos:
   extras:
   - MotoPhotoEditor
   - MotCamera2AI
+  android:
+  - 17
+  - 15
+  extras_15:
+  - ARselfie
+  - MotoPhotoEditor
+  - MotCamera2AI
 - name: MotCamera4-sm7150
   version: Moto Camera 4 & 3
   platforms:
@@ -52,6 +58,8 @@ repos:
   - MotoPhotoEditor
   - MotCamera2AI
   - MotCamera3AI-sm7150
+  android:
+  - 17
 - name: MotCamera4-bengal
   version: Moto Camera 4 & 3
   platforms:
@@ -65,6 +73,8 @@ repos:
   - MotoPhotoEditor
   - MotCamera2AI
   - MotCamera3AI-bengal
+  android:
+  - 17
 - name: MotCamera4-sm8250
   version: Moto Camera 4 & 3
   platforms:
@@ -80,6 +90,8 @@ repos:
   - MotoPhotoEditor
   - MotCamera2AI
   - MotCamera3AI-sm8250
+  android:
+  - 17
 - name: MotCamera4-sm6375
   version: Moto Camera 4
   platforms:
@@ -93,6 +105,8 @@ repos:
   extras:
   - MotoPhotoEditor
   - MotCamera3AI-sm6375
+  android:
+  - 17
 - name: MotCamera4-lahaina
   version: Moto Camera 4
   platforms:
@@ -105,6 +119,8 @@ repos:
   extras:
   - MotoPhotoEditor
   - MotCamera3AI-lahaina
+  android:
+  - 17
 - name: MotCamera4-sm7435
   version: Moto Camera 4
   platforms:
@@ -114,6 +130,8 @@ repos:
   inherit: $(call inherit-product, vendor/motorola/MotCamera4-sm7435/motcamera4.mk)
   extras:
   - MotCamera3AI-sm7435
+  android:
+  - 17
 - name: MotCamera4-sm8475
   version: Moto Camera 4
   platforms:
@@ -123,6 +141,8 @@ repos:
   inherit: $(call inherit-product, vendor/motorola/MotCamera4-sm8475/motcamera4.mk)
   extras:
   - MotCamera3AI-sm8475
+  android:
+  - 17
 - name: MotCamera4-sm8550
   version: Moto Camera 4
   platforms:
@@ -132,6 +152,8 @@ repos:
   inherit: $(call inherit-product, vendor/motorola/MotCamera4-sm8550/motcamera4.mk)
   extras:
   - MotCamera3AI-sm8550
+  android:
+  - 17
 devices:
 - codename: guam
   name: Moto E7 Plus
@@ -139,255 +161,418 @@ devices:
   setting: TARGET_MOTCAMERA2 := whitney
   aka:
   - Lenovo K12
+  android: 17
 - codename: rav
   name: Moto G8 & Moto G Fast
   repo: MotCamera2
   setting: TARGET_MOTCAMERA2 := logan
+  android: 17
 - codename: doha
   name: Moto G8 Plus
   repo: MotCamera2
   setting: TARGET_MOTCAMERA2 := logan
   aka:
   - Motorola One Vision Plus
+  android: 17
 - codename: sofiar
   name: Moto G8 Power
   repo: MotCamera2
   setting: TARGET_MOTCAMERA2 := logan
+  android: 17
 - codename: guamp
   name: Moto G9 Play & Moto G9
   repo: MotCamera2
   setting: TARGET_MOTCAMERA2 := whitney
   aka:
   - Lenovo K12 Note
+  android: 17
 - codename: odessa
   name: Moto G9 Plus
   repo: MotCamera2
   setting: TARGET_MOTCAMERA2 := whitney
+  android: 17
 - codename: cebu
   name: Moto G9 Power
   repo: MotCamera4-bengal
   setting: TARGET_MOTCAMERA3 := cebu
   aka:
   - Lenovo K12 Pro
+  android: 17
 - codename: capri
   name: Moto G10 & G10 Power
   repo: MotCamera4-bengal
   setting: TARGET_MOTCAMERA3 := capri
   aka:
   - Lenovo K13 Note
+  android: 17
 - codename: caprip
   name: Moto G30
   repo: MotCamera4-bengal
   setting: TARGET_MOTCAMERA3 := caprip
   aka:
   - Lenovo K13 Pro
+  android: 17
 - codename: devon
   name: Moto G32
   repo: MotCamera4-bengal
   setting: TARGET_MOTCAMERA4 := devon
+  android: 17
 - codename: fogos
   name: Moto G34 5G, Moto G34s & Moto G45 5G
   repo: MotCamera4-sm6375
   setting: TARGET_MOTCAMERA4 := fogos
+  android: 17
 - codename: hanoi
   name: Moto G40 Fusion
   repo: MotCamera4-sm7150
   setting: TARGET_MOTCAMERA4 := hanoi
+  android: 17
 - codename: hawao
   name: Moto G42
   repo: MotCamera4-bengal
   setting: TARGET_MOTCAMERA4 := hawao
+  android: 17
 - codename: ibiza
   name: Moto G50
   repo: MotCamera4-sm6375
   setting: TARGET_MOTCAMERA4 := ibiza
+  android: 17
 - codename: cypfq
   name: Moto G51 5G
   repo: MotCamera4-sm6375
   setting: TARGET_MOTCAMERA4 := cypfq
+  android: 17
 - codename: rhode
   name: Moto G52
   repo: MotCamera4-bengal
   setting: TARGET_MOTCAMERA4 := rhode
+  android: 17
 - codename: cypfr
   name: Moto G52j 5G
   repo: MotCamera4-sm6375
   setting: TARGET_MOTCAMERA4 := cypfr
+  android: 17
 - codename: penang
   name: Moto G53 5G, Moto G53j 5G, Moto G53s 5G & Moto G53y 5G
   repo: MotCamera4-sm6375
   setting: TARGET_MOTCAMERA4 := penang
+  android: 17
 - codename: hanoip
   name: Moto G60
   repo: MotCamera4-sm7150
   setting: TARGET_MOTCAMERA4 := hanoip
+  android: 17
 - codename: rhodec
   name: Moto G62 5G
   repo: MotCamera4-sm6375
   setting: TARGET_MOTCAMERA4 := rhodec
+  android: 17
 - codename: rhodei
   name: Moto G62 5G
   repo: MotCamera4-sm6375
   setting: TARGET_MOTCAMERA4 := rhodei
+  android: 17
 - codename: corfur
   name: Moto G71 5G
   repo: MotCamera4-sm6375
   setting: TARGET_MOTCAMERA4 := corfur
+  android: 17
 - codename: rhodep
   name: Moto G82 5G & Moto G71s
   repo: MotCamera4-sm6375
   setting: TARGET_MOTCAMERA4 := rhodep
+  android: 17
 - codename: bangkk
   name: Moto G84 5G
   repo: MotCamera4-sm6375
   setting: TARGET_MOTCAMERA4 := bangkk
+  android: 17
 - codename: malmo
   name: Moto G85 5G & Moto S50 Neo
   repo: MotCamera4-sm6375
   setting: TARGET_MOTCAMERA4 := malmo
+  android: 17
 - codename: nio
   name: Moto G100
   repo: MotCamera4-sm8250
   setting: TARGET_MOTCAMERA3 := nio
   aka:
   - Motorola Edge S
+  android: 17
 - codename: xpeng
   name: Moto G200
   repo: MotCamera4-lahaina
   setting: TARGET_MOTCAMERA4 := xpeng
   aka:
   - Motorola Edge S30
+  android: 17
 - codename: kiev
   name: Moto G 5G
   repo: MotCamera4-sm8250
   setting: TARGET_MOTCAMERA3 := kiev
   aka:
   - Motorola One 5G Ace
+  android: 17
 - codename: nairo
   name: Moto G 5G Plus
   repo: MotCamera2
   setting: TARGET_MOTCAMERA2 := whitney
   aka:
   - Motorola One 5G
+  android: 17
 - codename: pnangn
   name: Moto G 5G (2023)
   repo: MotCamera4-sm6375
   setting: TARGET_MOTCAMERA4 := pnangn
+  android: 17
 - codename: fogo
   name: Moto G 5G - 2024
   repo: MotCamera4-sm6375
   setting: TARGET_MOTCAMERA4 := fogo
+  android: 17
 - codename: guamna
   name: Moto G Play (2021)
   repo: MotCamera4-bengal
   setting: TARGET_MOTCAMERA3 := guamna
+  android: 17
 - codename: fogona
   name: Moto G Play (2024)
   repo: MotCamera4-bengal
   setting: TARGET_MOTCAMERA4 := fogona
+  android: 17
 - codename: sofia
   name: Moto G Power
   repo: MotCamera2
   setting: TARGET_MOTCAMERA2 := logan
+  android: 17
 - codename: borneo
   name: Moto G Power (2021)
   repo: MotCamera4-bengal
   setting: TARGET_MOTCAMERA3 := borneo
+  android: 17
 - codename: sofiap
   name: Moto G Stylus & Moto G Pro
   repo: MotCamera2
   setting: TARGET_MOTCAMERA2 := logan
+  android: 17
 - codename: minsk
   name: Moto G Stylus (2021)
   repo: MotCamera4-sm7150
   setting: TARGET_MOTCAMERA3 := minsk
+  android: 17
 - codename: denver
   name: Moto G Stylus 5G (2021)
   repo: MotCamera4-sm6375
   setting: TARGET_MOTCAMERA4 := denver
+  android: 17
 - codename: milanf
   name: Moto G Stylus 5G (2022)
   repo: MotCamera4-sm6375
   setting: TARGET_MOTCAMERA4 := milanf
+  android: 17
 - codename: foles
   name: Moto Z4
   repo: MotCamera2
   setting: TARGET_MOTCAMERA2 := denali-3
+  android: 17
 - codename: bathena
   name: Motorola Defy (2021)
   repo: MotCamera2
   setting: TARGET_MOTCAMERA2 := nevis
+  android: 17
 - codename: racer
   name: Motorola Edge
   repo: MotCamera2
   setting: TARGET_MOTCAMERA2 := whitney
+  android: 17
 - codename: burton
   name: Motorola Edge Plus
   repo: MotCamera2
   setting: TARGET_MOTCAMERA2 := whitney
+  android: 17
 - codename: berlna
   name: Motorola Edge (2021)
   repo: MotCamera4-lahaina
   setting: TARGET_MOTCAMERA4 := berlna
+  android: 17
 - codename: berlin
   name: Motorola Edge 20 & Edge Lite Luxury Edition
   repo: MotCamera4-lahaina
   setting: TARGET_MOTCAMERA4 := berlin
+  android: 17
 - codename: pstar
   name: Motorola Edge 20 Pro & Edge S Pro
   repo: MotCamera4-sm8250
   setting: TARGET_MOTCAMERA4 := pstar
+  android: 17
 - codename: dubai
   name: Motorola Edge 30
   repo: MotCamera4-lahaina
   setting: TARGET_MOTCAMERA4 := dubai
+  android: 17
 - codename: tundra
   name: Motorola Edge 30 Fusion
   repo: MotCamera4-lahaina
   setting: TARGET_MOTCAMERA4 := tundra
   aka:
   - Moto S30 Pro
+  android: 17
 - codename: miami
   name: Motorola Edge 30 Neo
   repo: MotCamera4-sm6375
   setting: TARGET_MOTCAMERA4 := miami
+  android: 17
 - codename: eqs
   name: Motorola Edge 30 Ultra
   repo: MotCamera4-sm8475
   setting: TARGET_MOTCAMERA4 := eqs
   aka:
   - Moto X30 Ultra
+  android: 17
 - codename: rtwo
   name: Motorola Edge 40 Pro & Edge+ (2023)
   repo: MotCamera4-sm8550
   setting: TARGET_MOTCAMERA4 := rtwo
   aka:
   - Moto X40
+  android: 17
 - codename: cusco
   name: Motorola Edge 50 Fusion
   repo: MotCamera4-sm7435
   setting: TARGET_MOTCAMERA4 := cusco
+  android: 17
 - codename: liber
   name: Motorola One Fusion Plus
   repo: MotCamera2
   setting: TARGET_MOTCAMERA2 := whitney
+  android: 17
 - codename: def
   name: Motorola One Hyper
   repo: MotCamera2
   setting: TARGET_MOTCAMERA2 := logan
+  android: 17
 - codename: parker
   name: Motorola One Zoom
   repo: MotCamera2
   setting: TARGET_MOTCAMERA2 := denali-4
+  android: 17
 - codename: kievv
   name: Motorola One 5G UW Ace
   repo: MotCamera4-sm8250
   setting: TARGET_MOTCAMERA4 := kievv
+  android: 17
 - codename: smith
   name: Motorola Razr (2020) & Razr 5G
   repo: MotCamera4-sm8250
   setting: TARGET_MOTCAMERA4 := smith
+  android: 17
 - codename: bronco
   name: Motorola ThinkPhone
   repo: MotCamera4-sm8475
   setting: TARGET_MOTCAMERA4 := bronco
+  android: 17
+- codename: sanders
+  name: Moto G5s Plus
+  repo: MotCamera2
+  setting: TARGET_MOTCAMERA2 := primary
+  android: 15
+- codename: ali
+  name: Moto G6
+  repo: MotCamera2
+  setting: TARGET_MOTCAMERA2 := primary
+  android: 15
+- codename: evert
+  name: Moto G6 Plus
+  repo: MotCamera2
+  setting: TARGET_MOTCAMERA2 := primary
+  android: 15
+- codename: payton
+  name: Moto X4
+  repo: MotCamera2
+  setting: TARGET_MOTCAMERA2 := primary
+  android: 15
+- codename: nash
+  name: Moto Z2 Force & Moto Z (2018)
+  repo: MotCamera2
+  setting: TARGET_MOTCAMERA2 := primary
+  android: 15
+- codename: beckham
+  name: Moto Z3 Play
+  repo: MotCamera2
+  setting: TARGET_MOTCAMERA2 := primary
+  android: 15
+- codename: messi
+  name: Moto Z3
+  repo: MotCamera2
+  setting: TARGET_MOTCAMERA2 := primary
+  android: 15
+- codename: deen
+  name: Motorola One & Motorola P30 Play
+  repo: MotCamera2
+  setting: TARGET_MOTCAMERA2 := primary
+  android: 15
+- codename: river
+  name: Moto G7
+  repo: MotCamera2
+  setting: TARGET_MOTCAMERA2 := denali
+  android: 15
+- codename: lake
+  name: Moto G7 Plus
+  repo: MotCamera2
+  setting: TARGET_MOTCAMERA2 := denali
+  android: 15
+- codename: surfna
+  name: Moto E6
+  repo: MotCamera2
+  setting: TARGET_MOTCAMERA2 := denali-2
+  android: 15
+- codename: channel
+  name: Moto G7 Play
+  repo: MotCamera2
+  setting: TARGET_MOTCAMERA2 := denali-2
+  android: 15
+- codename: ocean
+  name: Moto G7 Power
+  repo: MotCamera2
+  setting: TARGET_MOTCAMERA2 := denali-2
+  android: 15
+- codename: kane
+  name: Motorola One Vision & Motorola P50
+  repo: MotCamera2
+  setting: TARGET_MOTCAMERA2 := hallasan
+  android: 15
+- codename: troika
+  name: Motorola One Action
+  repo: MotCamera2
+  setting: TARGET_MOTCAMERA2 := hallasan
+  android: 15
+- codename: lima_32
+  name: Moto G8 Play
+  repo: MotCamera2
+  setting: TARGET_MOTCAMERA2 := jade
+  android: 15
+- codename: lima
+  name: Motorola One Macro
+  repo: MotCamera2
+  setting: TARGET_MOTCAMERA2 := jade
+  android: 15
+- codename: olson
+  name: Motorola Razr
+  repo: MotCamera2
+  setting: TARGET_MOTCAMERA2 := logan
+  android: 15
+- codename: ginna
+  name: Moto E (2020)
+  repo: MotCamera2
+  setting: TARGET_MOTCAMERA2 := whitney
+  android: 15
+- codename: astro
+  name: Motorola One Fusion
+  repo: MotCamera2
+  setting: TARGET_MOTCAMERA2 := whitney
+  android: 15
+versions:
+- android: 17
+  branch: android-17
+- android: 15
+  branch: android-15
