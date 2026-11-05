@@ -283,6 +283,8 @@ document.querySelectorAll('pre.code').forEach(pre => {
   const search = document.getElementById('mc-search');
   const empty = document.getElementById('mc-empty');
   const chips = [...document.querySelectorAll('.mc-repo-pick .chip')];
+  const versionChips = [...document.querySelectorAll('.mc-version-pick .chip')];
+  const state = { version: versionChips[0] ? versionChips[0].dataset.version : '17', repo: chips[0] && chips[0].dataset.repo };
   const repos = JSON.parse(document.getElementById('mc-repos').textContent);
   const selected = document.getElementById('mc-selected');
   const makefile = document.querySelector('#mc-makefile code');
@@ -294,24 +296,35 @@ document.querySelectorAll('pre.code').forEach(pre => {
     empty.hidden = n > 0;
   });
 
-  function showRepo(name) {
-    chips.forEach(c => c.classList.toggle('active', c.dataset.repo === name));
-    document.querySelectorAll('[data-repo-block]').forEach(b => { b.hidden = b.dataset.repoBlock !== name; });
+  // Step 1 and 2 follow the picked Android version (branch) and platform repo
+  function show() {
+    const avail = chips.filter(c => c.dataset.versions.split(' ').includes(state.version));
+    if (!avail.some(c => c.dataset.repo === state.repo)) state.repo = avail[0] && avail[0].dataset.repo;
+    versionChips.forEach(c => c.classList.toggle('active', c.dataset.version === state.version));
+    chips.forEach(c => { c.hidden = !avail.includes(c); c.classList.toggle('active', c.dataset.repo === state.repo); });
+    document.querySelectorAll('[data-version-block]').forEach(b => { b.hidden = b.dataset.versionBlock !== state.version; });
+    document.querySelectorAll('[data-repo-block]').forEach(b => {
+      b.hidden = !(b.dataset.repoBlock === state.repo && b.dataset.version === state.version);
+    });
   }
+  function showRepo(name) { state.repo = name; show(); }
   chips.forEach(c => c.addEventListener('click', () => showRepo(c.dataset.repo)));
+  versionChips.forEach(c => c.addEventListener('click', () => { state.version = c.dataset.version; show(); }));
+  show();
 
   function pick(row, scroll) {
     rows.forEach(r => r.classList.toggle('selected', r === row));
-    const { codename, repo, setting, name } = row.dataset;
+    const { codename, repo, setting, name, android } = row.dataset;
     const repoInfo = repos.find(r => r.name === repo);
     const version = (setting.match(/TARGET_MOTCAMERA(\d)/) || [])[1];
+    state.version = android;
     showRepo(repo);
     makefile.textContent = `# Moto Camera ${version}\n${setting}\n\n${repoInfo.inherit}`;
     selected.innerHTML = '';
     const label = document.createElement('span');
     label.dataset.i18n = 'mc_setup_for';
     label.textContent = t('mc_setup_for');
-    selected.append(label, ` ${name} (${codename}) · ${repo}`);
+    selected.append(label, ` ${name} (${codename}) · ${repo} · Android ${android}`);
     selected.hidden = false;
     document.getElementById('mc-picked').hidden = true;
     history.replaceState(null, '', `#device=${codename}`);

@@ -20,11 +20,11 @@ og_image: https://play-lh.googleusercontent.com/C7-93qnLZBbZSe0geh2tIalXLzyBoiq0
     <div class="stats">
       <div><strong>{{ mc.devices | size }}</strong><span data-lang="en">devices</span><span data-lang="es">dispositivos</span></div>
       <div><strong>{{ mc.repos | size }}</strong><span data-lang="en">platform repos</span><span data-lang="es">repos por plataforma</span></div>
-      <div><strong><code>{{ mc.branch }}</code></strong><span data-lang="en">branch</span><span data-lang="es">rama</span></div>
+      <div><strong>{% for v in mc.versions %}{{ v.android }}{% unless forloop.last %} · {% endunless %}{% endfor %}</strong><span>Android</span></div>
     </div>
     <div class="hero-actions">
       <a class="btn" href="#find"><span data-lang="en">Find your device</span><span data-lang="es">Busca tu dispositivo</span></a>
-      <a class="btn btn-ghost" href="{{ gl }}MotCamera-common/-/tree/{{ mc.branch }}" target="_blank" rel="noopener"><span data-lang="en">View on GitLab</span><span data-lang="es">Ver en GitLab</span></a>
+      <a class="btn btn-ghost" href="{{ gl }}MotCamera-common/-/tree/{{ mc.versions[0].branch }}" target="_blank" rel="noopener"><span data-lang="en">View on GitLab</span><span data-lang="es">Ver en GitLab</span></a>
     </div>
    </div>
     <img class="mc-hero-img" src="{{ mc.image }}" alt="Moto Camera" width="416" height="235">
@@ -54,14 +54,15 @@ og_image: https://play-lh.googleusercontent.com/C7-93qnLZBbZSe0geh2tIalXLzyBoiq0
             <th>Codename</th>
             <th>Repo</th>
             <th><span data-lang="en">Makefile setting</span><span data-lang="es">Ajuste del makefile</span></th>
+            <th>Android</th>
           </tr>
         </thead>
         <tbody>
           {% assign sorted = mc.devices | sort: "name" %}
           {% for d in sorted %}
           {% assign onsite = site.devices | where: "codename", d.codename | first %}
-          <tr data-codename="{{ d.codename }}" data-repo="{{ d.repo }}" data-setting="{{ d.setting }}" data-name="{{ d.name }}"
-              data-search="{{ d.name | downcase }} {{ d.aka | join: ' ' | downcase }} {{ d.codename }} {{ d.repo | downcase }}" tabindex="0">
+          <tr data-codename="{{ d.codename }}" data-android="{{ d.android }}" data-repo="{{ d.repo }}" data-setting="{{ d.setting }}" data-name="{{ d.name }}"
+              data-search="{{ d.name | downcase }} {{ d.aka | join: ' ' | downcase }} {{ d.codename }} {{ d.repo | downcase }} android {{ d.android }} a{{ d.android }}" tabindex="0">
             <td>
               <strong>{{ d.name }}</strong>
               {% if d.aka %}<span class="aka">{{ d.aka | join: " · " }}</span>{% endif %}
@@ -69,6 +70,7 @@ og_image: https://play-lh.googleusercontent.com/C7-93qnLZBbZSe0geh2tIalXLzyBoiq0
             <td>{% if onsite %}<a href="{{ onsite.url | relative_url }}"><code>{{ d.codename }}</code></a>{% else %}<code>{{ d.codename }}</code>{% endif %}</td>
             <td>{{ d.repo }}</td>
             <td><code>{{ d.setting }}</code></td>
+            <td><span class="tag{% if d.android != 17 %} tag-plain{% endif %}">A{{ d.android }}</span></td>
           </tr>
           {% endfor %}
         </tbody>
@@ -80,33 +82,39 @@ og_image: https://play-lh.googleusercontent.com/C7-93qnLZBbZSe0geh2tIalXLzyBoiq0
   <section class="block" id="setup">
     <h2><span data-lang="en">Setup</span><span data-lang="es">Configuración</span></h2>
     <p class="muted" id="mc-picked">
-      <span data-lang="en">Pick your device in the table above, or choose its repo in step 2. Run the commands from the root of your ROM source.</span>
-      <span data-lang="es">Elige tu dispositivo en la tabla de arriba, o su repo en el paso 2. Ejecuta los comandos desde la raíz del código de tu ROM.</span>
+      <span data-lang="en">Pick your device in the table above, or choose your Android version and its repo in step 2. Run the commands from the root of your ROM source.</span>
+      <span data-lang="es">Elige tu dispositivo en la tabla de arriba, o tu versión de Android y su repo en el paso 2. Ejecuta los comandos desde la raíz del código de tu ROM.</span>
     </p>
     <p class="mc-selected" id="mc-selected" hidden></p>
+    <div class="mc-version-pick" role="tablist" aria-label="Android version">
+      {% for v in mc.versions %}<button type="button" class="chip{% if forloop.first %} active{% endif %}" data-version="{{ v.android }}">Android {{ v.android }} <span class="count">{{ v.branch }}</span></button>{% endfor %}
+    </div>
 
     <ol class="mc-steps">
       <li>
         <h3><span data-lang="en">Clone the common repos</span><span data-lang="es">Clona los repos comunes</span></h3>
         <p class="muted"><span data-lang="en">Required for every device.</span><span data-lang="es">Necesarios para todos los dispositivos.</span></p>
-<pre class="code"><code>{% for r in mc.common_repos %}# {{ r.label }}
-git clone {{ gl }}{{ r.name }}.git -b {{ mc.branch }} vendor/motorola/{{ r.name }}
+{% for v in mc.versions %}
+<pre class="code" data-version-block="{{ v.android }}"{% unless forloop.first %} hidden{% endunless %}><code>{% for r in mc.common_repos %}# {{ r.label }}
+git clone {{ gl }}{{ r.name }}.git -b {{ v.branch }} vendor/motorola/{{ r.name }}
 {% unless forloop.last %}
 {% endunless %}{% endfor %}</code></pre>
+{% endfor %}
       </li>
 
       <li>
         <h3><span data-lang="en">Clone the camera repos for your platform</span><span data-lang="es">Clona los repos de cámara de tu plataforma</span></h3>
         <p class="muted"><span data-lang="en">Pick only the one that matches your device. It includes the Moto Photo Editor and Moto Camera AI repos that platform needs.</span><span data-lang="es">Elige solo el que corresponde a tu dispositivo. Incluye los repos de Moto Photo Editor y Moto Camera AI que necesita esa plataforma.</span></p>
         <div class="mc-repo-pick" role="tablist">
-          {% for r in mc.repos %}<button type="button" class="chip{% if forloop.first %} active{% endif %}" data-repo="{{ r.name }}">{{ r.name }}</button>{% endfor %}
+          {% for r in mc.repos %}<button type="button" class="chip{% if forloop.first %} active{% endif %}" data-repo="{{ r.name }}" data-versions="{{ r.android | join: ' ' }}">{{ r.name }}</button>{% endfor %}
         </div>
-        {% for r in mc.repos %}
-<pre class="code" data-repo-block="{{ r.name }}"{% unless forloop.first %} hidden{% endunless %}><code>git clone {{ gl }}{{ r.name }}.git -b {{ mc.branch }} vendor/motorola/{{ r.name }}
-{% for e in r.extras %}
-git clone {{ gl }}{{ e }}.git -b {{ mc.branch }} vendor/motorola/{{ e }}
+        {% for v in mc.versions %}{% for r in mc.repos %}{% if r.android contains v.android %}
+{% if v.android == 15 and r.extras_15 %}{% assign extras = r.extras_15 %}{% else %}{% assign extras = r.extras %}{% endif %}
+<pre class="code" data-repo-block="{{ r.name }}" data-version="{{ v.android }}"{% unless forloop.first and v.android == 17 %} hidden{% endunless %}><code>git clone {{ gl }}{{ r.name }}.git -b {{ v.branch }} vendor/motorola/{{ r.name }}
+{% for e in extras %}
+git clone {{ gl }}{{ e }}.git -b {{ v.branch }} vendor/motorola/{{ e }}
 {% endfor %}</code></pre>
-        {% endfor %}
+        {% endif %}{% endfor %}{% endfor %}
       </li>
 
       <li>
@@ -141,15 +149,17 @@ $(call inherit-product, vendor/motorola/MotCamera4-bengal/motcamera4.mk)</code><
             <th><span data-lang="en">Moto Camera version</span><span data-lang="es">Versión de Moto Camera</span></th>
             <th><span data-lang="en">Platform</span><span data-lang="es">Plataforma</span></th>
             <th>SoC</th>
+            <th>Android</th>
           </tr>
         </thead>
         <tbody>
           {% for r in mc.repos %}
           <tr>
-            <td><a href="{{ gl }}{{ r.name }}/-/tree/{{ mc.branch }}" target="_blank" rel="noopener">{{ r.name }}</a></td>
+            <td><a href="{{ gl }}{{ r.name }}/-/tree/{{ mc.versions[0].branch }}" target="_blank" rel="noopener">{{ r.name }}</a></td>
             <td>{{ r.version }}</td>
             <td>{{ r.platforms | join: ", " }}</td>
             <td>{{ r.socs | join: ", " }}</td>
+            <td>{{ r.android | join: ", " }}</td>
           </tr>
           {% endfor %}
         </tbody>
