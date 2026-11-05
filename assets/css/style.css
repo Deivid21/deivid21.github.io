@@ -416,3 +416,12 @@ pre.code .copy { position: absolute; top: 8px; right: 8px; background: var(--car
 .notfound-code { margin: 0; font-size: clamp(5rem, 22vw, 9rem); font-weight: 700; line-height: 1; letter-spacing: -.04em; color: var(--accent); opacity: .9; }
 .mc-version-pick { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 18px; }
 .mc-version-pick .count { font-family: var(--mono); }
+
+/* ── ROM card extras: files, share link, linked card ── */
+.rom-files { flex-wrap: wrap; gap: 6px 14px !important; }
+.rom-files a { font-family: var(--mono); font-size: .85rem; }
+.rom-share { display: flex; justify-content: flex-end; padding: 0 20px 14px; }
+.copy-link { font: inherit; font-size: .82rem; cursor: pointer; background: none; border: 1px solid var(--border); color: var(--muted); border-radius: 8px; padding: 4px 10px; }
+.copy-link:hover { color: var(--text); border-color: var(--accent); }
+details.rom { scroll-margin-top: 80px; }
+details.rom.rom-target { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); transition: box-shadow .3s ease, border-color .3s ease; }
