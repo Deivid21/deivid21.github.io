@@ -2,7 +2,7 @@
 {% assign d = include.device %}
 {% comment %} Latest Android among published builds with a known version; official builds are added live by main.js {% endcomment %}
 {% assign official = "" | split: "" %}{% assign latest = 0 %}
-{% for r in d.roms %}{% assign rt = r.type | default: "official" %}{% if rt == "official" %}{% assign slug = r.name | slugify %}{% assign official = official | push: slug %}{% endif %}{% if r.android and r.released != false %}{% assign ra = r.android | plus: 0 %}{% if ra > latest %}{% assign latest = ra %}{% endif %}{% endif %}{% endfor %}
+{% for r in d.roms %}{% assign rt = r.type | default: "official" %}{% if rt == "official" and r.released != false %}{% assign slug = r.name | slugify %}{% assign official = official | push: slug %}{% endif %}{% if r.android and r.released != false %}{% assign ra = r.android | plus: 0 %}{% if ra > latest %}{% assign latest = ra %}{% endif %}{% endif %}{% endfor %}
 {% if latest == 0 %}{% assign shown = d.android %}{% else %}{% assign shown = latest %}{% endif %}
 <a class="device-card" href="{{ d.url | relative_url }}"
    data-common="{{ d.common }}"
