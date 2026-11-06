@@ -2,6 +2,9 @@
 title: Deivid21 Hub
 description: ROMs, firmware and resources for Motorola devices
 author: Deivid21
+copyright:
+  name: Deivid Ignacio Parra (Deivid21)
+  since: 2017
 url: "https://deivid21.github.io"
 baseurl: ""
 lang: en

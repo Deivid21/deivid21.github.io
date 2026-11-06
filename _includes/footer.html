@@ -1,7 +1,7 @@
 {% assign t = site.data.i18n.en %}
 <footer class="site-footer">
   <div class="container footer-inner">
-    <p>© {{ 'now' | date: '%Y' }} {{ site.author }} · <span data-i18n="footer_disclaimer">{{ t.footer_disclaimer }}</span></p>
+    <p>© {{ site.copyright.since }}–{{ 'now' | date: '%Y' }} {{ site.copyright.name }} · <span data-i18n="footer_disclaimer">{{ t.footer_disclaimer }}</span></p>
     <p class="footer-links">
       <a href="{{ site.telegram }}" target="_blank" rel="noopener">Telegram</a>
       <a href="{{ site.github }}" target="_blank" rel="noopener">GitHub</a>
