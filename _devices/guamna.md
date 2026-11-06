@@ -24,23 +24,23 @@ roms:
     android: 17
     version: "24.0"
     status: active
-    date: 2026-11-05
-    download: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261104-UNOFFICIAL-guamna/lineage-24.0-20261105-UNOFFICIAL-guamna.zip
-    changelog: https://github.com/Deivid21/RELEASES/releases/tag/lineage-24.0-20261104-UNOFFICIAL-guamna
-    sha256: "b6c9d0821c2d599de0bf35a17d98f3e21f7ae05161d33850da3012dc85f7eee8"
+    date: 2026-11-06
+    download: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261106-UNOFFICIAL-guamna/lineage-24.0-20261106-UNOFFICIAL-guamna.zip
+    changelog: https://github.com/Deivid21/RELEASES/releases/tag/lineage-24.0-20261106-UNOFFICIAL-guamna
+    sha256: "1202bfd6e5526e37534f23647454200de11d9e1452a9627431ae3ed58fa796d0"
     filesize: "1.65 GB"
-    security_patch: October 2026
+    security_patch: November 2026
     gapps: true
     forum: https://xdaforums.com/t/rom-17-official-lineageos-24-0-for-moto-g-play-2021-guamna.4800732/
     files:
       - name: boot.img
-        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261104-UNOFFICIAL-guamna/boot.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261106-UNOFFICIAL-guamna/boot.img
       - name: dtbo.img
-        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261104-UNOFFICIAL-guamna/dtbo.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261106-UNOFFICIAL-guamna/dtbo.img
       - name: recovery.img
-        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261104-UNOFFICIAL-guamna/recovery.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261106-UNOFFICIAL-guamna/recovery.img
       - name: vbmeta.img
-        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261104-UNOFFICIAL-guamna/vbmeta.img
-    notes: "Test build: EROFS filesystem, odm partition, higher dalvik-heap limits, blurs available (off by default) and Moto Camera 4 built from prebuilt source. SELinux enforcing, Linux kernel 4.19.325-cip136."
-    notes_es: "Build de prueba: sistema de archivos EROFS, partición odm, límites de dalvik-heap más altos, blurs disponibles (desactivados por defecto) y Moto Camera 4 compilada desde prebuilts. SELinux enforcing, kernel Linux 4.19.325-cip136."
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261106-UNOFFICIAL-guamna/vbmeta.img
+    notes: "Test build: November 2026 security patch, SELinux set to permissive, Linux kernel 4.19.325-cip136. Also EROFS filesystem, odm partition, higher dalvik-heap limits, blurs available (off by default) and Moto Camera 4 built from prebuilt source."
+    notes_es: "Build de prueba: parche de seguridad de noviembre de 2026, SELinux en permissive, kernel Linux 4.19.325-cip136. Además: sistema de archivos EROFS, partición odm, límites de dalvik-heap más altos, blurs disponibles (desactivados por defecto) y Moto Camera 4 compilada desde prebuilts."
 ---
