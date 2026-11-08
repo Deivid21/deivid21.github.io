@@ -22,6 +22,30 @@ roms:
     # date: 2026-11-03
   - name: LineageOS
     archived: true
+    android: 16
+    version: "23.2"
+    status: discontinued
+    date: 2026-10-10
+    download: https://github.com/Deivid21/RELEASES/releases/download/lineage-23.2-20261010-nightly-cebu-signed/lineage-23.2-20261010-nightly-cebu-signed.zip
+    changelog: https://github.com/Deivid21/RELEASES/releases/tag/lineage-23.2-20261010-nightly-cebu-signed
+    sha256: "827ecca728ff45cfe5bfe7fa3f6c1d6e95e3f93f376ca523cc6473e72e8ed5e2"
+    filesize: "1.03 GB"
+    security_patch: October 2026
+    gapps: false
+    forum: https://xdaforums.com/t/rom-17-official-lineageos-24-0-for-moto-g9-power-cebu.4719845/
+    files:
+      - name: boot.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-23.2-20261010-nightly-cebu-signed/boot.img
+      - name: dtbo.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-23.2-20261010-nightly-cebu-signed/dtbo.img
+      - name: recovery.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-23.2-20261010-nightly-cebu-signed/recovery.img
+      - name: vbmeta.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-23.2-20261010-nightly-cebu-signed/vbmeta.img
+    notes: "Last official LineageOS 23.2 nightly build (signed): October 2026 security patch, SELinux enforcing. No longer updated."
+    notes_es: "Última nightly oficial de LineageOS 23.2 (firmada): parche de seguridad de octubre de 2026, SELinux enforcing. Ya no se actualiza."
+  - name: LineageOS
+    archived: true
     android: 15
     version: "22.2"
     status: discontinued
@@ -30,7 +54,7 @@ roms:
     changelog: https://github.com/Deivid21/RELEASES/releases/tag/lineage-22.2-20251011-nightly-cebu-signed
     sha256: "1f56a45e5dee6edd98bf9d7d8fb2c9092656faff0a33c944def09b2d454a5126"
     filesize: "0.93 GB"
-    security_patch: September 2025
+    security_patch: October 2025
     gapps: false
     forum: https://xdaforums.com/t/rom-17-official-lineageos-24-0-for-moto-g9-power-cebu.4719845/
     files:
@@ -44,6 +68,30 @@ roms:
         url: https://github.com/Deivid21/RELEASES/releases/download/lineage-22.2-20251011-nightly-cebu-signed/super_empty.img
       - name: vbmeta.img
         url: https://github.com/Deivid21/RELEASES/releases/download/lineage-22.2-20251011-nightly-cebu-signed/vbmeta.img
-    notes: "Last official LineageOS 22.2 nightly build (signed): September 2025 security patch, SELinux enforcing. No longer updated."
-    notes_es: "Última nightly oficial de LineageOS 22.2 (firmada): parche de seguridad de septiembre de 2025, SELinux enforcing. Ya no se actualiza."
+    notes: "Last official LineageOS 22.2 nightly build (signed): October 2025 security patch, SELinux enforcing. No longer updated."
+    notes_es: "Última nightly oficial de LineageOS 22.2 (firmada): parche de seguridad de octubre de 2025, SELinux enforcing. Ya no se actualiza."
+  - name: LineageOS
+    archived: true
+    android: 14
+    version: "21.0"
+    status: discontinued
+    date: 2024-12-28
+    download: https://github.com/Deivid21/RELEASES/releases/download/lineage-21.0-20241228-nightly-cebu-signed/lineage-21.0-20241228-nightly-cebu-signed.zip
+    changelog: https://github.com/Deivid21/RELEASES/releases/tag/lineage-21.0-20241228-nightly-cebu-signed
+    sha256: "090e148c3842bc7c3f63cf66d1d7aaddb7a43bb009ab164174a4c1ff40d62e0a"
+    filesize: "0.88 GB"
+    security_patch: December 2024
+    gapps: false
+    forum: https://xdaforums.com/t/rom-17-official-lineageos-24-0-for-moto-g9-power-cebu.4719845/
+    files:
+      - name: boot.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-21.0-20241228-nightly-cebu-signed/boot.img
+      - name: dtbo.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-21.0-20241228-nightly-cebu-signed/dtbo.img
+      - name: recovery.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-21.0-20241228-nightly-cebu-signed/recovery.img
+      - name: vbmeta.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-21.0-20241228-nightly-cebu-signed/vbmeta.img
+    notes: "Last official LineageOS 21.0 nightly build (signed): December 2024 security patch, SELinux enforcing. No longer updated."
+    notes_es: "Última nightly oficial de LineageOS 21.0 (firmada): parche de seguridad de diciembre de 2024, SELinux enforcing. Ya no se actualiza."
 ---
