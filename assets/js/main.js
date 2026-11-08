@@ -131,15 +131,23 @@ document.addEventListener('click', e => {
   const loaders = {
     async lineageos(codename, android) {
       const src = SRC.lineageos;
-      const [builds, targets] = await Promise.all([
+      // Wiki device data: <codename>.yml, or <codename>_variant1.yml for devices with variants
+      const wiki = get(fmt(src.wiki, { codename }), 'text')
+        .catch(() => get(fmt(src.wiki, { codename: codename + '_variant1' }), 'text'))
+        .catch(() => '');
+      const [builds, targets, wikiYml] = await Promise.all([
         get(fmt(src.builds, { codename })).catch(() => []),
         get(src.targets, 'text').catch(() => ''),
+        wiki,
       ]);
+      const m = wikiYml.match(/^maintainers:\s*\[(.*)\]\s*$/m);
+      const maintainers = m ? m[1].split(',').map(s => s.trim().replace(/^['"]|['"]$/g, '')).filter(Boolean) : [];
       const target = targets.split('\n').map(l => l.trim().split(/\s+/)).find(f => f[0] === codename);
       const b = builds.filter(x => !android || lineageAndroid(x.version) === android)[0];
       if (!b && !target) return null;
       const file = b && b.files && b.files[0];
       return {
+        maintainers,
         available: !!b,
         status: target ? 'active' : 'discontinued',
         android: b ? lineageAndroid(b.version) : lineageAndroid(target[2].replace('lineage-', '')),
@@ -196,6 +204,7 @@ document.addEventListener('click', e => {
       card.querySelector('.copy').dataset.copy = info.sha256;
       show('[data-field="hash"]');
     }
+    if (info.maintainers && info.maintainers.length) { set('maintainers', info.maintainers.join(', ')); show('[data-row="maintainers"]'); }
     if (info.forum) { card.querySelector('[data-field="forum"]').href = info.forum; show('[data-row="forum"]'); }
   }
 

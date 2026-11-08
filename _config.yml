@@ -37,6 +37,7 @@ official_sources:
   lineageos:
     builds: https://download.lineageos.org/api/v2/devices/{codename}/builds
     targets: https://raw.githubusercontent.com/LineageOS/hudson/main/lineage-build-targets
+    wiki: https://raw.githubusercontent.com/LineageOS/lineage_wiki/main/_data/devices/{codename}.yml
   evolution-x:
     devices: https://raw.githubusercontent.com/Evolution-X/www_gitres/main/devices/devices.json
     versions: https://raw.githubusercontent.com/Evolution-X/www_gitres/main/version/versions.json

@@ -93,6 +93,8 @@ layout: default
           <dd data-field="size" data-row="size"{% unless rom.filesize %} hidden{% endunless %}>{{ rom.filesize }}</dd>
           {% if rom.security_patch %}<dt data-i18n="info_security_patch">{{ t.info_security_patch }}</dt><dd>{{ rom.security_patch }}</dd>{% endif %}
           {% if rom.gapps != nil %}{% if rom.gapps %}{% assign gk = "gapps_included" %}{% else %}{% assign gk = "gapps_not_included" %}{% endif %}<dt>GApps</dt><dd data-i18n="{{ gk }}">{{ t[gk] }}</dd>{% endif %}
+          <dt data-row="maintainers" data-i18n="info_maintainers" hidden>{{ t.info_maintainers }}</dt>
+          <dd data-row="maintainers" data-field="maintainers" hidden></dd>
           <dt data-row="forum"{% unless rom.forum %} hidden{% endunless %}>XDA</dt>
           <dd data-row="forum"{% unless rom.forum %} hidden{% endunless %}><a data-field="forum" href="{{ rom.forum | default: '#' }}" target="_blank" rel="noopener" data-i18n="info_forum">{{ t.info_forum }}</a></dd>
           {% if rom.files %}<dt data-i18n="info_files">{{ t.info_files }}</dt><dd class="rom-files">{% for f in rom.files %}<a href="{{ f.url }}" target="_blank" rel="noopener">{{ f.name }}</a>{% endfor %}</dd>{% endif %}

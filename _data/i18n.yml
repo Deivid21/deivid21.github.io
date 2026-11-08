@@ -58,6 +58,7 @@ en:
   copy_link: Copy link to this build
   link_copied: Link copied!
   info_size: Size
+  info_maintainers: Maintainers
   info_forum: XDA thread
   download: Download
   changelog: Changelog
@@ -129,6 +130,7 @@ es:
   copy_link: Copiar enlace a esta build
   link_copied: ¡Enlace copiado!
   info_size: Tamaño
+  info_maintainers: Mantenedores
   info_forum: Hilo en XDA
   download: Descargar
   changelog: Changelog
