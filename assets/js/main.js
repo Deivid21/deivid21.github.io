@@ -115,7 +115,7 @@ document.addEventListener('click', e => {
 // Official ROM cards are filled with live data from each project. If a
 // request fails, the card keeps the values written in the device file.
 (() => {
-  const cards = document.querySelectorAll('details.rom[data-type="official"]:not(.rom-soon)');
+  const cards = document.querySelectorAll('details.rom[data-type="official"]:not(.rom-soon):not(.rom-archived)');
   const srcEl = document.getElementById('rom-sources');
   if (!cards.length || !srcEl) return;
   const SRC = JSON.parse(srcEl.textContent || '{}');
