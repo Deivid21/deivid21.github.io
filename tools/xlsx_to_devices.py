@@ -53,6 +53,7 @@ for _, r in df.iterrows():
     for n, state in roms:
         L += [f'  - name: {n}']  # official: Android version and build info load live
         if state == 'soon': L.append('    released: false')
+        if n == 'LineageOS' and r.get('LineageOS XDA'): L.append(f'    forum: {r["LineageOS XDA"]}')
         L += ['    # version: ""', '    # status: active      # active | discontinued', '    # date: 2026-11-03']
     tests, body = kept.get(cn, ([], ''))
     if not roms:

@@ -16,6 +16,7 @@ roms:
     # status: active      # active | discontinued
     # date: 2026-11-03
   - name: LineageOS
+    forum: https://xdaforums.com/t/rom-17-official-lineageos-24-0-for-moto-g10-moto-g10-power-capri.4733239/
     # version: ""
     # status: active      # active | discontinued
     # date: 2026-11-03
