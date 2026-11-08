@@ -21,6 +21,30 @@ roms:
     # date: 2026-11-03
   - name: LineageOS
     archived: true
+    android: 16
+    version: "23.2"
+    status: discontinued
+    date: 2026-10-09
+    download: https://github.com/Deivid21/RELEASES/releases/download/lineage-23.2-20261009-nightly-bathena-signed/lineage-23.2-20261009-nightly-bathena-signed.zip
+    changelog: https://github.com/Deivid21/RELEASES/releases/tag/lineage-23.2-20261009-nightly-bathena-signed
+    sha256: "5e9faef67726bc6200ded2eb3c34c4ad92eade1c33f3f1e036e8688693f2e7fc"
+    filesize: "1.00 GB"
+    security_patch: October 2026
+    gapps: false
+    forum: https://xdaforums.com/t/rom-17-official-lineageos-24-0-for-motorola-defy-2021-bathena.4734636/
+    files:
+      - name: boot.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-23.2-20261009-nightly-bathena-signed/boot.img
+      - name: dtbo.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-23.2-20261009-nightly-bathena-signed/dtbo.img
+      - name: recovery.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-23.2-20261009-nightly-bathena-signed/recovery.img
+      - name: vbmeta.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-23.2-20261009-nightly-bathena-signed/vbmeta.img
+    notes: "Last official LineageOS 23.2 nightly build (signed): October 2026 security patch, SELinux enforcing. No longer updated."
+    notes_es: "Última nightly oficial de LineageOS 23.2 (firmada): parche de seguridad de octubre de 2026, SELinux enforcing. Ya no se actualiza."
+  - name: LineageOS
+    archived: true
     android: 15
     version: "22.2"
     status: discontinued
@@ -29,7 +53,7 @@ roms:
     changelog: https://github.com/Deivid21/RELEASES/releases/tag/lineage-22.2-20251010-nightly-bathena-signed
     sha256: "5fbc308fe32eb52128fc289bc9173a5e6b3bed6878313b28a2be5d3cc4a63e72"
     filesize: "0.93 GB"
-    security_patch: September 2025
+    security_patch: October 2025
     gapps: false
     forum: https://xdaforums.com/t/rom-17-official-lineageos-24-0-for-motorola-defy-2021-bathena.4734636/
     files:
@@ -43,6 +67,6 @@ roms:
         url: https://github.com/Deivid21/RELEASES/releases/download/lineage-22.2-20251010-nightly-bathena-signed/super_empty.img
       - name: vbmeta.img
         url: https://github.com/Deivid21/RELEASES/releases/download/lineage-22.2-20251010-nightly-bathena-signed/vbmeta.img
-    notes: "Last official LineageOS 22.2 nightly build (signed): September 2025 security patch, SELinux enforcing. No longer updated."
-    notes_es: "Última nightly oficial de LineageOS 22.2 (firmada): parche de seguridad de septiembre de 2025, SELinux enforcing. Ya no se actualiza."
+    notes: "Last official LineageOS 22.2 nightly build (signed): October 2025 security patch, SELinux enforcing. No longer updated."
+    notes_es: "Última nightly oficial de LineageOS 22.2 (firmada): parche de seguridad de octubre de 2025, SELinux enforcing. Ya no se actualiza."
 ---
