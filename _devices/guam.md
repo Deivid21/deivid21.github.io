@@ -43,4 +43,30 @@ roms:
         url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261106-UNOFFICIAL-guam/vbmeta.img
     notes: "Test build: November 2026 security patch, SELinux set to permissive, Linux kernel 4.19.325-cip136. Also EROFS filesystem, odm partition, higher dalvik-heap limits, blurs available (off by default), camera blobs from guamna, overlays from guamp and Moto Camera 2 built from prebuilt source."
     notes_es: "Build de prueba: parche de seguridad de noviembre de 2026, SELinux en permissive, kernel Linux 4.19.325-cip136. Además: sistema de archivos EROFS, partición odm, límites de dalvik-heap más altos, blurs disponibles (desactivados por defecto), blobs de cámara de guamna, overlays de guamp y Moto Camera 2 compilada desde prebuilts."
+  - name: LineageOS
+    archived: true
+    android: 15
+    version: "22.2"
+    status: discontinued
+    date: 2025-10-09
+    download: https://github.com/Deivid21/RELEASES/releases/download/lineage-22.2-20251009-nightly-guam-signed/lineage-22.2-20251009-nightly-guam-signed.zip
+    changelog: https://github.com/Deivid21/RELEASES/releases/tag/lineage-22.2-20251009-nightly-guam-signed
+    sha256: "0776e04f4901e9fbeed128eae8beafdf84e26b2e8605c374841b9a50e444bd6b"
+    filesize: "0.93 GB"
+    security_patch: September 2025
+    gapps: false
+    forum: https://xdaforums.com/t/rom-17-official-lineageos-24-0-for-moto-e7-plus-guam.4807801/
+    files:
+      - name: boot.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-22.2-20251009-nightly-guam-signed/boot.img
+      - name: dtbo.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-22.2-20251009-nightly-guam-signed/dtbo.img
+      - name: recovery.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-22.2-20251009-nightly-guam-signed/recovery.img
+      - name: super_empty.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-22.2-20251009-nightly-guam-signed/super_empty.img
+      - name: vbmeta.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-22.2-20251009-nightly-guam-signed/vbmeta.img
+    notes: "Last official LineageOS 22.2 nightly build (signed): September 2025 security patch, SELinux enforcing. No longer updated."
+    notes_es: "Última nightly oficial de LineageOS 22.2 (firmada): parche de seguridad de septiembre de 2025, SELinux enforcing. Ya no se actualiza."
 ---
