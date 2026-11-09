@@ -21,6 +21,32 @@ roms:
     # status: active      # active | discontinued
     # date: 2026-11-03
   - name: LineageOS
+    type: test
+    android: 17
+    version: "24.0"
+    status: active
+    date: 2026-11-08
+    download: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261108-UNOFFICIAL-capri/lineage-24.0-20261108-UNOFFICIAL-capri.zip
+    changelog: https://github.com/Deivid21/RELEASES/releases/tag/lineage-24.0-20261108-UNOFFICIAL-capri
+    sha256: "38047e76afd10f632ad955da8657e59496ac003666add23f58e0df4046104acf"
+    filesize: "1.33 GB"
+    security_patch: November 2026
+    gapps: false
+    forum: https://xdaforums.com/t/rom-17-official-lineageos-24-0-for-moto-g10-moto-g10-power-capri.4733239/
+    files:
+      - name: boot.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261108-UNOFFICIAL-capri/boot.img
+      - name: dtbo.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261108-UNOFFICIAL-capri/dtbo.img
+      - name: vbmeta.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261108-UNOFFICIAL-capri/vbmeta.img
+      - name: vbmeta_system.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261108-UNOFFICIAL-capri/vbmeta_system.img
+      - name: vendor_boot.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261108-UNOFFICIAL-capri/vendor_boot.img
+    notes: "Test build: November 2026 security patch, SELinux set to permissive, Linux kernel 4.19.325-cip136 and a fix for the screen sometimes staying black and not turning off properly after locking. Also EROFS filesystem, odm partition, higher dalvik-heap limits, blurs available (off by default) and Moto Camera 4 built from prebuilt source."
+    notes_es: "Build de prueba: parche de seguridad de noviembre de 2026, SELinux en permissive, kernel Linux 4.19.325-cip136 y corrección de la pantalla que a veces quedaba en negro y no se apagaba bien al bloquear. Además: sistema de archivos EROFS, partición odm, límites de dalvik-heap más altos, blurs disponibles (desactivados por defecto) y Moto Camera 4 compilada desde prebuilts."
+  - name: LineageOS
     archived: true
     android: 16
     version: "23.2"
