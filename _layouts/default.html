@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="{{ site.lang }}">
 <head>
-  <script>try{if(localStorage.getItem('lang')==='es')document.documentElement.lang='es'}catch(e){}</script>
+  <script>try{var d=document.documentElement,th=localStorage.getItem('theme');if(localStorage.getItem('lang')==='es')d.lang='es';if(th==='light'||th==='dark')d.dataset.theme=th}catch(e){}</script>
   {% include head.html %}
 </head>
 <body>

@@ -59,6 +59,9 @@ en:
   link_copied: Link copied!
   info_size: Size
   info_maintainers: Maintainers
+  theme_auto: "Theme: system"
+  theme_light: "Theme: light"
+  theme_dark: "Theme: dark"
   info_forum: XDA thread
   download: Download
   changelog: Changelog
@@ -131,6 +134,9 @@ es:
   link_copied: ¡Enlace copiado!
   info_size: Tamaño
   info_maintainers: Mantenedores
+  theme_auto: "Tema: sistema"
+  theme_light: "Tema: claro"
+  theme_dark: "Tema: oscuro"
   info_forum: Hilo en XDA
   download: Descargar
   changelog: Changelog

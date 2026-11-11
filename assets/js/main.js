@@ -31,6 +31,24 @@ document.getElementById('lang-toggle')?.addEventListener('click', () => {
 
 if (getLang() === 'es') applyLang('es');
 
+// ── Theme: system (default) → light → dark ──────────────
+(() => {
+  const btn = document.getElementById('theme-toggle');
+  if (!btn) return;
+  const order = ['auto', 'light', 'dark'];
+  const current = () => document.documentElement.dataset.theme || 'auto';
+  const label = () => { const l = t('theme_' + current()); btn.title = l; btn.setAttribute('aria-label', l); };
+  btn.addEventListener('click', () => {
+    const next = order[(order.indexOf(current()) + 1) % order.length];
+    if (next === 'auto') delete document.documentElement.dataset.theme;
+    else document.documentElement.dataset.theme = next;
+    try { next === 'auto' ? localStorage.removeItem('theme') : localStorage.setItem('theme', next); } catch {}
+    label();
+  });
+  document.getElementById('lang-toggle')?.addEventListener('click', label);
+  label();
+})();
+
 // ── Search + platform filter + "active only" ────────────
 (() => {
   const search = document.getElementById('search');
