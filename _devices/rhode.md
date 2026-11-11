@@ -24,27 +24,27 @@ roms:
     android: 17
     version: "24.0"
     status: active
-    date: 2026-11-08
-    download: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261108-UNOFFICIAL-rhode/lineage-24.0-20261108-UNOFFICIAL-rhode.zip
-    changelog: https://github.com/Deivid21/RELEASES/releases/tag/lineage-24.0-20261108-UNOFFICIAL-rhode
-    sha256: "24057fd32516ae02828c52d9106aa6b9f0ac9aac9064bb7d866cb180054c72da"
-    filesize: "1.30 GB"
+    date: 2026-11-11
+    download: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261111-UNOFFICIAL-rhode/lineage-24.0-20261111-UNOFFICIAL-rhode.zip
+    changelog: https://github.com/Deivid21/RELEASES/releases/tag/lineage-24.0-20261111-UNOFFICIAL-rhode
+    sha256: "836844a138803e99de2429a1a3d4fa59cdaf7aa9f4f6b1d19c8b88ecd31e257d"
+    filesize: "1.40 GB"
     security_patch: November 2026
-    gapps: false
+    gapps: true
     forum: https://xdaforums.com/t/rom-17-official-lineageos-24-0-for-moto-g52-rhode.4808044/
     files:
       - name: boot.img
-        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261108-UNOFFICIAL-rhode/boot.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261111-UNOFFICIAL-rhode/boot.img
       - name: dtbo.img
-        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261108-UNOFFICIAL-rhode/dtbo.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261111-UNOFFICIAL-rhode/dtbo.img
       - name: vbmeta.img
-        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261108-UNOFFICIAL-rhode/vbmeta.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261111-UNOFFICIAL-rhode/vbmeta.img
       - name: vbmeta_system.img
-        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261108-UNOFFICIAL-rhode/vbmeta_system.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261111-UNOFFICIAL-rhode/vbmeta_system.img
       - name: vendor_boot.img
-        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261108-UNOFFICIAL-rhode/vendor_boot.img
-    notes: "Test build: November 2026 security patch, SELinux set to permissive, Linux kernel 4.19.325-cip136 and a fix for the screen sometimes staying black and not turning off properly after locking. Also EROFS filesystem, odm partition, higher dalvik-heap limits, blurs available (off by default) and Moto Camera 4 built from prebuilt source."
-    notes_es: "Build de prueba: parche de seguridad de noviembre de 2026, SELinux en permissive, kernel Linux 4.19.325-cip136 y corrección de la pantalla que a veces quedaba en negro y no se apagaba bien al bloquear. Además: sistema de archivos EROFS, partición odm, límites de dalvik-heap más altos, blurs disponibles (desactivados por defecto) y Moto Camera 4 compilada desde prebuilts."
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261111-UNOFFICIAL-rhode/vendor_boot.img
+    notes: "Test build: November 2026 security patch, SELinux enforcing, GApps (MindTheGapps) included, Linux kernel 4.19.325-cip136 and a fix for the screen sometimes staying black and not turning off properly after locking. Also odm partition, dalvik heap and LMKD settings per RAM variant, screen density set to 420, blurs available (off by default), Moto Camera 4 built from prebuilt source and missing camera libraries added."
+    notes_es: "Build de prueba: parche de seguridad de noviembre de 2026, SELinux enforcing, GApps (MindTheGapps) incluidas, kernel Linux 4.19.325-cip136 y corrección de la pantalla que a veces quedaba en negro y no se apagaba bien al bloquear. Además: partición odm, ajustes de dalvik heap y LMKD según la variante de RAM, densidad de pantalla en 420, blurs disponibles (desactivados por defecto), Moto Camera 4 compilada desde prebuilts y librerías de cámara que faltaban."
   - name: LineageOS
     archived: true
     android: 16
