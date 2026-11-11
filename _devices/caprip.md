@@ -124,4 +124,30 @@ roms:
         url: https://github.com/Deivid21/RELEASES/releases/download/lineage-21.0-20241225-nightly-caprip-signed/vendor_boot.img
     notes: "Last official LineageOS 21.0 nightly build (signed): December 2024 security patch, SELinux enforcing. No longer updated."
     notes_es: "Última nightly oficial de LineageOS 21.0 (firmada): parche de seguridad de diciembre de 2024, SELinux enforcing. Ya no se actualiza."
+  - name: LineageOS
+    archived: true
+    android: 13
+    version: "20.0"
+    status: discontinued
+    date: 2023-06-30
+    download: https://github.com/Deivid21/RELEASES/releases/download/lineage-20.0-20230630-nightly-caprip-signed/lineage-20.0-20230630-nightly-caprip-signed.zip
+    changelog: https://github.com/Deivid21/RELEASES/releases/tag/lineage-20.0-20230630-nightly-caprip-signed
+    sha256: "033fbc384f3005806241a9f6e83c3cbab57b63e4336cef653477fe956a049328"
+    filesize: "0.78 GB"
+    security_patch: June 2023
+    gapps: false
+    forum: https://xdaforums.com/t/rom-17-official-lineageos-24-0-for-moto-g30-caprip.4808041/
+    files:
+      - name: boot.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-20.0-20230630-nightly-caprip-signed/boot.img
+      - name: dtbo.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-20.0-20230630-nightly-caprip-signed/dtbo.img
+      - name: vbmeta.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-20.0-20230630-nightly-caprip-signed/vbmeta.img
+      - name: vbmeta_system.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-20.0-20230630-nightly-caprip-signed/vbmeta_system.img
+      - name: vendor_boot.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-20.0-20230630-nightly-caprip-signed/vendor_boot.img
+    notes: "Last official LineageOS 20.0 nightly build (signed): June 2023 security patch, SELinux enforcing. No longer updated."
+    notes_es: "Última nightly oficial de LineageOS 20.0 (firmada): parche de seguridad de junio de 2023, SELinux enforcing. Ya no se actualiza."
 ---
