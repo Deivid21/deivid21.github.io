@@ -25,27 +25,27 @@ roms:
     android: 17
     version: "24.0"
     status: active
-    date: 2026-11-08
-    download: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261108-UNOFFICIAL-caprip/lineage-24.0-20261108-UNOFFICIAL-caprip.zip
-    changelog: https://github.com/Deivid21/RELEASES/releases/tag/lineage-24.0-20261108-UNOFFICIAL-caprip
-    sha256: "4f8370d6d00eafc6ea6f5ff78c68c7e5aa5cf7c754099b5466404cd3e519d48b"
-    filesize: "1.32 GB"
+    date: 2026-11-12
+    download: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261112-UNOFFICIAL-caprip/lineage-24.0-20261112-UNOFFICIAL-caprip.zip
+    changelog: https://github.com/Deivid21/RELEASES/releases/tag/lineage-24.0-20261112-UNOFFICIAL-caprip
+    sha256: "9a4296234c38f2e9e065f166c9d8a61aeabece9a2762fe9908f6937963d9299b"
+    filesize: "1.43 GB"
     security_patch: November 2026
-    gapps: false
+    gapps: true
     forum: https://xdaforums.com/t/rom-17-official-lineageos-24-0-for-moto-g30-caprip.4808041/
     files:
       - name: boot.img
-        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261108-UNOFFICIAL-caprip/boot.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261112-UNOFFICIAL-caprip/boot.img
       - name: dtbo.img
-        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261108-UNOFFICIAL-caprip/dtbo.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261112-UNOFFICIAL-caprip/dtbo.img
       - name: vbmeta.img
-        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261108-UNOFFICIAL-caprip/vbmeta.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261112-UNOFFICIAL-caprip/vbmeta.img
       - name: vbmeta_system.img
-        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261108-UNOFFICIAL-caprip/vbmeta_system.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261112-UNOFFICIAL-caprip/vbmeta_system.img
       - name: vendor_boot.img
-        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261108-UNOFFICIAL-caprip/vendor_boot.img
-    notes: "Test build: November 2026 security patch, SELinux set to permissive, Linux kernel 4.19.325-cip136 and a fix for the screen sometimes staying black and not turning off properly after locking. Also EROFS filesystem, odm partition, higher dalvik-heap limits, blurs available (off by default) and Moto Camera 4 built from prebuilt source."
-    notes_es: "Build de prueba: parche de seguridad de noviembre de 2026, SELinux en permissive, kernel Linux 4.19.325-cip136 y corrección de la pantalla que a veces quedaba en negro y no se apagaba bien al bloquear. Además: sistema de archivos EROFS, partición odm, límites de dalvik-heap más altos, blurs disponibles (desactivados por defecto) y Moto Camera 4 compilada desde prebuilts."
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261112-UNOFFICIAL-caprip/vendor_boot.img
+    notes: "Test build: November 2026 security patch, SELinux enforcing, GApps (MindTheGapps) included, Linux kernel 4.19.325-cip136 and a fix for the screen sometimes staying black and not turning off properly after locking. Also odm partition, dalvik heap and LMKD settings per RAM variant, blurs available (off by default), Moto Camera 4 built from prebuilt source and libaidenoiser for the camera. SKU specific properties moved to the product partition."
+    notes_es: "Build de prueba: parche de seguridad de noviembre de 2026, SELinux enforcing, GApps (MindTheGapps) incluidas, kernel Linux 4.19.325-cip136 y corrección de la pantalla que a veces quedaba en negro y no se apagaba bien al bloquear. Además: partición odm, ajustes de dalvik heap y LMKD según la variante de RAM, blurs disponibles (desactivados por defecto), Moto Camera 4 compilada desde prebuilts y libaidenoiser para la cámara. Propiedades específicas de cada SKU movidas a la partición product."
   - name: LineageOS
     archived: true
     android: 16
