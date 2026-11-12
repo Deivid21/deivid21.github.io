@@ -25,25 +25,25 @@ roms:
     android: 17
     version: "24.0"
     status: active
-    date: 2026-11-08
-    download: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261106-UNOFFICIAL-guam/lineage-24.0-20261108-UNOFFICIAL-guam.zip
-    changelog: https://github.com/Deivid21/RELEASES/releases/tag/lineage-24.0-20261106-UNOFFICIAL-guam
-    sha256: "96faaa9f63b34d7e45e8f8edcd1476d05b051e752df8df683fdefe05ab87a05a"
-    filesize: "1.35 GB"
+    date: 2026-11-12
+    download: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261112-UNOFFICIAL-guam/lineage-24.0-20261112-UNOFFICIAL-guam.zip
+    changelog: https://github.com/Deivid21/RELEASES/releases/tag/lineage-24.0-20261112-UNOFFICIAL-guam
+    sha256: "4d0483a351b56aaa1b091ebb442e525bc87e155f95a8c9f387a73b7ff40c28be"
+    filesize: "1.45 GB"
     security_patch: November 2026
-    gapps: false
+    gapps: true
     forum: https://xdaforums.com/t/rom-17-official-lineageos-24-0-for-moto-e7-plus-guam.4807801/
     files:
       - name: boot.img
-        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261106-UNOFFICIAL-guam/boot.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261112-UNOFFICIAL-guam/boot.img
       - name: dtbo.img
-        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261106-UNOFFICIAL-guam/dtbo.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261112-UNOFFICIAL-guam/dtbo.img
       - name: recovery.img
-        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261106-UNOFFICIAL-guam/recovery.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261112-UNOFFICIAL-guam/recovery.img
       - name: vbmeta.img
-        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261106-UNOFFICIAL-guam/vbmeta.img
-    notes: "Test build: November 2026 security patch, SELinux set to permissive, Linux kernel 4.19.325-cip136 and a fix for the screen sometimes staying black and not turning off properly after locking. Also EROFS filesystem, odm partition, higher dalvik-heap limits, blurs available (off by default), camera blobs from guamna, overlays from guamp and Moto Camera 2 built from prebuilt source."
-    notes_es: "Build de prueba: parche de seguridad de noviembre de 2026, SELinux en permissive, kernel Linux 4.19.325-cip136 y corrección de la pantalla que a veces quedaba en negro y no se apagaba bien al bloquear. Además: sistema de archivos EROFS, partición odm, límites de dalvik-heap más altos, blurs disponibles (desactivados por defecto), blobs de cámara de guamna, overlays de guamp y Moto Camera 2 compilada desde prebuilts."
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261112-UNOFFICIAL-guam/vbmeta.img
+    notes: "Test build: November 2026 security patch, SELinux enforcing, GApps (MindTheGapps) included, Linux kernel 4.19.325-cip136 and a fix for the screen sometimes staying black and not turning off properly after locking. Also odm partition, dalvik heap and LMKD settings per RAM variant, blurs available (off by default), Moto Camera 2 built from prebuilt source, libaidenoiser for the camera, camera blobs from guamna_retail RZA31.Q2-146-14-22-2 and overlay configs from guamp_retail. SKU specific properties moved to the product partition."
+    notes_es: "Build de prueba: parche de seguridad de noviembre de 2026, SELinux enforcing, GApps (MindTheGapps) incluidas, kernel Linux 4.19.325-cip136 y corrección de la pantalla que a veces quedaba en negro y no se apagaba bien al bloquear. Además: partición odm, ajustes de dalvik heap y LMKD según la variante de RAM, blurs disponibles (desactivados por defecto), Moto Camera 2 compilada desde prebuilts, libaidenoiser para la cámara, blobs de cámara de guamna_retail RZA31.Q2-146-14-22-2 y overlays de guamp_retail. Propiedades específicas de cada SKU movidas a la partición product."
   - name: LineageOS
     archived: true
     android: 15
