@@ -25,25 +25,25 @@ roms:
     android: 17
     version: "24.0"
     status: active
-    date: 2026-11-08
-    download: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261108-UNOFFICIAL-cebu/lineage-24.0-20261108-UNOFFICIAL-cebu.zip
-    changelog: https://github.com/Deivid21/RELEASES/releases/tag/lineage-24.0-20261108-UNOFFICIAL-cebu
-    sha256: "007247ebe8a8e1560953166d0c544c92422b24889d4c05d7eee078b6db9703bc"
-    filesize: "1.37 GB"
+    date: 2026-11-12
+    download: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261112-UNOFFICIAL-cebu/lineage-24.0-20261112-UNOFFICIAL-cebu.zip
+    changelog: https://github.com/Deivid21/RELEASES/releases/tag/lineage-24.0-20261112-UNOFFICIAL-cebu
+    sha256: "90c56b9712b1f6775bad73558e82cdcd59f2ae82d7f8b8b0ea8de0cb9f2dcbe8"
+    filesize: "1.47 GB"
     security_patch: November 2026
-    gapps: false
+    gapps: true
     forum: https://xdaforums.com/t/rom-17-official-lineageos-24-0-for-moto-g9-power-cebu.4719845/
     files:
       - name: boot.img
-        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261108-UNOFFICIAL-cebu/boot.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261112-UNOFFICIAL-cebu/boot.img
       - name: dtbo.img
-        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261108-UNOFFICIAL-cebu/dtbo.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261112-UNOFFICIAL-cebu/dtbo.img
       - name: recovery.img
-        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261108-UNOFFICIAL-cebu/recovery.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261112-UNOFFICIAL-cebu/recovery.img
       - name: vbmeta.img
-        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261108-UNOFFICIAL-cebu/vbmeta.img
-    notes: "Test build: November 2026 security patch, SELinux set to permissive, Linux kernel 4.19.325-cip136 and a fix for the screen sometimes staying black and not turning off properly after locking. Also EROFS filesystem, odm partition, higher dalvik-heap limits, blurs available (off by default) and Moto Camera 4 built from prebuilt source."
-    notes_es: "Build de prueba: parche de seguridad de noviembre de 2026, SELinux en permissive, kernel Linux 4.19.325-cip136 y corrección de la pantalla que a veces quedaba en negro y no se apagaba bien al bloquear. Además: sistema de archivos EROFS, partición odm, límites de dalvik-heap más altos, blurs disponibles (desactivados por defecto) y Moto Camera 4 compilada desde prebuilts."
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261112-UNOFFICIAL-cebu/vbmeta.img
+    notes: "Test build: November 2026 security patch, SELinux enforcing, GApps (MindTheGapps) included, Linux kernel 4.19.325-cip136 and a fix for the screen sometimes staying black and not turning off properly after locking. Also odm partition, dalvik heap and LMKD settings per RAM variant, blurs available (off by default), Moto Camera 4 built from prebuilt source and libaidenoiser for the camera. SKU specific properties moved to the product partition."
+    notes_es: "Build de prueba: parche de seguridad de noviembre de 2026, SELinux enforcing, GApps (MindTheGapps) incluidas, kernel Linux 4.19.325-cip136 y corrección de la pantalla que a veces quedaba en negro y no se apagaba bien al bloquear. Además: partición odm, ajustes de dalvik heap y LMKD según la variante de RAM, blurs disponibles (desactivados por defecto), Moto Camera 4 compilada desde prebuilts y libaidenoiser para la cámara. Propiedades específicas de cada SKU movidas a la partición product."
   - name: LineageOS
     archived: true
     android: 16
