@@ -61,6 +61,10 @@ official_sources:
     versions: https://raw.githubusercontent.com/Evolution-X/www_gitres/main/version/versions.json
     builds: https://raw.githubusercontent.com/Evolution-X/OTA/{branch}/builds/{codename}.json
 
+# Site pages live in _pages/ (each one sets its own permalink)
+include:
+  - _pages
+
 # ── Collections ──────────────────────────────────────
 collections:
   devices:
