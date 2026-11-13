@@ -49,6 +49,20 @@ rom_links:
   Evolution X:
     download: https://evolution-x.org/device/{codename}
 
+# Banner shown inside each ROM card, picked by Android version.
+# "default" is used when there is no banner for that version; label: true
+# adds an "Android N" chip over the banner to tell versions apart.
+rom_banners:
+  LineageOS:
+    "17": https://lineageos.org/images/2026-10-11/hero.webp
+    "16": https://lineageos.org/images/2025-10-11/hero.webp
+    "15": https://lineageos.org/images/2024-12-31/hero.webp
+    "14": https://lineageos.org/images/2024-02-14/hero.webp
+    "13": https://lineageos.org/images/2022-12-31/hero.webp
+  Evolution X:
+    default: https://raw.githubusercontent.com/Evolution-X/www_gitres/main/xda/assets/banner_style_3.png
+    label: true
+
 # Live build info for official ROMs, loaded in the browser on each device page.
 # {codename} and {branch} are replaced automatically.
 official_sources:

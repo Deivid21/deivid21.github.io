@@ -227,6 +227,17 @@ document.addEventListener('click', e => {
     },
   };
 
+  // ROM banner by Android version (live cards learn their version here)
+  const banners = (() => { try { return JSON.parse(document.getElementById('rom-banners').textContent); } catch { return {}; } })();
+  function setBanner(card, android) {
+    const fig = card.querySelector('[data-banner]');
+    const map = banners[card.querySelector('.rom-title h3')?.firstChild.textContent.trim()];
+    const url = map && (map[String(android)] || map.default);
+    if (!fig || !url) return;
+    fig.querySelector('img').src = url;
+    fig.hidden = false;
+  }
+
   function fill(card, info) {
     const set = (field, value) => card.querySelectorAll(`[data-field="${field}"]`).forEach(el => { el.textContent = value; });
     const show = (sel, on = true) => card.querySelectorAll(sel).forEach(el => { el.hidden = !on; });
@@ -235,7 +246,7 @@ document.addEventListener('click', e => {
       show('[data-field="soon"]', false);
       show('[data-field="actions"]');
     }
-    if (info.android) { set('android', info.android); show('[data-field="android-tag"]'); }
+    if (info.android) { set('android', info.android); show('[data-field="android-tag"]'); setBanner(card, info.android); }
     if (info.version) set('version', info.version);
     if (info.date) set('date', new Date(info.date).toISOString().slice(0, 10));
     if (info.status) {

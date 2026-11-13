@@ -97,6 +97,12 @@ layout: default
           </div>
           <span class="rom-chevron" aria-hidden="true"></span>
         </summary>
+        {% assign bmap = site.rom_banners[rom.name] %}{% assign akey = rom.android | append: "" %}{% assign banner = nil %}{% if bmap %}{% assign banner = bmap[akey] | default: bmap.default %}{% endif %}
+        <div class="rom-body">
+        <figure class="rom-banner" data-banner{% if bmap.label %} data-label{% endif %}{% unless banner and rom.android %} hidden{% endunless %}>
+          <img src="{{ banner }}" alt="{{ rom.name }}" loading="lazy" decoding="async">
+          {% if bmap.label %}<figcaption>Android <span data-field="android">{{ rom.android }}</span></figcaption>{% endif %}
+        </figure>
         <dl class="rom-info">
           <dt data-i18n="info_status">{{ t.info_status }}</dt>
           <dd data-field="status">{% if st == "active" or st == "discontinued" %}<span class="dot dot-{{ st }}"></span><span data-i18n="{{ st }}">{{ t[st] }}</span>{% else %}—{% endif %}</dd>
@@ -116,6 +122,7 @@ layout: default
           <dd data-row="forum"{% unless rom.forum %} hidden{% endunless %}><a data-field="forum" href="{{ rom.forum | default: '#' }}" target="_blank" rel="noopener" data-i18n="info_forum">{{ t.info_forum }}</a></dd>
           {% if rom.files %}<dt data-i18n="info_files">{{ t.info_files }}</dt><dd class="rom-files">{% for f in rom.files %}<a href="{{ f.url }}" target="_blank" rel="noopener">{{ f.name }}</a>{% endfor %}</dd>{% endif %}
         </dl>
+        </div>
         <div class="hash" data-field="hash"{% unless rom.sha256 %} hidden{% endunless %}>
           <span class="muted small">SHA256</span>
           <code data-field="sha256">{{ rom.sha256 }}</code>
@@ -136,6 +143,7 @@ layout: default
   </section>
   {% endif %}
 
+  <script id="rom-banners" type="application/json">{{ site.rom_banners | jsonify }}</script>
   {% if page.roms.size > 0 %}
   <script id="rom-sources" type="application/json">{{ site.official_sources | jsonify }}</script>
   {% endif %}
