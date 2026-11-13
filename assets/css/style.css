@@ -59,7 +59,7 @@ html[lang="en"] [data-lang="es"], html[lang="es"] [data-lang="en"] { display: no
 html { scroll-behavior: smooth; }
 body {
   margin: 0;
-  font-family: Inter, system-ui, -apple-system, Segoe UI, sans-serif;
+  font-family: "Google Sans Flex", "Google Sans", Roboto, system-ui, -apple-system, Segoe UI, sans-serif;
   background: var(--bg);
   color: var(--text);
   line-height: 1.6;
