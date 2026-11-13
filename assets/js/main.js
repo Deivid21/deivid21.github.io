@@ -49,6 +49,15 @@ document.getElementById('lang-toggle')?.addEventListener('click', () => {
 
 if (getLang() === 'es') applyLang('es');
 
+// Copy text to the clipboard and show a short confirmation on the button
+function copyWithFeedback(btn, text, doneKey = 'copied', idleKey = 'copy') {
+  if (!navigator.clipboard || !text) return;
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = t(doneKey);
+    setTimeout(() => (btn.textContent = t(idleKey)), 1500);
+  }, () => {});
+}
+
 // ── Theme: system (default) → light → dark ──────────────
 (() => {
   const btn = document.getElementById('theme-toggle');
@@ -56,12 +65,13 @@ if (getLang() === 'es') applyLang('es');
   const order = ['auto', 'light', 'dark'];
   const current = () => document.documentElement.dataset.theme || 'auto';
   const label = () => { const l = t('theme_' + current()); btn.title = l; btn.setAttribute('aria-label', l); };
-  // Browser/system bars (theme-color): keep both tags, forcing them to the picked theme
-  const bars = { dark: '#192123', light: '#e5f0f2' };
-  const metas = document.querySelectorAll('meta[name="theme-color"]');
+  // Browser/system bars (theme-color): both tags start with their scheme's color
+  // (set in head.html); a picked theme paints both with that color
+  const metas = [...document.querySelectorAll('meta[name="theme-color"]')];
+  const schemeOf = m => (m.media.includes('dark') ? 'dark' : 'light');
+  const bars = Object.fromEntries(metas.map(m => [schemeOf(m), m.content]));
   const paintBars = () => metas.forEach(m => {
-    const own = m.media.includes('dark') ? 'dark' : 'light';
-    m.content = current() === 'auto' ? bars[own] : bars[current()];
+    m.content = bars[current() === 'auto' ? schemeOf(m) : current()];
   });
   btn.addEventListener('click', () => {
     const next = order[(order.indexOf(current()) + 1) % order.length];
@@ -146,14 +156,12 @@ if (getLang() === 'es') applyLang('es');
 
 })();
 
-// ── Copy hash button ─────────────────────────────────────
+// ── Copy buttons: SHA256 hashes (data-copy) and code blocks ──
 document.addEventListener('click', e => {
   const btn = e.target.closest('.copy');
   if (!btn) return;
-  navigator.clipboard.writeText(btn.dataset.copy).then(() => {
-    btn.textContent = t('copied');
-    setTimeout(() => (btn.textContent = t('copy')), 1500);
-  });
+  const code = btn.closest('pre')?.querySelector('code');
+  copyWithFeedback(btn, btn.dataset.copy || (code && code.textContent.trim()));
 });
 
 // ── Official build info (LineageOS / Evolution X) ───────
@@ -231,7 +239,7 @@ document.addEventListener('click', e => {
   const banners = (() => { try { return JSON.parse(document.getElementById('rom-banners').textContent); } catch { return {}; } })();
   function setBanner(card, android) {
     const fig = card.querySelector('[data-banner]');
-    const map = banners[card.querySelector('.rom-title h3')?.firstChild.textContent.trim()];
+    const map = banners[card.dataset.romName];
     const url = map && (map[String(android)] || map.default);
     if (!fig || !url) return;
     fig.querySelector('img').src = url;
@@ -323,20 +331,13 @@ document.addEventListener('click', e => {
   });
 })();
 
-// ── Copy buttons on code blocks ─────────────────────────
+// ── Add a copy button to each code block ─────────────────
 document.querySelectorAll('pre.code').forEach(pre => {
   const btn = document.createElement('button');
   btn.type = 'button';
   btn.className = 'copy';
   btn.dataset.i18n = 'copy';
   btn.textContent = t('copy');
-  btn.addEventListener('click', e => {
-    e.stopPropagation();
-    navigator.clipboard.writeText(pre.querySelector('code').textContent.trim()).then(() => {
-      btn.textContent = t('copied');
-      setTimeout(() => (btn.textContent = t('copy')), 1500);
-    });
-  });
   pre.appendChild(btn);
 });
 
@@ -424,9 +425,7 @@ document.querySelectorAll('pre.code').forEach(pre => {
   document.addEventListener('click', e => {
     const btn = e.target.closest('.copy-link');
     if (!btn) return;
-    const url = location.origin + location.pathname + '#' + btn.dataset.anchor;
     history.replaceState(null, '', '#' + btn.dataset.anchor);
-    const done = () => { btn.textContent = t('link_copied'); setTimeout(() => (btn.textContent = t('copy_link')), 1800); };
-    if (navigator.clipboard) navigator.clipboard.writeText(url).then(done, () => {});
+    copyWithFeedback(btn, location.origin + location.pathname + '#' + btn.dataset.anchor, 'link_copied', 'copy_link');
   });
 })();

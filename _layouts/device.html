@@ -81,7 +81,7 @@ layout: default
       {% assign soon = false %}{% if rom.released == false %}{% assign soon = true %}{% endif %}
       {% assign st = rom.status | downcase %}
       {% capture card_id %}{% if rom.id %}{{ rom.id }}{% else %}{{ rom.name | slugify }}-{{ type }}{% if rom.android %}{% if type == "test" or rom.archived %}-a{{ rom.android }}{% endif %}{% endif %}{% endif %}{% endcapture %}
-      <details class="rom{% if soon %} rom-soon{% endif %}{% if rom.archived %} rom-archived{% endif %}" id="{{ card_id | strip }}" data-rom="{{ rom.name | slugify }}" data-type="{{ type }}" data-codename="{{ page.codename }}"{% if rom.android %} data-android="{{ rom.android }}"{% endif %}>
+      <details class="rom{% if soon %} rom-soon{% endif %}{% if rom.archived %} rom-archived{% endif %}" id="{{ card_id | strip }}" data-rom="{{ rom.name | slugify }}" data-rom-name="{{ rom.name }}" data-type="{{ type }}" data-codename="{{ page.codename }}"{% if rom.android %} data-android="{{ rom.android }}"{% endif %}>
         <summary class="rom-head">
           <div class="rom-title">
             <h3>{{ rom.name }} <span data-i18n="{{ type_key }}">{{ t[type_key] }}</span></h3>
