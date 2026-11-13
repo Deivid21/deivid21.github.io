@@ -29,7 +29,8 @@
 <meta property="og:description" content="{{ page_desc | strip | escape }}">
 <meta property="og:image" content="{{ page_img | strip }}">
 <meta name="twitter:card" content="{% if page.codename %}summary{% else %}summary_large_image{% endif %}">
-<meta name="theme-color" content="#0d1117">
+<meta name="theme-color" content="#192123" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#e5f0f2" media="(prefers-color-scheme: light)">
 <link rel="icon" href="{{ '/assets/img/favicon.svg' | relative_url }}" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

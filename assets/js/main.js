@@ -56,15 +56,24 @@ if (getLang() === 'es') applyLang('es');
   const order = ['auto', 'light', 'dark'];
   const current = () => document.documentElement.dataset.theme || 'auto';
   const label = () => { const l = t('theme_' + current()); btn.title = l; btn.setAttribute('aria-label', l); };
+  // Browser/system bars (theme-color): keep both tags, forcing them to the picked theme
+  const bars = { dark: '#192123', light: '#e5f0f2' };
+  const metas = document.querySelectorAll('meta[name="theme-color"]');
+  const paintBars = () => metas.forEach(m => {
+    const own = m.media.includes('dark') ? 'dark' : 'light';
+    m.content = current() === 'auto' ? bars[own] : bars[current()];
+  });
   btn.addEventListener('click', () => {
     const next = order[(order.indexOf(current()) + 1) % order.length];
     if (next === 'auto') delete document.documentElement.dataset.theme;
     else document.documentElement.dataset.theme = next;
     try { next === 'auto' ? localStorage.removeItem('theme') : localStorage.setItem('theme', next); } catch {}
     label();
+    paintBars();
   });
   document.getElementById('lang-toggle')?.addEventListener('click', label);
   label();
+  paintBars();
 })();
 
 // ── Search + platform filter + "active only" ────────────
