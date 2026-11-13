@@ -15,7 +15,6 @@ en:
   eyebrow: Custom ROMs · Firmware · Resources
   devices_title: Devices
   devices_lead: Every Motorola device I maintain, grouped by common tree. Pick yours to see its downloads, changelogs and guides.
-  hero_lead: ROMs, firmware and resources for Motorola devices. Pick your device to see its downloads, changelogs and guides.
   stat_device: device
   stat_devices: devices
   stat_active: active
@@ -90,7 +89,6 @@ es:
   eyebrow: Custom ROMs · Firmware · Recursos
   devices_title: Dispositivos
   devices_lead: Todos los dispositivos Motorola que mantengo, agrupados por árbol común. Elige el tuyo para ver sus descargas, changelogs y guías.
-  hero_lead: ROMs, firmwares y recursos para dispositivos Motorola. Elige tu dispositivo para ver sus descargas, changelogs y guías.
   stat_device: dispositivo
   stat_devices: dispositivos
   stat_active: activos
