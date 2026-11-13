@@ -99,9 +99,8 @@ layout: default
         </summary>
         {% assign bmap = site.rom_banners[rom.name] %}{% assign akey = rom.android | append: "" %}{% assign banner = nil %}{% if bmap %}{% assign banner = bmap[akey] | default: bmap.default %}{% endif %}
         <div class="rom-body">
-        <figure class="rom-banner" data-banner{% if bmap.label %} data-label{% endif %}{% unless banner and rom.android %} hidden{% endunless %}>
+        <figure class="rom-banner" data-banner{% unless banner and rom.android %} hidden{% endunless %}>
           <img src="{{ banner }}" alt="{{ rom.name }}" loading="lazy" decoding="async">
-          {% if bmap.label %}<figcaption>Android <span data-field="android">{{ rom.android }}</span></figcaption>{% endif %}
         </figure>
         <dl class="rom-info">
           <dt data-i18n="info_status">{{ t.info_status }}</dt>
