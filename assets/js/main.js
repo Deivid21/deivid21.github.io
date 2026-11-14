@@ -348,14 +348,20 @@ document.querySelectorAll('pre.code').forEach(pre => {
   let data = {};
   try { data = JSON.parse(document.getElementById('install-data').textContent); } catch {}
   const show = codename => {
-    const d = data[codename];
-    document.querySelectorAll('[data-install-pick]').forEach(el => (el.hidden = !!d));
-    document.querySelectorAll('[data-install-steps]').forEach(el => (el.hidden = !d));
-    if (!d) return;
-    const recoveryImg = d.recovery + '.img';
-    const lines = [...d.flash.map(p => `fastboot flash ${p} ${p}.img`), `fastboot flash ${d.recovery} ${recoveryImg}`];
+    const images = data[codename];
+    document.querySelectorAll('[data-install-pick]').forEach(el => (el.hidden = !!images));
+    document.querySelectorAll('[data-install-steps]').forEach(el => (el.hidden = !images));
+    if (!images) return;
+    // Flash every image, then reboot to recovery
+    const lines = [
+      'fastboot getvar max-sparse-size',
+      'fastboot oem fb_mode_set',
+      ...images.map(p => `fastboot flash ${p} ${p}.img`),
+      'fastboot oem fb_mode_clear',
+      'fastboot reboot-recovery',
+    ];
     document.querySelectorAll('.install-cmds code').forEach(code => (code.textContent = lines.join('\n')));
-    document.querySelectorAll('[data-install-files]').forEach(el => (el.textContent = [...d.flash.map(p => p + '.img'), recoveryImg].join(', ')));
+    document.querySelectorAll('[data-install-files]').forEach(el => (el.textContent = images.map(p => p + '.img').join(', ')));
   };
   sel.addEventListener('change', () => {
     show(sel.value);

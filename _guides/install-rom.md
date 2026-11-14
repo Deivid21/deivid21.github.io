@@ -54,9 +54,8 @@ description_es: Instalación limpia desde firmware stock.
     <li>From your device page, download the ROM zip and these images: <strong data-install-files></strong>.</li>
     <li>Reboot to fastboot:
       <pre class="code"><code>adb reboot bootloader</code></pre></li>
-    <li>Flash the images and the recovery:
+    <li>Flash the images and reboot to recovery:
       <pre class="code install-cmds"><code></code></pre></li>
-    <li>In the bootloader menu, select <strong>Recovery mode</strong> with the volume keys and confirm with the power key.</li>
     <li>In the recovery, go to <strong>Factory reset → Format data / factory reset</strong>.</li>
     <li>Go back, choose <strong>Apply update → Apply from ADB</strong> and send the ROM from your PC:
       <pre class="code"><code>adb sideload rom.zip</code></pre></li>
@@ -69,9 +68,8 @@ description_es: Instalación limpia desde firmware stock.
     <li>Desde la página de tu dispositivo, descarga el zip de la ROM y estas imágenes: <strong data-install-files></strong>.</li>
     <li>Reinicia en fastboot:
       <pre class="code"><code>adb reboot bootloader</code></pre></li>
-    <li>Flashea las imágenes y el recovery:
+    <li>Flashea las imágenes y reinicia en recovery:
       <pre class="code install-cmds"><code></code></pre></li>
-    <li>En el menú del bootloader, elige <strong>Recovery mode</strong> con los botones de volumen y confirma con el de encendido.</li>
     <li>En el recovery, ve a <strong>Factory reset → Format data / factory reset</strong>.</li>
     <li>Vuelve, elige <strong>Apply update → Apply from ADB</strong> y envía la ROM desde tu PC:
       <pre class="code"><code>adb sideload rom.zip</code></pre></li>
