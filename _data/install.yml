@@ -1,0 +1,37 @@
+# How a ROM is installed on each device, used by the "Install a ROM" guide.
+# flash: images flashed before the recovery, in order (from the LineageOS Wiki,
+#        plus vbmeta / vbmeta_system when the device builds ship them).
+# recovery: partition the recovery goes to: boot (boot.img) or recovery (recovery.img).
+# Devices still in development or coming soon are left out on purpose.
+
+bangkk: { flash: [dtbo, vendor_boot, vbmeta, vbmeta_system], recovery: boot }
+bathena: { flash: [dtbo, vbmeta], recovery: recovery }
+beckham: { flash: [], recovery: boot }
+berlna: { flash: [dtbo, vendor_boot], recovery: boot }
+borneo: { flash: [dtbo, vbmeta], recovery: recovery }
+capri: { flash: [dtbo, vendor_boot, vbmeta, vbmeta_system], recovery: boot }
+caprip: { flash: [dtbo, vendor_boot, vbmeta, vbmeta_system], recovery: boot }
+cebu: { flash: [dtbo, vbmeta], recovery: recovery }
+channel: { flash: [], recovery: boot }
+denver: { flash: [dtbo, vendor_boot, vbmeta, vbmeta_system], recovery: boot }
+devon: { flash: [dtbo, vendor_boot, vbmeta, vbmeta_system], recovery: boot }
+dubai: { flash: [dtbo, vendor_boot], recovery: boot }
+evert: { flash: [], recovery: boot }
+fogo: { flash: [dtbo, vendor_boot, vbmeta, vbmeta_system], recovery: boot }
+fogos: { flash: [dtbo, vendor_boot, vbmeta, vbmeta_system], recovery: boot }
+guam: { flash: [dtbo, vbmeta], recovery: recovery }
+guamna: { flash: [dtbo, vbmeta], recovery: recovery }
+guamp: { flash: [dtbo, vbmeta], recovery: recovery }
+hawao: { flash: [dtbo, vendor_boot, vbmeta, vbmeta_system], recovery: boot }
+kane: { flash: [vbmeta, dtbo], recovery: boot }
+lake: { flash: [], recovery: boot }
+miami: { flash: [dtbo, vendor_boot, vbmeta, vbmeta_system], recovery: boot }
+milanf: { flash: [dtbo, vendor_boot, vbmeta, vbmeta_system], recovery: boot }
+ocean: { flash: [], recovery: boot }
+payton: { flash: [], recovery: boot }
+rhode: { flash: [dtbo, vendor_boot, vbmeta, vbmeta_system], recovery: boot }
+rhodep: { flash: [dtbo, vendor_boot, vbmeta, vbmeta_system], recovery: boot }
+river: { flash: [], recovery: boot }
+troika: { flash: [vbmeta, dtbo], recovery: boot }
+tundra: { flash: [dtbo, vendor_boot], recovery: boot }
+xpeng: { flash: [dtbo, vendor_boot], recovery: boot }
