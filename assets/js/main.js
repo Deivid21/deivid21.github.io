@@ -341,6 +341,31 @@ document.querySelectorAll('pre.code').forEach(pre => {
   pre.appendChild(btn);
 });
 
+// ── Install guide: commands for the picked device ───────
+(() => {
+  const sel = document.getElementById('install-device');
+  if (!sel) return;
+  let data = {};
+  try { data = JSON.parse(document.getElementById('install-data').textContent); } catch {}
+  const show = codename => {
+    const d = data[codename];
+    document.querySelectorAll('[data-install-pick]').forEach(el => (el.hidden = !!d));
+    document.querySelectorAll('[data-install-steps]').forEach(el => (el.hidden = !d));
+    if (!d) return;
+    const recoveryImg = d.recovery + '.img';
+    const lines = [...d.flash.map(p => `fastboot flash ${p} ${p}.img`), `fastboot flash ${d.recovery} ${recoveryImg}`];
+    document.querySelectorAll('.install-cmds code').forEach(code => (code.textContent = lines.join('\n')));
+    document.querySelectorAll('[data-install-files]').forEach(el => (el.textContent = [...d.flash.map(p => p + '.img'), recoveryImg].join(', ')));
+  };
+  sel.addEventListener('change', () => {
+    show(sel.value);
+    history.replaceState(null, '', sel.value ? '#device=' + sel.value : location.pathname);
+  });
+  const m = location.hash.match(/device=([\w-]+)/);
+  if (m && data[m[1]]) sel.value = m[1];
+  show(sel.value);
+})();
+
 // ── Moto Camera: device search and setup for the picked device ──
 (() => {
   const table = document.getElementById('mc-devices');

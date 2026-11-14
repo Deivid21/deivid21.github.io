@@ -67,6 +67,7 @@ en:
   guides_for_device: Guides for this device
   guides_title: Guides
   guides_lead: Installing, updating and stock firmware.
+  install_pick: Choose your device…
   updated: Updated
   footer_disclaimer: Flash at your own risk.
   footer_legal: Legal
@@ -138,6 +139,7 @@ es:
   guides_for_device: Guías para este dispositivo
   guides_title: Guías
   guides_lead: Instalación, actualización y firmware stock.
+  install_pick: Elige tu dispositivo…
   updated: Actualizado
   footer_disclaimer: Flashea bajo tu propio riesgo.
   footer_legal: Aviso legal
