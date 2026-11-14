@@ -1,7 +1,7 @@
 ---
 title: Install a ROM
 description: Clean install from stock firmware.
-order: 1
+order: 2
 devices: [all]
 updated: 2026-11-03
 title_es: Instalar una ROM
@@ -14,7 +14,7 @@ description_es: Instalación limpia desde firmware stock.
 
 ## Requirements
 
-- Unlocked bootloader
+- Unlocked bootloader ([how to unlock it](../unlock-bootloader/))
 - [Platform tools](https://developer.android.com/tools/releases/platform-tools) (adb and fastboot)
 - The stock firmware listed on your device page
 
@@ -42,7 +42,7 @@ description_es: Instalación limpia desde firmware stock.
 
 ## Requisitos
 
-- Bootloader desbloqueado
+- Bootloader desbloqueado ([cómo desbloquearlo](../unlock-bootloader/))
 - [Platform tools](https://developer.android.com/tools/releases/platform-tools) (adb y fastboot)
 - El firmware stock indicado en la página de tu dispositivo
 
