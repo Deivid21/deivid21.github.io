@@ -539,3 +539,4 @@ details.rom.rom-target { border-color: var(--accent); box-shadow: 0 0 0 3px var(
 .device-card, .rom, .guide-list a, .project, .donate-card, .mc-support, .mc-license, .mc-package { border-color: transparent; background: var(--md-surface-c); }
 .device-card .device-img { border-radius: 16px; }
 .hash, pre.code, .prose pre { border: 0; background: var(--md-surface-highest); border-radius: 16px; }
+.legal { padding: 32px 0 16px; }
