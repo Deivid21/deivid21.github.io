@@ -3,7 +3,7 @@ title: Install a ROM
 description: Clean install from stock firmware.
 order: 2
 devices: [all]
-updated: 2026-11-03
+updated: 2026-11-14
 title_es: Instalar una ROM
 description_es: Instalación limpia desde firmware stock.
 ---
@@ -16,7 +16,7 @@ description_es: Instalación limpia desde firmware stock.
 
 - Unlocked bootloader ([how to unlock it](../unlock-bootloader/))
 - [Platform tools](https://developer.android.com/tools/releases/platform-tools) (adb and fastboot)
-- The stock firmware listed on your device page
+- Stock firmware on your phone: you can install it with Motorola's [Software Fix](https://en-us.support.motorola.com/app/softwarefix) tool (Windows only)
 
 ## Steps
 
@@ -44,7 +44,7 @@ description_es: Instalación limpia desde firmware stock.
 
 - Bootloader desbloqueado ([cómo desbloquearlo](../unlock-bootloader/))
 - [Platform tools](https://developer.android.com/tools/releases/platform-tools) (adb y fastboot)
-- El firmware stock indicado en la página de tu dispositivo
+- Firmware stock en el teléfono: puedes instalarlo con la herramienta [Software Fix](https://en-us.support.motorola.com/app/softwarefix) de Motorola (solo Windows)
 
 ## Pasos
 
