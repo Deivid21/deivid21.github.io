@@ -34,20 +34,20 @@ layout: default
            onerror="this.onerror=null;this.src='{{ '/assets/img/device-placeholder.svg' | relative_url }}'">
     </div>
     <div class="device-hero-info">
+      {% capture vendor_prefix %}{{ page.vendor | downcase }} {% endcapture %}
+      {% assign name_start = page.name | downcase | slice: 0, vendor_prefix.size %}
+      {% if page.vendor and name_start != vendor_prefix %}<p class="device-vendor">{{ page.vendor }}</p>{% endif %}
       <h1>{{ page.name }}</h1>
       {% if page.aka %}<p class="aka big">{{ page.aka | join: " · " }}</p>{% endif %}
       <code class="codename big">{{ page.codename }}</code>
       {% assign page_released = page.roms | where_exp: "r", "r.released != false" %}
-      {% if page.stage == "coming-soon" %}<span class="tag tag-soon" data-i18n="coming_soon">{{ t.coming_soon }}</span>{% elsif page_released.size == 0 %}<span class="tag tag-dev" data-i18n="in_development">{{ t.in_development }}</span>{% elsif page.maintained %}<span class="tag tag-ok" data-i18n="active">{{ t.active }}</span>{% else %}<span class="tag tag-off" data-i18n="discontinued">{{ t.discontinued }}</span>{% endif %}
+      {% if page.stage == "coming-soon" %}<span class="tag tag-soon" data-i18n="coming_soon">{{ t.coming_soon }}</span>{% elsif page_released.size == 0 %}<span class="tag tag-dev" data-i18n="in_development">{{ t.in_development }}</span>{% endif %}
 
+      {% assign gpu = page.gpu | default: site.data.socs[page.soc] %}
       <dl class="specs">
-        {% if page.vendor %}<dt data-i18n="spec_vendor">{{ t.spec_vendor }}</dt><dd>{{ page.vendor }}</dd>{% endif %}
-        {% if cm %}<dt data-i18n="spec_common">{{ t.spec_common }}</dt><dd>{{ cm.name }}</dd>{% endif %}
-        {% if page.platform %}<dt data-i18n="spec_platform">{{ t.spec_platform }}</dt><dd><code>{{ page.platform }}</code></dd>{% endif %}
         {% if page.soc %}<dt data-i18n="spec_soc">{{ t.spec_soc }}</dt><dd>{{ page.soc }}</dd>{% endif %}
-        {% if page.ram %}<dt data-i18n="spec_ram">{{ t.spec_ram }}</dt><dd>{{ page.ram }}</dd>{% endif %}
-        {% if page.release %}<dt data-i18n="spec_release">{{ t.spec_release }}</dt><dd>{{ page.release }}</dd>{% endif %}
-        {% if page.variants %}<dt data-i18n="spec_variants">{{ t.spec_variants }}</dt><dd>{{ page.variants | join: ", " }}</dd>{% endif %}
+        {% if gpu %}<dt data-i18n="spec_gpu">{{ t.spec_gpu }}</dt><dd>{{ gpu }}</dd>{% endif %}
+        {% if page.platform %}<dt data-i18n="spec_platform">{{ t.spec_platform }}</dt><dd><code>{{ page.platform }}</code></dd>{% endif %}
       </dl>
 
       {% assign tree = page.tree | default: cm.tree %}

@@ -231,6 +231,7 @@ html[data-theme="dark"] .theme-toggle .ic-dark { display: block; }
 .device-info h3 { font-size: 1rem; margin: 0 0 2px; }
 .codename { color: var(--muted); font-size: .85rem; }
 .codename.big { font-size: 1rem; margin-right: 8px; }
+.device-vendor { margin: 0 0 2px; color: var(--muted); font-size: 1.15rem; font-weight: 500; }
 .empty { text-align: center; color: var(--muted); padding: 48px 0; }
 
 /* ── Página de dispositivo ──────────────────────────── */

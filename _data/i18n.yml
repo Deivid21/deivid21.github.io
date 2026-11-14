@@ -34,13 +34,9 @@ en:
   coming_soon: Coming Soon
   coming_soon_long: Development for this device hasn't started yet. Follow the Telegram channel for updates.
   no_builds_long: There are no builds for this device yet. Follow the Telegram channel for updates.
-  spec_vendor: Vendor
   spec_soc: SoC
-  spec_common: Common tree
+  spec_gpu: GPU
   spec_platform: Platform
-  spec_ram: RAM
-  spec_release: Released
-  spec_variants: Variants
   device_tree: Device tree
   kernel: Kernel
   downloads: Downloads
@@ -108,13 +104,9 @@ es:
   coming_soon: Próximamente
   coming_soon_long: El desarrollo para este dispositivo aún no comienza. Sigue el canal de Telegram para enterarte.
   no_builds_long: Todavía no hay builds para este dispositivo. Sigue el canal de Telegram para enterarte.
-  spec_vendor: Fabricante
   spec_soc: SoC
-  spec_common: Árbol común
+  spec_gpu: GPU
   spec_platform: Plataforma
-  spec_ram: RAM
-  spec_release: Lanzamiento
-  spec_variants: Variantes
   device_tree: Árbol de dispositivo
   kernel: Kernel
   downloads: Descargas
