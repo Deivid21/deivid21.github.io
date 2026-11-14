@@ -27,6 +27,7 @@ layout: default
   <article class="prose">
     <h1{% if page.title_es %} data-es="{{ page.title_es | escape }}"{% endif %}>{{ page.title }}</h1>
     {% if page.description %}<p class="lead"{% if page.description_es %} data-es="{{ page.description_es | escape }}"{% endif %}>{{ page.description }}</p>{% endif %}
+    {% if page.image %}<img class="guide-hero" src="{{ page.image | relative_url }}" alt="" width="760" height="300">{% endif %}
     {% if page.updated %}<p class="muted small"><span data-i18n="updated">{{ t.updated }}</span>: {{ page.updated | date: "%Y-%m-%d" }}</p>{% endif %}
     {{ content }}
   </article>
