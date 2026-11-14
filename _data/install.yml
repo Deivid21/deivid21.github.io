@@ -2,36 +2,42 @@
 # flash: images flashed before the recovery, in order (from the LineageOS Wiki,
 #        plus vbmeta / vbmeta_system when the device builds ship them).
 # recovery: partition the recovery goes to: boot (boot.img) or recovery (recovery.img).
-# Devices still in development or coming soon are left out on purpose.
+#           boot.img is always flashed: as the recovery, or before it.
+# Devices still in development or coming soon are hidden from the guide until
+# they get a released build.
 
 bangkk: { flash: [dtbo, vendor_boot, vbmeta, vbmeta_system], recovery: boot }
-bathena: { flash: [dtbo, vbmeta], recovery: recovery }
+bathena: { flash: [dtbo, vbmeta, boot], recovery: recovery }
 beckham: { flash: [], recovery: boot }
-berlna: { flash: [dtbo, vendor_boot], recovery: boot }
-borneo: { flash: [dtbo, vbmeta], recovery: recovery }
+berlna: { flash: [dtbo, vendor_boot, vbmeta, vbmeta_system], recovery: boot }
+borneo: { flash: [dtbo, vbmeta, boot], recovery: recovery }
 capri: { flash: [dtbo, vendor_boot, vbmeta, vbmeta_system], recovery: boot }
 caprip: { flash: [dtbo, vendor_boot, vbmeta, vbmeta_system], recovery: boot }
-cebu: { flash: [dtbo, vbmeta], recovery: recovery }
-channel: { flash: [], recovery: boot }
+cebu: { flash: [dtbo, vbmeta, boot], recovery: recovery }
+channel: { flash: [dtbo], recovery: boot }
+corfur: { flash: [dtbo, vendor_boot, vbmeta, vbmeta_system], recovery: boot }
+cypfq: { flash: [dtbo, vendor_boot, vbmeta, vbmeta_system], recovery: boot }
 denver: { flash: [dtbo, vendor_boot, vbmeta, vbmeta_system], recovery: boot }
 devon: { flash: [dtbo, vendor_boot, vbmeta, vbmeta_system], recovery: boot }
-dubai: { flash: [dtbo, vendor_boot], recovery: boot }
+dubai: { flash: [dtbo, vendor_boot, vbmeta, vbmeta_system], recovery: boot }
 evert: { flash: [], recovery: boot }
 fogo: { flash: [dtbo, vendor_boot, vbmeta, vbmeta_system], recovery: boot }
 fogos: { flash: [dtbo, vendor_boot, vbmeta, vbmeta_system], recovery: boot }
-guam: { flash: [dtbo, vbmeta], recovery: recovery }
-guamna: { flash: [dtbo, vbmeta], recovery: recovery }
-guamp: { flash: [dtbo, vbmeta], recovery: recovery }
+guam: { flash: [dtbo, vbmeta, boot], recovery: recovery }
+guamna: { flash: [dtbo, vbmeta, boot], recovery: recovery }
+guamp: { flash: [dtbo, vbmeta, boot], recovery: recovery }
 hawao: { flash: [dtbo, vendor_boot, vbmeta, vbmeta_system], recovery: boot }
 kane: { flash: [vbmeta, dtbo], recovery: boot }
-lake: { flash: [], recovery: boot }
+lake: { flash: [dtbo], recovery: boot }
+malmo: { flash: [dtbo, vendor_boot, vbmeta, vbmeta_system], recovery: boot }
 miami: { flash: [dtbo, vendor_boot, vbmeta, vbmeta_system], recovery: boot }
 milanf: { flash: [dtbo, vendor_boot, vbmeta, vbmeta_system], recovery: boot }
-ocean: { flash: [], recovery: boot }
+ocean: { flash: [dtbo], recovery: boot }
 payton: { flash: [], recovery: boot }
+penang: { flash: [dtbo, vendor_boot, vbmeta, vbmeta_system], recovery: boot }
 rhode: { flash: [dtbo, vendor_boot, vbmeta, vbmeta_system], recovery: boot }
 rhodep: { flash: [dtbo, vendor_boot, vbmeta, vbmeta_system], recovery: boot }
-river: { flash: [], recovery: boot }
+river: { flash: [dtbo], recovery: boot }
 troika: { flash: [vbmeta, dtbo], recovery: boot }
-tundra: { flash: [dtbo, vendor_boot], recovery: boot }
-xpeng: { flash: [dtbo, vendor_boot], recovery: boot }
+tundra: { flash: [dtbo, vendor_boot, vbmeta, vbmeta_system], recovery: boot }
+xpeng: { flash: [dtbo, vendor_boot, vbmeta, vbmeta_system], recovery: boot }

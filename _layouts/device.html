@@ -167,7 +167,7 @@ layout: default
   {% endif %}
 
   {% assign guides_sorted = site.guides | sort: "order" %}
-  {% capture guide_items %}{% for g in guides_sorted %}{% if g.per_device and site.data.install[page.codename] == nil %}{% continue %}{% endif %}{% if g.devices contains page.codename or g.devices contains 'all' or g.platforms contains page.platform %}<li><a href="{{ g.url | relative_url }}{% if g.per_device %}#device={{ page.codename }}{% endif %}"{% if g.title_es %} data-es="{{ g.title_es | escape }}"{% endif %}>{{ g.title }}</a></li>{% endif %}{% endfor %}{% endcapture %}
+  {% capture guide_items %}{% for g in guides_sorted %}{% if g.per_device %}{% if site.data.install[page.codename] == nil or page_released.size == 0 or page.stage == "coming-soon" %}{% continue %}{% endif %}{% endif %}{% if g.devices contains page.codename or g.devices contains 'all' or g.platforms contains page.platform %}<li><a href="{{ g.url | relative_url }}{% if g.per_device %}#device={{ page.codename }}{% endif %}"{% if g.title_es %} data-es="{{ g.title_es | escape }}"{% endif %}>{{ g.title }}</a></li>{% endif %}{% endfor %}{% endcapture %}
   {% assign guide_items = guide_items | strip %}
   {% if guide_items != "" %}
   <section class="block">

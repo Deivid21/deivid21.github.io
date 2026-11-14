@@ -10,7 +10,7 @@ description_es: Instalación limpia desde firmware stock.
 ---
 
 {% assign install_devices = "" | split: "" %}
-{% for d in site.devices %}{% if site.data.install[d.codename] %}{% assign install_devices = install_devices | push: d %}{% endif %}{% endfor %}
+{% for d in site.devices %}{% assign d_released = d.roms | where_exp: "r", "r.released != false" %}{% if site.data.install[d.codename] and d_released.size > 0 and d.stage != "coming-soon" %}{% assign install_devices = install_devices | push: d %}{% endif %}{% endfor %}
 {% assign install_devices = install_devices | sort: "name" %}
 
 <div data-lang="en" markdown="1">
