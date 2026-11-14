@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300" role="img" aria-label="ROM zip being sideloaded to a phone in recovery mode">
+  <defs>
+    <radialGradient id="glow" cx="70%" cy="20%" r="80%">
+      <stop offset="0" stop-color="#014e59"/>
+      <stop offset="1" stop-color="#0b1517" stop-opacity="0"/>
+    </radialGradient>
+    <clipPath id="screen"><rect x="10" y="12" width="140" height="290" rx="18"/></clipPath>
+  </defs>
+  <rect width="760" height="300" rx="28" fill="#192123"/>
+  <rect width="760" height="300" rx="28" fill="url(#glow)"/>
+
+  <!-- sideload command -->
+  <g transform="translate(190 92)">
+    <rect width="230" height="60" rx="14" fill="#232b2d"/>
+    <text x="16" y="26" font-family="monospace" font-size="12" fill="#7f9499">$</text>
+    <text x="30" y="26" font-family="monospace" font-size="12" fill="#d9e4e7">adb sideload</text>
+    <text x="30" y="44" font-family="monospace" font-size="12" fill="#69d5e8">rom.zip</text>
+  </g>
+  <g transform="translate(190 168)">
+    <rect width="230" height="40" rx="12" fill="#232b2d"/>
+    <rect x="16" y="17" width="150" height="6" rx="3" fill="#374a4e"/>
+    <rect x="16" y="17" width="70" height="6" rx="3" fill="#69d5e8"/>
+    <text x="178" y="25" font-family="monospace" font-size="11" fill="#b4cacf">47%</text>
+  </g>
+
+  <!-- arrow -->
+  <g fill="none" stroke="#69d5e8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M436 150 H 480"/>
+    <path d="M468 138 L 482 150 L 468 162"/>
+  </g>
+
+  <!-- phone in recovery -->
+  <g transform="translate(510 28)">
+    <rect width="160" height="300" rx="26" fill="#2d3638" stroke="#7f9499" stroke-width="3"/>
+    <rect x="10" y="12" width="140" height="290" rx="18" fill="#0b1517"/>
+    <circle cx="80" cy="26" r="5" fill="#374a4e"/>
+    <g clip-path="url(#screen)">
+      <text x="24" y="62" font-family="monospace" font-size="10" fill="#69d5e8">Recovery</text>
+      <rect x="22" y="72" width="116" height="1.5" fill="#374a4e"/>
+      <rect x="20" y="84" width="120" height="22" rx="6" fill="#01363e"/>
+      <text x="28" y="99" font-family="monospace" font-size="8.5" fill="#d9e4e7">Apply update</text>
+      <text x="28" y="124" font-family="monospace" font-size="8.5" fill="#b4cacf">Factory reset</text>
+      <text x="28" y="146" font-family="monospace" font-size="8.5" fill="#b4cacf">Advanced</text>
+      <text x="28" y="168" font-family="monospace" font-size="8.5" fill="#b4cacf">Reboot system now</text>
+      <!-- android robot -->
+      <g transform="translate(80 236)" fill="#3fb950">
+        <path d="M-30 0 a30 30 0 0 1 60 0 z"/>
+        <circle cx="-11" cy="-12" r="3.5" fill="#0b1517"/>
+        <circle cx="11" cy="-12" r="3.5" fill="#0b1517"/>
+        <rect x="-23" y="-41" width="3" height="14" rx="1.5" transform="rotate(-30 -21 -34)"/>
+        <rect x="20" y="-41" width="3" height="14" rx="1.5" transform="rotate(30 21 -34)"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- zip file -->
+  <g transform="translate(48 78)">
+    <path d="M0 14 a14 14 0 0 1 14 -14 H 74 L 110 36 V 130 a14 14 0 0 1 -14 14 H 14 a14 14 0 0 1 -14 -14 z" fill="#69d5e8"/>
+    <path d="M74 0 V 22 a14 14 0 0 0 14 14 H 110" fill="#a8eef9"/>
+    <g fill="#01363e">
+      <rect x="30" y="18" width="12" height="8" rx="2"/>
+      <rect x="42" y="28" width="12" height="8" rx="2"/>
+      <rect x="30" y="38" width="12" height="8" rx="2"/>
+      <rect x="42" y="48" width="12" height="8" rx="2"/>
+      <rect x="30" y="58" width="24" height="22" rx="5"/>
+    </g>
+    <text x="55" y="118" text-anchor="middle" font-family="monospace" font-size="15" font-weight="700" fill="#01363e">ROM</text>
+  </g>
+</svg>
