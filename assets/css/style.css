@@ -144,7 +144,7 @@ html[data-theme="dark"] .theme-toggle .ic-dark { display: block; }
 .stats span { color: var(--muted); font-size: .9rem; }
 .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
 
-/* ── Botones / tags ─────────────────────────────────── */
+/* ── Buttons / tags ─────────────────────────────────── */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -208,7 +208,7 @@ html[data-theme="dark"] .theme-toggle .ic-dark { display: block; }
 .chip.active { background: var(--md-secondary-container); border-color: var(--md-secondary-container); color: var(--md-on-secondary-container); }
 .toggle { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); font-size: .9rem; cursor: pointer; }
 
-/* ── Familias y tarjetas ────────────────────────────── */
+/* ── Device groups and cards ────────────────────────── */
 .family { margin-bottom: 44px; scroll-margin-top: 80px; }
 .family-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
 .family-head h2 { margin: 0; font-size: 1.4rem; }
@@ -234,7 +234,7 @@ html[data-theme="dark"] .theme-toggle .ic-dark { display: block; }
 .device-vendor { margin: 0 0 2px; color: var(--muted); font-size: 1.15rem; font-weight: 500; }
 .empty { text-align: center; color: var(--muted); padding: 48px 0; }
 
-/* ── Página de dispositivo ──────────────────────────── */
+/* ── Device page ────────────────────────────────────── */
 .breadcrumb { color: var(--muted); font-size: .9rem; margin: 24px 0; }
 .breadcrumb a { color: var(--muted); }
 .device-hero { display: grid; grid-template-columns: 280px 1fr; gap: 40px; align-items: center; margin-bottom: 40px; }
@@ -262,7 +262,7 @@ html[data-theme="dark"] .theme-toggle .ic-dark { display: block; }
 .extras { padding-left: 20px; }
 .extras li { margin: 6px 0; }
 
-/* ── Guías / prosa ──────────────────────────────────── */
+/* ── Guides / prose ─────────────────────────────────── */
 .guide-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 10px; }
 .guide-list a { display: flex; flex-direction: column; padding: 16px 18px; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text); }
 .guide-list a:hover { border-color: var(--accent); text-decoration: none; }
@@ -271,6 +271,7 @@ html[data-theme="dark"] .theme-toggle .ic-dark { display: block; }
 .prose :not(pre) > code { background: var(--bg-soft); padding: 2px 6px; border-radius: 5px; }
 .prose blockquote { margin: 1.2em 0; padding: 10px 16px; border-left: 3px solid var(--warn); background: rgba(210,153,34,.08); border-radius: 0 8px 8px 0; }
 .prose blockquote p { margin: 0; }
+.guide-hero { display: block; width: 100%; height: auto; margin: 8px 0 20px; border-radius: 24px; }
 
 /* ── Footer ─────────────────────────────────────────── */
 .site-footer { border-top: 1px solid var(--border); padding: 32px 0; color: var(--muted); font-size: .9rem; }
@@ -528,6 +529,9 @@ pre.code .copy { position: absolute; top: 8px; right: 8px; background: var(--car
 details.rom { scroll-margin-top: 80px; }
 details.rom.rom-target { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); transition: box-shadow .3s ease, border-color .3s ease; }
 
+/* ── Legal page ─────────────────────────────────────── */
+.legal { padding: 32px 0 16px; }
+
 /* ── Material You overrides (selector groups) ─────────── */
 @media (min-width: 721px) { .nav-links a { padding: 8px 16px; } }
 .nav-links a:hover { background: color-mix(in srgb, var(--md-on-surface) 8%, transparent); text-decoration: none; }
@@ -535,9 +539,6 @@ details.rom.rom-target { border-color: var(--accent); box-shadow: 0 0 0 3px var(
 .lang-toggle, .theme-toggle { border: 0; background: var(--md-surface-high); border-radius: 999px; }
 .nav-links a.nav-donate, .nav-links a.nav-donate:hover, .nav-links a.nav-donate.active { background: var(--md-primary); border-color: var(--md-primary); color: var(--md-on-primary); filter: none; }
 .chip.active::before { content: "✓ "; }
-/* cards: filled surfaces, no borders, big corners */
 .device-card, .rom, .guide-list a, .project, .donate-card, .mc-support, .mc-license, .mc-package { border-color: transparent; background: var(--md-surface-c); }
 .device-card .device-img { border-radius: 16px; }
 .hash, pre.code, .prose pre { border: 0; background: var(--md-surface-highest); border-radius: 16px; }
-.guide-hero { display: block; width: 100%; height: auto; margin: 8px 0 20px; border-radius: 24px; }
-.legal { padding: 32px 0 16px; }
