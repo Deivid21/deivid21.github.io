@@ -17,9 +17,36 @@ roms:
     # status: active      # active | discontinued
     # date: 2026-11-03
   - name: LineageOS
+    forum: https://xdaforums.com/t/rom-17-official-lineageos-24-0-for-moto-g34-5g-moto-g45-5g-fogos.4808812/
     # version: ""
     # status: active      # active | discontinued
     # date: 2026-11-03
+  - name: LineageOS
+    type: test
+    android: 17
+    version: "24.0"
+    status: active
+    date: 2026-11-13
+    download: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261113-UNOFFICIAL-fogos/lineage-24.0-20261113-UNOFFICIAL-fogos.zip
+    changelog: https://github.com/Deivid21/RELEASES/releases/tag/lineage-24.0-20261113-UNOFFICIAL-fogos
+    sha256: "f5722e575bd6cf0421e8cbdd231870ec2b0d40ac01d9856834f019429347cdc3"
+    filesize: "1.56 GB"
+    security_patch: November 2026
+    gapps: true
+    forum: https://xdaforums.com/t/rom-17-official-lineageos-24-0-for-moto-g34-5g-moto-g45-5g-fogos.4808812/
+    files:
+      - name: boot.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261113-UNOFFICIAL-fogos/boot.img
+      - name: dtbo.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261113-UNOFFICIAL-fogos/dtbo.img
+      - name: vbmeta.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261113-UNOFFICIAL-fogos/vbmeta.img
+      - name: vbmeta_system.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261113-UNOFFICIAL-fogos/vbmeta_system.img
+      - name: vendor_boot.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261113-UNOFFICIAL-fogos/vendor_boot.img
+    notes: "Test build: November 2026 security patch, SELinux enforcing, GApps (MindTheGapps) included and Linux kernel 5.4.302. Also odm partition, dalvik heap and LMKD settings per RAM variant, Moto Camera 4 built from prebuilt source and missing camera libraries added. Missing ANC blobs for the camera added and SKU properties set for all partitions."
+    notes_es: "Build de prueba: parche de seguridad de noviembre de 2026, SELinux enforcing, GApps (MindTheGapps) incluidas y kernel Linux 5.4.302. Además: partición odm, ajustes de dalvik heap y LMKD según la variante de RAM, Moto Camera 4 compilada desde prebuilts y librerías de cámara que faltaban. Blobs ANC de cámara que faltaban y propiedades de SKU para todas las particiones."
   - name: LineageOS
     archived: true
     android: 16
