@@ -22,18 +22,50 @@ description: Guides for installing and updating custom ROMs and stock firmware o
   limitations under the License.
 {%- endcomment -%}
 {% assign t = site.data.i18n.en %}
-<div class="container narrow">
-  <h1 data-i18n="guides_title">{{ t.guides_title }}</h1>
-  <p class="lead" data-i18n="guides_lead">{{ t.guides_lead }}</p>
-  <ul class="guide-list">
-    {% assign sorted = site.guides | sort: "order" %}
+{% assign sorted = site.guides | sort: "order" %}
+<section class="hero hero-compact">
+  <div class="container hero-grid">
+    <img class="hero-art" src="{{ '/assets/img/guides-hero.svg' | relative_url }}" alt="" width="440" height="300">
+    <div class="hero-text">
+      <p class="eyebrow" data-i18n="eyebrow">{{ t.eyebrow }}</p>
+      <h1 data-i18n="guides_title">{{ t.guides_title }}</h1>
+      <p class="lead" data-i18n="guides_lead">{{ t.guides_lead }}</p>
+      <div class="stats">
+        <div><strong>{{ sorted | size }}</strong><span data-i18n="stat_guides">{{ t.stat_guides }}</span></div>
+        <div><strong>EN · ES</strong><span data-i18n="stat_languages">{{ t.stat_languages }}</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="finder">
+    <div class="finder-bar">
+      <label class="search-box">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+        <input id="guide-search" type="search" placeholder="{{ t.guides_search }}" data-i18n-placeholder="guides_search" autocomplete="off" aria-label="Search guides">
+        <button id="guide-search-clear" class="search-clear" type="button" aria-label="Clear" hidden>✕</button>
+      </label>
+    </div>
+    <div class="finder-status"><p class="results-count" id="guide-count" aria-live="polite"></p></div>
+  </div>
+
+  <ol class="guide-cards">
     {% for g in sorted %}
-    <li>
-      <a href="{{ g.url | relative_url }}">
-        <strong{% if g.title_es %} data-es="{{ g.title_es | escape }}"{% endif %}>{{ g.title }}</strong>
-        {% if g.description %}<span class="muted"{% if g.description_es %} data-es="{{ g.description_es | escape }}"{% endif %}>{{ g.description }}</span>{% endif %}
+    {% assign words = g.content | strip_html | number_of_words | divided_by: 2 %}{% assign minutes = words | divided_by: 200 | plus: 1 %}
+    <li data-guide data-search="{{ g.title }} | {{ g.title_es }} | {{ g.description }} | {{ g.description_es }} | {{ g.content | strip_html | strip_newlines | escape }}">
+      <a class="guide-card" href="{{ g.url | relative_url }}">
+        {% if g.image %}<img src="{{ g.image | relative_url }}" alt="" loading="lazy" width="760" height="300">{% else %}<div class="guide-thumb-empty"></div>{% endif %}
+        <span class="guide-step">{{ forloop.index }}</span>
+        <div class="guide-body">
+          <h2{% if g.title_es %} data-es="{{ g.title_es | escape }}"{% endif %}>{{ g.title }}</h2>
+          {% if g.description %}<p{% if g.description_es %} data-es="{{ g.description_es | escape }}"{% endif %}>{{ g.description }}</p>{% endif %}
+          <p class="guide-meta">⏱ {{ minutes }} <span data-i18n="min_read">{{ t.min_read }}</span>{% if g.updated %} · <span data-i18n="updated">{{ t.updated }}</span> {{ g.updated | date: "%Y-%m-%d" }}{% endif %}</p>
+        </div>
       </a>
     </li>
     {% endfor %}
-  </ul>
-</div>
+  </ol>
+
+  <div id="guide-empty" class="empty" hidden><p data-i18n="guides_none">{{ t.guides_none }}</p></div>
+</section>

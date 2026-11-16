@@ -25,9 +25,9 @@ description: Every Motorola device I maintain, with official and test builds of 
 {% comment %} Active = maintained, development started and at least one published ROM {% endcomment %}
 {% assign active = "" | split: "" %}{% for d in site.devices %}{% if d.maintained and d.stage != "coming-soon" %}{% assign rel = d.roms | where_exp: "r", "r.released != false" %}{% if rel.size > 0 %}{% assign active = active | push: d %}{% endif %}{% endif %}{% endfor %}
 <section class="hero hero-compact">
-  <div class="container devices-hero-grid">
-    <img class="devices-art" src="{{ '/assets/img/devices-hero.svg' | relative_url }}" alt="" width="440" height="300">
-    <div class="devices-hero-text">
+  <div class="container hero-grid">
+    <img class="hero-art" src="{{ '/assets/img/devices-hero.svg' | relative_url }}" alt="" width="440" height="300">
+    <div class="hero-text">
     <p class="eyebrow" data-i18n="eyebrow">{{ t.eyebrow }}</p>
     <h1 data-i18n="devices_title">{{ t.devices_title }}</h1>
     <p class="lead" data-i18n="devices_lead">{{ t.devices_lead }}</p>

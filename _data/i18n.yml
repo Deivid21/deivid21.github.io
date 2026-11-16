@@ -78,7 +78,13 @@ en:
   notes: Notes
   guides_for_device: Guides for this device
   guides_title: Guides
-  guides_lead: Installing, updating and stock firmware.
+  guides_lead: Unlock, install and update your device, step by step.
+  guides_search: Search guides…
+  guides_none: No guides match your search.
+  guides_count: "Showing {n} of {total} guides"
+  stat_guides: guides
+  stat_languages: languages
+  min_read: min read
   install_pick: Choose your device…
   updated: Updated
   footer_disclaimer: Flash at your own risk.
@@ -161,7 +167,13 @@ es:
   notes: Notas
   guides_for_device: Guías para este dispositivo
   guides_title: Guías
-  guides_lead: Instalación, actualización y firmware stock.
+  guides_lead: Desbloquea, instala y actualiza tu dispositivo, paso a paso.
+  guides_search: Buscar guías…
+  guides_none: Ninguna guía coincide con tu búsqueda.
+  guides_count: "Mostrando {n} de {total} guías"
+  stat_guides: guías
+  stat_languages: idiomas
+  min_read: min de lectura
   install_pick: Elige tu dispositivo…
   updated: Actualizado
   footer_disclaimer: Flashea bajo tu propio riesgo.

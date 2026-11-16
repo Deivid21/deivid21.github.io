@@ -5,7 +5,7 @@ order: 2
 devices: [all]
 per_device: true
 image: /assets/img/guides/install-rom.svg
-updated: 2026-11-14
+updated: 2026-11-16
 title_es: Cómo instalar una ROM
 description_es: Instalación limpia desde firmware stock.
 ---

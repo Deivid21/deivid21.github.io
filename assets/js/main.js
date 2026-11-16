@@ -265,6 +265,33 @@ function copyWithFeedback(btn, text, doneKey = 'copied', idleKey = 'copy') {
   update();
 })();
 
+// ── Guides search ────────────────────────────────────────
+(() => {
+  const input = document.getElementById('guide-search');
+  if (!input) return;
+  const items = [...document.querySelectorAll('[data-guide]')];
+  const clear = document.getElementById('guide-search-clear');
+  const norm = s => (s || '').toLowerCase().normalize('NFD').replace(/[^a-z0-9]/g, '');
+  items.forEach(li => { li._index = norm(li.dataset.search); });
+  const fmt = (key, vars) => t(key).replace(/\{(\w+)\}/g, (_, k) => vars[k]);
+  function apply() {
+    const words = input.value.trim().split(/\s+/).map(norm).filter(Boolean);
+    let n = 0;
+    items.forEach(li => {
+      const show = words.every(w => li._index.includes(w));
+      li.hidden = !show;
+      if (show) n++;
+    });
+    clear.hidden = !input.value;
+    document.getElementById('guide-empty').hidden = n > 0;
+    document.getElementById('guide-count').textContent = fmt('guides_count', { n, total: items.length });
+  }
+  input.addEventListener('input', apply);
+  clear.addEventListener('click', () => { input.value = ''; apply(); input.focus(); });
+  document.getElementById('lang-toggle')?.addEventListener('click', apply);
+  apply();
+})();
+
 // ── Copy buttons: SHA256 hashes (data-copy) and code blocks ──
 document.addEventListener('click', e => {
   const btn = e.target.closest('.copy');
