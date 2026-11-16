@@ -143,6 +143,16 @@ html[data-theme="dark"] .theme-toggle .ic-dark { display: block; }
 .stats strong { font-size: 1.8rem; }
 .stats span { color: var(--muted); font-size: .9rem; }
 .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+/* Devices: phones illustration next to the title (above it on phones) */
+.devices-hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 440px); align-items: center; gap: 32px; }
+.devices-hero-text { grid-column: 1; grid-row: 1; }
+.devices-art { grid-column: 2; grid-row: 1; width: 100%; height: auto; }
+@media (max-width: 720px) {
+  .devices-hero-grid { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .devices-art { grid-column: 1; max-width: 300px; margin: 0 auto; }
+  .devices-hero-text { grid-row: 2; }
+}
+
 /* Home: big logo next to the title (above it on phones) */
 .home-hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 40px; }
 .home-logo { grid-column: 2; grid-row: 1; width: clamp(160px, 22vw, 240px); height: auto; filter: drop-shadow(0 12px 32px rgba(0, 151, 167, .35)); }
