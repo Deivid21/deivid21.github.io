@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300" role="img" aria-label="Phone installing a newer ROM build">
+  <defs>
+    <radialGradient id="glow" cx="70%" cy="20%" r="80%">
+      <stop offset="0" stop-color="#014e59"/>
+      <stop offset="1" stop-color="#0b1517" stop-opacity="0"/>
+    </radialGradient>
+    <clipPath id="screen"><rect x="10" y="12" width="140" height="290" rx="18"/></clipPath>
+  </defs>
+  <rect width="760" height="300" rx="28" fill="#192123"/>
+  <rect width="760" height="300" rx="28" fill="url(#glow)"/>
+
+  <!-- old build -> new build -->
+  <g transform="translate(60 96)">
+    <rect width="150" height="44" rx="12" fill="#232b2d"/>
+    <text x="16" y="28" font-family="monospace" font-size="13" fill="#7f9499">20261108</text>
+    <rect x="0" y="64" width="150" height="44" rx="12" fill="#01363e" stroke="#69d5e8" stroke-width="2"/>
+    <text x="16" y="92" font-family="monospace" font-size="13" fill="#69d5e8">20261116</text>
+    <circle cx="128" cy="86" r="9" fill="#3fb950"/>
+    <path d="M123 86 l4 4 l7 -8" fill="none" stroke="#0b1517" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M75 46 V 60" stroke="#69d5e8" stroke-width="4" stroke-linecap="round"/>
+    <path d="M68 54 L75 61 L82 54" fill="none" stroke="#69d5e8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- arrow -->
+  <g fill="none" stroke="#69d5e8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M236 150 H 290"/>
+    <path d="M278 138 L 292 150 L 278 162"/>
+  </g>
+
+  <!-- phone updating -->
+  <g transform="translate(320 28)">
+    <rect width="160" height="300" rx="26" fill="#2d3638" stroke="#7f9499" stroke-width="3"/>
+    <rect x="10" y="12" width="140" height="290" rx="18" fill="#0b1517"/>
+    <circle cx="80" cy="26" r="5" fill="#374a4e"/>
+    <g clip-path="url(#screen)">
+      <text x="24" y="62" font-family="monospace" font-size="10" fill="#69d5e8">Updater</text>
+      <rect x="22" y="72" width="116" height="1.5" fill="#374a4e"/>
+      <circle cx="80" cy="140" r="38" fill="none" stroke="#374a4e" stroke-width="8"/>
+      <path d="M80 102 A38 38 0 1 1 42.6 147" fill="none" stroke="#69d5e8" stroke-width="8" stroke-linecap="round"/>
+      <!-- refresh icon (Material Icons, Apache 2.0) -->
+      <path transform="translate(60.8 120.8) scale(1.6)" fill="#d9e4e7" d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/>
+      <text x="80" y="206" text-anchor="middle" font-family="monospace" font-size="9" fill="#b4cacf">Installing update</text>
+      <rect x="30" y="222" width="100" height="22" rx="11" fill="#69d5e8"/>
+      <text x="80" y="237" text-anchor="middle" font-family="monospace" font-size="9" fill="#01363e">Reboot</text>
+    </g>
+  </g>
+
+  <!-- data kept -->
+  <g transform="translate(530 104)">
+    <rect width="170" height="92" rx="16" fill="#232b2d"/>
+    <g transform="translate(22 24)" fill="none" stroke="#3fb950" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+      <ellipse cx="20" cy="6" rx="20" ry="6"/>
+      <path d="M0 6 V 36 a20 6 0 0 0 40 0 V 6"/>
+      <path d="M0 21 a20 6 0 0 0 40 0"/>
+    </g>
+    <text x="78" y="44" font-family="monospace" font-size="12" fill="#d9e4e7">Data</text>
+    <text x="78" y="62" font-family="monospace" font-size="12" fill="#3fb950">kept</text>
+  </g>
+</svg>
