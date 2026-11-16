@@ -25,27 +25,27 @@ roms:
     android: 17
     version: "24.0"
     status: active
-    date: 2026-11-12
-    download: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261112-UNOFFICIAL-denver/lineage-24.0-20261112-UNOFFICIAL-denver.zip
-    changelog: https://github.com/Deivid21/RELEASES/releases/tag/lineage-24.0-20261112-UNOFFICIAL-denver
-    sha256: "0f8f2f53490fff38db9f2b0484554da2932ab8e70f005e9ccee6257288f5f58c"
+    date: 2026-11-16
+    download: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261116-UNOFFICIAL-denver/lineage-24.0-20261116-UNOFFICIAL-denver.zip
+    changelog: https://github.com/Deivid21/RELEASES/releases/tag/lineage-24.0-20261116-UNOFFICIAL-denver
+    sha256: "beb0d9e26dd0f0efc7715e7f8280e5fe1faecd9b552a2f26fb15eb2404963c5c"
     filesize: "1.47 GB"
     security_patch: November 2026
     gapps: true
     forum: https://xdaforums.com/t/rom-17-0-unofficial-lineageos-24-for-motorola-moto-g-stylus-5g-denver.4803209/
     files:
       - name: boot.img
-        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261112-UNOFFICIAL-denver/boot.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261116-UNOFFICIAL-denver/boot.img
       - name: dtbo.img
-        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261112-UNOFFICIAL-denver/dtbo.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261116-UNOFFICIAL-denver/dtbo.img
       - name: vbmeta.img
-        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261112-UNOFFICIAL-denver/vbmeta.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261116-UNOFFICIAL-denver/vbmeta.img
       - name: vbmeta_system.img
-        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261112-UNOFFICIAL-denver/vbmeta_system.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261116-UNOFFICIAL-denver/vbmeta_system.img
       - name: vendor_boot.img
-        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261112-UNOFFICIAL-denver/vendor_boot.img
-    notes: "Test build: November 2026 security patch, SELinux enforcing, GApps (MindTheGapps) included and Linux kernel 5.4.302. Also odm partition, dalvik heap and LMKD settings per RAM variant, Moto Camera 4 built from prebuilt source and missing camera libraries added. Blobs updated to S2RE32.29-16-1-5-19 and missing Fluence NN audio mixer paths added."
-    notes_es: "Build de prueba: parche de seguridad de noviembre de 2026, SELinux enforcing, GApps (MindTheGapps) incluidas y kernel Linux 5.4.302. Además: partición odm, ajustes de dalvik heap y LMKD según la variante de RAM, Moto Camera 4 compilada desde prebuilts y librerías de cámara que faltaban. Blobs actualizados a S2RE32.29-16-1-5-19 y rutas de audio Fluence NN que faltaban."
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261116-UNOFFICIAL-denver/vendor_boot.img
+    notes: "Test build: November 2026 security patch, SELinux enforcing, GApps (MindTheGapps) included and Linux kernel 5.4.302. Also odm partition, dalvik heap and LMKD settings per RAM variant, Fluence NN audio processing disabled, Moto Camera 4 built from prebuilt source and missing camera libraries added. Blobs updated to S2RE32.29-16-1-5-19 and more sampling rates for VoIP audio."
+    notes_es: "Build de prueba: parche de seguridad de noviembre de 2026, SELinux enforcing, GApps (MindTheGapps) incluidas y kernel Linux 5.4.302. Además: partición odm, ajustes de dalvik heap y LMKD según la variante de RAM, procesamiento de audio Fluence NN desactivado, Moto Camera 4 compilada desde prebuilts y librerías de cámara que faltaban. Blobs actualizados a S2RE32.29-16-1-5-19 y más frecuencias de muestreo para audio VoIP."
   - name: LineageOS
     archived: true
     android: 16
