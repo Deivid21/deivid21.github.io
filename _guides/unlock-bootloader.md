@@ -1,11 +1,11 @@
 ---
-title: Unlock the bootloader
+title: How to unlock the bootloader
 description: Original unlocking method for Motorola devices, needed before installing any ROM.
 order: 1
 image: /assets/img/guides/unlock-bootloader.svg
 devices: [all]
 updated: 2026-11-14
-title_es: Desbloquear el bootloader
+title_es: Cómo desbloquear el bootloader
 description_es: Método original de desbloqueo para dispositivos Motorola, necesario antes de instalar cualquier ROM.
 ---
 
