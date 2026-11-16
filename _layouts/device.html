@@ -49,8 +49,7 @@ layout: default
         {% if gpu %}<dt data-i18n="spec_gpu">{{ t.spec_gpu }}</dt><dd>{{ gpu }}</dd>{% endif %}
         {% if page.platform %}<dt data-i18n="spec_platform">{{ t.spec_platform }}</dt><dd><code>{{ page.platform }}</code></dd>{% endif %}
       </dl>
-      {% assign lineage_live = page.roms | where: "name", "LineageOS" | where_exp: "r", "r.type != 'test'" | where_exp: "r", "r.archived != true" | where_exp: "r", "r.released != false" %}
-      {% if lineage_live.size > 0 %}<p class="device-links"><a href="https://wiki.lineageos.org/devices/{{ page.codename }}/" target="_blank" rel="noopener">LineageOS Wiki ↗</a></p>{% endif %}
+      {% if site.data.lineage_wiki contains page.codename %}<p class="device-links"><a href="https://wiki.lineageos.org/devices/{{ page.codename }}/" target="_blank" rel="noopener">LineageOS Wiki ↗</a></p>{% endif %}
 
       {% assign tree = page.tree | default: cm.tree %}
       {% if tree or page.kernel %}
