@@ -25,27 +25,27 @@ roms:
     android: 17
     version: "24.0"
     status: active
-    date: 2026-11-13
-    download: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261113-UNOFFICIAL-milanf/lineage-24.0-20261113-UNOFFICIAL-milanf.zip
-    changelog: https://github.com/Deivid21/RELEASES/releases/tag/lineage-24.0-20261113-UNOFFICIAL-milanf
-    sha256: "d180d0c908a17a86bf01e2245ae3f67b8cff9ab6dc4ccf21d8b12354ed371a23"
+    date: 2026-11-16
+    download: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261116-UNOFFICIAL-milanf/lineage-24.0-20261116-UNOFFICIAL-milanf.zip
+    changelog: https://github.com/Deivid21/RELEASES/releases/tag/lineage-24.0-20261116-UNOFFICIAL-milanf
+    sha256: "9923a8830058781db243d75fdf9a1a7984468cc4eca13253e7200ff2d55f54ff"
     filesize: "1.52 GB"
     security_patch: November 2026
     gapps: true
     forum: https://xdaforums.com/t/rom-17-official-lineageos-24-0-for-moto-g-stylus-5g-2022-milanf.4808881/
     files:
       - name: boot.img
-        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261113-UNOFFICIAL-milanf/boot.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261116-UNOFFICIAL-milanf/boot.img
       - name: dtbo.img
-        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261113-UNOFFICIAL-milanf/dtbo.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261116-UNOFFICIAL-milanf/dtbo.img
       - name: vbmeta.img
-        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261113-UNOFFICIAL-milanf/vbmeta.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261116-UNOFFICIAL-milanf/vbmeta.img
       - name: vbmeta_system.img
-        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261113-UNOFFICIAL-milanf/vbmeta_system.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261116-UNOFFICIAL-milanf/vbmeta_system.img
       - name: vendor_boot.img
-        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261113-UNOFFICIAL-milanf/vendor_boot.img
-    notes: "Test build: November 2026 security patch, SELinux enforcing, GApps (MindTheGapps) included and Linux kernel 5.4.302. Also odm partition, dalvik heap and LMKD settings per RAM variant, Moto Camera 4 built from prebuilt source and missing camera libraries added. Blobs updated to T2SDS33.75-38-1-3-30, screen density set to 420, vidhance components patched and missing Fluence NN audio mixer paths added."
-    notes_es: "Build de prueba: parche de seguridad de noviembre de 2026, SELinux enforcing, GApps (MindTheGapps) incluidas y kernel Linux 5.4.302. Además: partición odm, ajustes de dalvik heap y LMKD según la variante de RAM, Moto Camera 4 compilada desde prebuilts y librerías de cámara que faltaban. Blobs actualizados a T2SDS33.75-38-1-3-30, densidad de pantalla en 420, componentes vidhance parcheados y rutas de audio Fluence NN que faltaban."
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261116-UNOFFICIAL-milanf/vendor_boot.img
+    notes: "Test build: November 2026 security patch, SELinux enforcing, GApps (MindTheGapps) included and Linux kernel 5.4.302. Also odm partition, dalvik heap and LMKD settings per RAM variant, Fluence NN audio processing disabled, Moto Camera 4 built from prebuilt source and missing camera libraries added. Blobs updated to T2SDS33.75-38-1-3-30, screen density set to 420, vidhance components patched and more sampling rates for VoIP audio."
+    notes_es: "Build de prueba: parche de seguridad de noviembre de 2026, SELinux enforcing, GApps (MindTheGapps) incluidas y kernel Linux 5.4.302. Además: partición odm, ajustes de dalvik heap y LMKD según la variante de RAM, procesamiento de audio Fluence NN desactivado, Moto Camera 4 compilada desde prebuilts y librerías de cámara que faltaban. Blobs actualizados a T2SDS33.75-38-1-3-30, densidad de pantalla en 420, componentes vidhance parcheados y más frecuencias de muestreo para audio VoIP."
   - name: LineageOS
     archived: true
     android: 16
