@@ -58,6 +58,7 @@ roms:
     filesize: "1.09 GB"
     security_patch: September 2026
     gapps: false
+    forum: https://xdaforums.com/t/rom-17-official-lineageos-24-0-for-moto-g82-5g-moto-g71s-rhodep.4808884/
     files:
       - name: boot.img
         url: https://github.com/Deivid21/RELEASES/releases/download/lineage-23.2-20261004-nightly-rhodep-signed/boot.img
@@ -83,6 +84,7 @@ roms:
     filesize: "1.03 GB"
     security_patch: September 2025
     gapps: false
+    forum: https://xdaforums.com/t/rom-17-official-lineageos-24-0-for-moto-g82-5g-moto-g71s-rhodep.4808884/
     files:
       - name: boot.img
         url: https://github.com/Deivid21/RELEASES/releases/download/lineage-22.2-20251005-nightly-rhodep-signed/boot.img

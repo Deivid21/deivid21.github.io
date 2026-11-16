@@ -59,6 +59,7 @@ roms:
     filesize: "1.14 GB"
     security_patch: October 2026
     gapps: false
+    forum: https://xdaforums.com/t/rom-17-official-lineageos-24-0-for-moto-g34-5g-moto-g45-5g-fogos.4808812/
     files:
       - name: boot.img
         url: https://github.com/Deivid21/RELEASES/releases/download/lineage-23.2-20261010-nightly-fogos-signed/boot.img
@@ -84,6 +85,7 @@ roms:
     filesize: "1.08 GB"
     security_patch: October 2025
     gapps: false
+    forum: https://xdaforums.com/t/rom-17-official-lineageos-24-0-for-moto-g34-5g-moto-g45-5g-fogos.4808812/
     files:
       - name: boot.img
         url: https://github.com/Deivid21/RELEASES/releases/download/lineage-22.2-20251011-nightly-fogos-signed/boot.img

@@ -58,6 +58,7 @@ roms:
     filesize: "1.06 GB"
     security_patch: September 2026
     gapps: false
+    forum: https://xdaforums.com/t/rom-17-0-unofficial-lineageos-24-for-motorola-moto-g-stylus-5g-denver.4803209/
     files:
       - name: boot.img
         url: https://github.com/Deivid21/RELEASES/releases/download/lineage-23.2-20261008-nightly-denver-signed/boot.img
@@ -83,6 +84,7 @@ roms:
     filesize: "1.00 GB"
     security_patch: October 2025
     gapps: false
+    forum: https://xdaforums.com/t/rom-17-0-unofficial-lineageos-24-for-motorola-moto-g-stylus-5g-denver.4803209/
     files:
       - name: boot.img
         url: https://github.com/Deivid21/RELEASES/releases/download/lineage-22.2-20251009-nightly-denver-signed/boot.img

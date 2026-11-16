@@ -58,6 +58,7 @@ roms:
     filesize: "1.09 GB"
     security_patch: September 2026
     gapps: false
+    forum: https://xdaforums.com/t/rom-17-official-lineageos-24-0-for-moto-g-stylus-5g-2022-milanf.4808881/
     files:
       - name: boot.img
         url: https://github.com/Deivid21/RELEASES/releases/download/lineage-23.2-20261008-nightly-milanf-signed/boot.img
@@ -83,6 +84,7 @@ roms:
     filesize: "1.03 GB"
     security_patch: October 2025
     gapps: false
+    forum: https://xdaforums.com/t/rom-17-official-lineageos-24-0-for-moto-g-stylus-5g-2022-milanf.4808881/
     files:
       - name: boot.img
         url: https://github.com/Deivid21/RELEASES/releases/download/lineage-22.2-20251009-nightly-milanf-signed/boot.img

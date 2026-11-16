@@ -58,6 +58,7 @@ roms:
     filesize: "1.10 GB"
     security_patch: September 2026
     gapps: false
+    forum: https://xdaforums.com/t/rom-17-official-lineageos-24-0-for-motorola-edge-30-neo-miami.4808936/
     files:
       - name: boot.img
         url: https://github.com/Deivid21/RELEASES/releases/download/lineage-23.2-20261004-nightly-miami-signed/boot.img
@@ -83,6 +84,7 @@ roms:
     filesize: "1.04 GB"
     security_patch: September 2025
     gapps: false
+    forum: https://xdaforums.com/t/rom-17-official-lineageos-24-0-for-motorola-edge-30-neo-miami.4808936/
     files:
       - name: boot.img
         url: https://github.com/Deivid21/RELEASES/releases/download/lineage-22.2-20251005-nightly-miami-signed/boot.img

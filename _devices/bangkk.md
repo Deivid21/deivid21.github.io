@@ -31,6 +31,7 @@ roms:
     filesize: "1.12 GB"
     security_patch: October 2026
     gapps: false
+    forum: https://xdaforums.com/t/rom-17-official-lineageos-24-0-for-moto-g84-5g-bangkk.4808938/
     files:
       - name: boot.img
         url: https://github.com/Deivid21/RELEASES/releases/download/lineage-23.2-20261009-nightly-bangkk-signed/boot.img
@@ -56,6 +57,7 @@ roms:
     filesize: "1.06 GB"
     security_patch: October 2025
     gapps: false
+    forum: https://xdaforums.com/t/rom-17-official-lineageos-24-0-for-moto-g84-5g-bangkk.4808938/
     files:
       - name: boot.img
         url: https://github.com/Deivid21/RELEASES/releases/download/lineage-22.2-20251010-nightly-bangkk-signed/boot.img
