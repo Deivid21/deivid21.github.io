@@ -15,6 +15,7 @@ roms:
     # status: active      # active | discontinued
     # date: 2026-11-03
   - name: LineageOS
+    forum: https://xdaforums.com/t/rom-17-official-lineageos-24-0-for-moto-g84-5g-bangkk.4808938/
     # version: ""
     # status: active      # active | discontinued
     # date: 2026-11-03
