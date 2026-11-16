@@ -7,7 +7,7 @@ platform: sm6150
 soc: "Snapdragon 675"
 android: 17
 stage: coming-soon
-order: 50
+order: 51
 maintained: true
 
 roms: []

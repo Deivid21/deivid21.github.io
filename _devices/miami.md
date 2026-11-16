@@ -6,7 +6,7 @@ common: sm6375
 platform: sm6375
 soc: "Snapdragon 695"
 android: 17
-order: 38
+order: 39
 maintained: true
 
 roms:

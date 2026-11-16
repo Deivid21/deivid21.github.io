@@ -6,7 +6,7 @@ common: sm6375
 platform: sm4375
 soc: "Snapdragon 4 Gen 1"
 android: 17
-order: 28
+order: 29
 maintained: true
 
 roms:

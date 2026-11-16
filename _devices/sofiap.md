@@ -8,7 +8,7 @@ platform: sm6125
 soc: "Snapdragon 665"
 android: 17
 stage: coming-soon
-order: 47
+order: 48
 maintained: true
 
 roms: []

@@ -8,7 +8,7 @@ platform: sm8450
 soc: "Snapdragon 8 Gen 1"
 android: 17
 stage: coming-soon
-order: 51
+order: 52
 maintained: true
 
 roms: []

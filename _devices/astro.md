@@ -7,7 +7,7 @@ platform: sdm710
 soc: "Snapdragon 710"
 android: 15
 stage: coming-soon
-order: 44
+order: 45
 maintained: true
 
 roms: []

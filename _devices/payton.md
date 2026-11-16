@@ -6,7 +6,7 @@ common: msm8998
 platform: sdm630
 soc: "Snapdragon 630"
 android: 15
-order: 30
+order: 31
 maintained: true
 
 roms:
