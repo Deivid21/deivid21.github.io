@@ -27,7 +27,11 @@
    data-official="{{ official | join: ',' }}"
    data-android-known="{{ latest }}"
    data-android="{{ shown }}"
-   data-search="{{ d.name | downcase }} {{ d.aka | join: ' ' | downcase }} {{ d.codename }} {{ d.platform }} {{ d.common }} {{ d.soc | downcase }} android {{ shown }} a{{ shown }} {% for r in d.roms %}{{ r.name | downcase }} {% endfor %}">
+   data-name="{{ d.name }}"
+   data-roms="{% assign rel_roms = d.roms | where_exp: 'r', 'r.released != false' | map: 'name' | uniq %}{% for n in rel_roms %}{{ n | slugify }}{% unless forloop.last %},{% endunless %}{% endfor %}"
+   data-status="{% assign rel = d.roms | where_exp: 'r', 'r.released != false' %}{% if d.stage == 'coming-soon' %}soon{% elsif rel.size == 0 %}dev{% elsif d.maintained %}active{% else %}discontinued{% endif %}"
+   data-date="{% assign dates = d.roms | where_exp: 'r', 'r.released != false' | map: 'date' | compact | sort %}{{ dates.last | date: '%Y-%m-%d' }}"
+   data-search="{{ d.name }} | {{ d.aka | join: ' | ' }} | {{ d.codename }} | {{ d.platform }} | {{ d.common }} | {{ d.soc }} | {{ d.gpu | default: site.data.socs[d.soc] }} | android {{ shown }} | a{{ shown }} | {% for r in d.roms %}{{ r.name }} | {% endfor %}">
   <div class="device-img">
     <img src="{{ site.lineage_img }}{{ d.image | default: d.codename }}.png"
          alt="{{ d.name }}" loading="lazy"

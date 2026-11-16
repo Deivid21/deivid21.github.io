@@ -86,74 +86,183 @@ function copyWithFeedback(btn, text, doneKey = 'copied', idleKey = 'copy') {
   paintBars();
 })();
 
-// ── Search + platform filter + "active only" ────────────
+// ── Devices finder: search, filters panel, sorting ──────
 (() => {
   const search = document.getElementById('search');
-  if (!search) return;
+  const panel = document.getElementById('filters-panel');
+  if (!search || !panel) return;
 
-  const onlyActive = document.getElementById('only-active');
-  const groups = document.querySelectorAll('[data-common-group]');
+  const cards = [...document.querySelectorAll('.device-card')];
+  const groups = [...document.querySelectorAll('[data-common-group]')];
+  const flat = document.getElementById('flat-grid');
   const empty = document.getElementById('no-results');
-  const filters = { common: 'all', android: 'all' };
+  const total = cards.length;
+  const DEFAULTS = { q: '', common: 'all', android: 'all', rom: 'all', status: 'all', sort: 'common' };
+  const state = { ...DEFAULTS };
 
-  function apply() {
-    const q = search.value.trim().toLowerCase();
-    let shown = 0;
-    groups.forEach(g => {
-     let inGroup = 0;
-     g.querySelectorAll('.device-card').forEach(card => {
-      const okCommon = filters.common === 'all' || card.dataset.common === filters.common;
-      const okAndroid = filters.android === 'all' || card.dataset.android === filters.android;
-      const okText = !q || card.dataset.search.includes(q);
-      const okActive = !onlyActive.checked || card.querySelector('.tag-ok');
-      const show = okCommon && okAndroid && okText && okActive;
-      card.hidden = !show;
-      if (show) inGroup++;
-     });
-     g.hidden = inGroup === 0;
-     shown += inGroup;
-    });
-    empty.hidden = shown > 0;
+  // Search ignores case, spaces and punctuation: "g52", "Moto G 52" and "moto-g52" all match
+  const norm = s => (s || '').toLowerCase().normalize('NFD').replace(/[^a-z0-9|]/g, '');
+  cards.forEach(c => {
+    c._home = c.parentElement;
+    c._index = norm(c.dataset.search);
+  });
+  const matches = (card, q) => {
+    if (!q.trim()) return true;
+    const words = q.trim().split(/\s+/).map(norm).filter(Boolean);
+    return words.every(w => card._index.includes(w)) || card._index.includes(norm(q));
+  };
+
+  const fmt = (key, vars) => t(key).replace(/\{(\w+)\}/g, (_, k) => vars[k]);
+  const chipRows = [...panel.querySelectorAll('.chips[data-filter-key]')];
+  const selects = [...panel.querySelectorAll('select[data-filter-key]')];
+
+  function syncControls() {
+    search.value = state.q;
+    document.getElementById('search-clear').hidden = !state.q;
+    selects.forEach(sel => { sel.value = state[sel.dataset.filterKey]; });
+    chipRows.forEach(row => row.querySelectorAll('.chip').forEach(c => c.classList.toggle('active', c.dataset.value === state[row.dataset.filterKey])));
   }
 
-  document.querySelectorAll('.chips[data-group]').forEach(row => {
-    row.addEventListener('click', e => {
-      const chip = e.target.closest('.chip');
-      if (!chip) return;
-      row.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
-      chip.classList.add('active');
-      filters[row.dataset.group] = chip.dataset.filter;
-      apply();
-    });
-  });
-  search.addEventListener('input', apply);
-  onlyActive.addEventListener('change', apply);
+  function labelFor(key) {
+    const v = state[key];
+    if (key === 'common') return panel.querySelector(`#f-common option[value="${CSS.escape(v)}"]`)?.textContent.replace(/\s*\(\d+\)$/, '') || v;
+    if (key === 'android') return 'Android ' + v;
+    if (key === 'sort') return t('sort_by') + ': ' + panel.querySelector(`#f-sort option[value="${v}"]`).textContent;
+    const chip = panel.querySelector(`.chips[data-filter-key="${key}"] .chip[data-value="${v}"]`);
+    return chip ? chip.firstChild.textContent.trim() : v;
+  }
 
-  // Rebuild the Android chips when cards learn their real latest version
-  document.addEventListener('devices:android-updated', () => {
-    const row = document.querySelector('.chips[data-group="android"]');
+  function renderActive() {
+    const box = document.getElementById('active-filters');
+    box.innerHTML = '';
+    const keys = ['common', 'android', 'rom', 'status', 'sort'].filter(k => state[k] !== DEFAULTS[k]);
+    keys.forEach(k => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'chip chip-removable';
+      b.textContent = labelFor(k) + ' ✕';
+      b.addEventListener('click', () => { state[k] = DEFAULTS[k]; update(); });
+      box.appendChild(b);
+    });
+    if (keys.length > 1) {
+      const all = document.createElement('button');
+      all.type = 'button';
+      all.className = 'link-btn';
+      all.textContent = t('clear_all');
+      all.addEventListener('click', reset);
+      box.appendChild(all);
+    }
+    const badge = document.getElementById('filters-badge');
+    badge.hidden = !keys.length;
+    badge.textContent = keys.length;
+  }
+
+  function apply() {
+    const visible = cards.filter(c => {
+      const show = matches(c, state.q)
+        && (state.common === 'all' || c.dataset.common === state.common)
+        && (state.android === 'all' || c.dataset.android === state.android)
+        && (state.rom === 'all' || c.dataset.roms.split(',').includes(state.rom))
+        && (state.status === 'all' || c.dataset.status === state.status);
+      c.hidden = !show;
+      return show;
+    });
+
+    if (state.sort === 'common') {
+      cards.forEach(c => c._home.appendChild(c));  // back to their common tree, original order
+      groups.forEach(g => { g.hidden = !g.querySelector('.device-card:not([hidden])'); });
+      flat.hidden = true;
+    } else {
+      const sorted = [...cards].sort(state.sort === 'name'
+        ? (a, b) => a.dataset.name.localeCompare(b.dataset.name, undefined, { numeric: true })
+        : (a, b) => (b.dataset.date || '').localeCompare(a.dataset.date || '') || a.dataset.name.localeCompare(b.dataset.name));
+      sorted.forEach(c => flat.appendChild(c));
+      groups.forEach(g => { g.hidden = true; });
+      flat.hidden = !visible.length;
+    }
+
+    empty.hidden = visible.length > 0;
+    document.getElementById('results-count').textContent = fmt('results_count', { n: visible.length, total });
+    document.getElementById('filters-show').textContent = fmt('show_results', { n: visible.length });
+  }
+
+  // Keep filters in the URL so a filtered view can be shared: /devices/?common=sm6375&rom=lineageos
+  function writeUrl() {
+    const params = new URLSearchParams();
+    Object.keys(DEFAULTS).forEach(k => { if (state[k] !== DEFAULTS[k]) params.set(k, state[k]); });
+    const qs = params.toString();
+    history.replaceState(null, '', location.pathname + (qs ? '?' + qs : ''));
+  }
+
+  function update() {
+    syncControls();
+    renderActive();
+    apply();
+    writeUrl();
+  }
+
+  function reset() {
+    Object.assign(state, DEFAULTS);
+    update();
+  }
+
+  // Android chips are built from the cards, and rebuilt when cards learn their live version
+  function buildAndroidChips() {
+    const row = panel.querySelector('.chips[data-filter-key="android"]');
     const counts = {};
-    document.querySelectorAll('.device-card').forEach(c => { counts[c.dataset.android] = (counts[c.dataset.android] || 0) + 1; });
-    delete counts[''];
-    if (!(filters.android in counts)) filters.android = 'all';
-    row.querySelectorAll('.chip:not([data-filter="all"])').forEach(c => c.remove());
+    cards.forEach(c => { if (c.dataset.android) counts[c.dataset.android] = (counts[c.dataset.android] || 0) + 1; });
+    row.querySelectorAll('.chip:not([data-value="all"])').forEach(c => c.remove());
     Object.keys(counts).sort((a, b) => b - a).forEach(v => {
       const b = document.createElement('button');
-      b.className = 'chip' + (filters.android === v ? ' active' : '');
+      b.className = 'chip';
       b.type = 'button';
-      b.dataset.filter = v;
+      b.dataset.value = v;
       b.innerHTML = `Android ${v} <span class="count">${counts[v]}</span>`;
       row.appendChild(b);
     });
-    row.querySelector('[data-filter="all"]').classList.toggle('active', filters.android === 'all');
-    apply();
+    if (state.android !== 'all' && !(state.android in counts)) state.android = 'all';
+  }
+
+  // Counts on the ROM and status chips
+  chipRows.filter(r => r.dataset.filterKey === 'rom' || r.dataset.filterKey === 'status').forEach(row => {
+    const key = row.dataset.filterKey;
+    row.querySelectorAll('.chip:not([data-value="all"])').forEach(chip => {
+      const n = cards.filter(c => key === 'rom' ? c.dataset.roms.split(',').includes(chip.dataset.value) : c.dataset.status === chip.dataset.value).length;
+      if (!n) { chip.remove(); return; }
+      const span = document.createElement('span');
+      span.className = 'count';
+      span.textContent = n;
+      chip.append(' ', span);
+    });
   });
 
-  // Open pre-filtered from a link like /devices/#sm6225
-  const hash = location.hash.slice(1);
-  const pre = hash && document.querySelector(`.chips[data-group="common"] .chip[data-filter="${CSS.escape(hash)}"]`);
-  if (pre) pre.click();
+  // Events
+  search.addEventListener('input', () => { state.q = search.value; document.getElementById('search-clear').hidden = !state.q; apply(); writeUrl(); });
+  document.getElementById('search-clear').addEventListener('click', () => { state.q = ''; update(); search.focus(); });
+  selects.forEach(sel => sel.addEventListener('change', () => { state[sel.dataset.filterKey] = sel.value; update(); }));
+  chipRows.forEach(row => row.addEventListener('click', e => {
+    const chip = e.target.closest('.chip');
+    if (!chip) return;
+    state[row.dataset.filterKey] = chip.dataset.value;
+    update();
+  }));
+  document.getElementById('filters-open').addEventListener('click', () => panel.showModal());
+  document.getElementById('filters-clear').addEventListener('click', () => { const q = state.q; reset(); state.q = q; update(); });
+  document.getElementById('no-results-clear').addEventListener('click', reset);
+  panel.addEventListener('click', e => { if (e.target === panel) panel.close(); });  // tap outside closes
+  document.addEventListener('keydown', e => {
+    if (e.key === '/' && document.activeElement !== search && !/input|textarea|select/i.test(document.activeElement.tagName)) { e.preventDefault(); search.focus(); }
+  });
+  document.getElementById('lang-toggle')?.addEventListener('click', () => { renderActive(); apply(); });
+  document.addEventListener('devices:android-updated', () => { buildAndroidChips(); update(); });
 
+  // Initial state from the URL (?common=…&rom=…) or an old-style #sm6225 link
+  const params = new URLSearchParams(location.search);
+  Object.keys(DEFAULTS).forEach(k => { if (params.has(k)) state[k] = params.get(k); });
+  const hash = location.hash.slice(1);
+  if (hash && panel.querySelector(`#f-common option[value="${CSS.escape(hash)}"]`)) state.common = hash;
+  buildAndroidChips();
+  update();
 })();
 
 // ── Copy buttons: SHA256 hashes (data-copy) and code blocks ──

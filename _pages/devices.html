@@ -41,23 +41,84 @@ description: Every Motorola device I maintain, with official and test builds of 
 </section>
 
 <section id="devices" class="container">
-  <div class="toolbar">
-    <input id="search" type="search" placeholder="{{ t.search_placeholder }}" data-i18n-placeholder="search_placeholder" autocomplete="off" aria-label="Search devices">
-
-    <div class="chips" data-group="common">
-      <button class="chip active" data-filter="all" type="button" data-i18n="filter_all">{{ t.filter_all }}</button>
-      {% for c in site.data.commons %}{% assign n = site.devices | where: "common", c.id | size %}{% if n > 0 %}<button class="chip" data-filter="{{ c.id }}" type="button">{{ c.name }} <span class="count">{{ n }}</span></button>{% endif %}{% endfor %}
+  <div class="finder">
+    <div class="finder-bar">
+      <label class="search-box">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+        <input id="search" type="search" placeholder="{{ t.search_placeholder }}" data-i18n-placeholder="search_placeholder" autocomplete="off" aria-label="Search devices">
+        <button id="search-clear" class="search-clear" type="button" aria-label="Clear" hidden>✕</button>
+      </label>
+      <button id="filters-open" class="filters-btn" type="button" aria-haspopup="dialog">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17v2h6v-2H3zM3 5v2h10V5H3zm10 16v-2h8v-2h-8v-2h-2v6h2zM7 9v2H3v2h4v2h2V9H7zm14 4v-2H11v2h10zm-6-4h2V7h4V5h-4V3h-2v6z"/></svg>
+        <span data-i18n="filters">{{ t.filters }}</span>
+        <span class="filters-badge" id="filters-badge" hidden></span>
+      </button>
     </div>
-
-    {% capture versions %}{% for d in site.devices %}{% include device-android.html device=d %}{% unless forloop.last %},{% endunless %}{% endfor %}{% endcapture %}
-    {% assign versions = versions | split: "," | uniq | sort | reverse %}
-    <div class="chips" data-group="android">
-      <button class="chip active" data-filter="all" type="button" data-i18n="filter_all_android">{{ t.filter_all_android }}</button>
-      {% for v in versions %}{% assign n = 0 %}{% for d in site.devices %}{% capture a %}{% include device-android.html device=d %}{% endcapture %}{% if a == v %}{% assign n = n | plus: 1 %}{% endif %}{% endfor %}<button class="chip" data-filter="{{ v }}" type="button">Android {{ v }} <span class="count">{{ n }}</span></button>{% endfor %}
+    <div class="finder-status">
+      <div class="active-filters" id="active-filters"></div>
+      <p class="results-count" id="results-count" aria-live="polite"></p>
     </div>
-
-    <label class="toggle"><input id="only-active" type="checkbox"> <span data-i18n="only_active">{{ t.only_active }}</span></label>
   </div>
+
+  <dialog id="filters-panel" class="filters-panel" aria-labelledby="filters-title">
+    <form method="dialog" class="filters-inner">
+      <div class="filters-head">
+        <h2 id="filters-title" data-i18n="filters">{{ t.filters }}</h2>
+        <button class="icon-btn" value="close" aria-label="Close">✕</button>
+      </div>
+
+      <div class="filter-field">
+        <label for="f-common" data-i18n="filter_common">{{ t.filter_common }}</label>
+        <select id="f-common" data-filter-key="common">
+          <option value="all" data-i18n="filter_all">{{ t.filter_all }}</option>
+          {% for c in site.data.commons %}{% assign n = site.devices | where: "common", c.id | size %}{% if n > 0 %}<option value="{{ c.id }}">{{ c.name }} ({{ n }})</option>{% endif %}{% endfor %}
+        </select>
+      </div>
+
+      <div class="filter-field">
+        <span class="filter-label" data-i18n="filter_android">{{ t.filter_android }}</span>
+        <div class="chips" data-filter-key="android">
+          <button class="chip active" data-value="all" type="button"><span data-i18n="filter_all">{{ t.filter_all }}</span></button>
+        </div>
+      </div>
+
+      <div class="filter-field">
+        <span class="filter-label" data-i18n="filter_rom">{{ t.filter_rom }}</span>
+        <div class="chips" data-filter-key="rom">
+          <button class="chip active" data-value="all" type="button"><span data-i18n="filter_all">{{ t.filter_all }}</span></button>
+          <button class="chip" data-value="lineageos" type="button">LineageOS</button>
+          <button class="chip" data-value="evolution-x" type="button">Evolution X</button>
+        </div>
+      </div>
+
+      <div class="filter-field">
+        <span class="filter-label" data-i18n="filter_status">{{ t.filter_status }}</span>
+        <div class="chips" data-filter-key="status">
+          <button class="chip active" data-value="all" type="button"><span data-i18n="filter_all">{{ t.filter_all }}</span></button>
+          <button class="chip" data-value="active" type="button"><span data-i18n="active">{{ t.active }}</span></button>
+          <button class="chip" data-value="dev" type="button"><span data-i18n="in_development">{{ t.in_development }}</span></button>
+          <button class="chip" data-value="soon" type="button"><span data-i18n="coming_soon">{{ t.coming_soon }}</span></button>
+          <button class="chip" data-value="discontinued" type="button"><span data-i18n="discontinued">{{ t.discontinued }}</span></button>
+        </div>
+      </div>
+
+      <div class="filter-field">
+        <label for="f-sort" data-i18n="sort_by">{{ t.sort_by }}</label>
+        <select id="f-sort" data-filter-key="sort">
+          <option value="common" data-i18n="sort_common">{{ t.sort_common }}</option>
+          <option value="name" data-i18n="sort_name">{{ t.sort_name }}</option>
+          <option value="newest" data-i18n="sort_newest">{{ t.sort_newest }}</option>
+        </select>
+      </div>
+
+      <div class="filters-foot">
+        <button class="btn btn-ghost" type="button" id="filters-clear" data-i18n="clear_all">{{ t.clear_all }}</button>
+        <button class="btn" value="close" id="filters-show"></button>
+      </div>
+    </form>
+  </dialog>
+
+  <div class="grid flat-grid" id="flat-grid" hidden></div>
 
   {% for c in site.data.commons %}
   {% assign devs = site.devices | where: "common", c.id | sort: "order" %}
@@ -76,5 +137,8 @@ description: Every Motorola device I maintain, with official and test builds of 
   {% endfor %}
 
   <script id="rom-sources" type="application/json">{{ site.official_sources | jsonify }}</script>
-  <p id="no-results" class="empty" hidden data-i18n="no_results">{{ t.no_results }}</p>
+  <div id="no-results" class="empty" hidden>
+    <p data-i18n="no_results">{{ t.no_results }}</p>
+    <button class="btn btn-ghost" type="button" id="no-results-clear" data-i18n="clear_filters">{{ t.clear_filters }}</button>
+  </div>
 </section>

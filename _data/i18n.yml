@@ -21,11 +21,22 @@ en:
   stat_platforms: common trees
   btn_view_devices: Browse devices
   btn_telegram: Telegram channel
-  search_placeholder: Search by name, codename, platform or ROM…
+  search_placeholder: Search by name, codename, SoC or ROM…
   filter_all: All
-  filter_all_android: All versions
-  only_active: Active only
-  no_results: No devices match your search.
+  filters: Filters
+  filter_common: Common tree
+  filter_android: Android version
+  filter_rom: ROM
+  filter_status: Status
+  sort_by: Sort by
+  sort_common: Common tree
+  sort_name: Name (A–Z)
+  sort_newest: Newest build
+  clear_all: Clear all
+  clear_filters: Clear filters
+  results_count: "Showing {n} of {total} devices"
+  show_results: "Show {n} devices"
+  no_results: No devices match your search or filters.
   active: Active
   discontinued: Discontinued
   archived: Archived
@@ -93,11 +104,22 @@ es:
   stat_platforms: árboles comunes
   btn_view_devices: Ver dispositivos
   btn_telegram: Canal de Telegram
-  search_placeholder: Buscar por nombre, codename, plataforma o ROM…
+  search_placeholder: Buscar por nombre, codename, SoC o ROM…
   filter_all: Todos
-  filter_all_android: Todas las versiones
-  only_active: Solo activos
-  no_results: No hay dispositivos que coincidan.
+  filters: Filtros
+  filter_common: Árbol común
+  filter_android: Versión de Android
+  filter_rom: ROM
+  filter_status: Estado
+  sort_by: Ordenar por
+  sort_common: Árbol común
+  sort_name: Nombre (A–Z)
+  sort_newest: Build más reciente
+  clear_all: Limpiar todo
+  clear_filters: Limpiar filtros
+  results_count: "Mostrando {n} de {total} dispositivos"
+  show_results: "Ver {n} dispositivos"
+  no_results: Ningún dispositivo coincide con tu búsqueda o filtros.
   active: Activo
   discontinued: Descontinuado
   archived: Archivada
