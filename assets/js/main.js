@@ -19,8 +19,17 @@
 // ── Language (EN default, ES optional) ──────────────────
 const I18N = JSON.parse(document.getElementById('i18n-data')?.textContent || '{}');
 
+// A language picked with the EN/ES toggle wins; otherwise follow the system language
+function systemLang() {
+  const first = (navigator.languages && navigator.languages[0]) || navigator.language || '';
+  return first.slice(0, 2).toLowerCase() === 'es' ? 'es' : 'en';
+}
+
 function getLang() {
-  try { return localStorage.getItem('lang') === 'es' ? 'es' : 'en'; } catch { return 'en'; }
+  try {
+    const saved = localStorage.getItem('lang');
+    return saved === 'es' || saved === 'en' ? saved : systemLang();
+  } catch { return systemLang(); }
 }
 
 function t(key) {
@@ -28,9 +37,9 @@ function t(key) {
   return (I18N[lang] && I18N[lang][key]) || (I18N.en && I18N.en[key]) || key;
 }
 
-function applyLang(lang) {
+function applyLang(lang, remember = true) {
   document.documentElement.lang = lang;
-  try { localStorage.setItem('lang', lang); } catch {}
+  if (remember) try { localStorage.setItem('lang', lang); } catch {}
 
   // Interface strings from _data/i18n.yml
   document.querySelectorAll('[data-i18n]').forEach(el => { el.textContent = t(el.dataset.i18n); });
@@ -47,7 +56,7 @@ document.getElementById('lang-toggle')?.addEventListener('click', () => {
   applyLang(document.documentElement.lang === 'es' ? 'en' : 'es');
 });
 
-if (getLang() === 'es') applyLang('es');
+if (getLang() === 'es') applyLang('es', false);  // don't save it, so the system language keeps deciding
 
 // Copy text to the clipboard and show a short confirmation on the button
 function copyWithFeedback(btn, text, doneKey = 'copied', idleKey = 'copy') {

@@ -18,7 +18,7 @@
 <!doctype html>
 <html lang="{{ site.lang }}">
 <head>
-  <script>try{var d=document.documentElement,th=localStorage.getItem('theme');if(localStorage.getItem('lang')==='es')d.lang='es';if(th==='light'||th==='dark')d.dataset.theme=th}catch(e){}</script>
+  <script>try{var d=document.documentElement,th=localStorage.getItem('theme'),l=localStorage.getItem('lang')||((navigator.languages&&navigator.languages[0])||navigator.language||'').slice(0,2).toLowerCase();if(l==='es')d.lang='es';if(th==='light'||th==='dark')d.dataset.theme=th}catch(e){}</script>
   {% include head.html %}
 </head>
 <body>
