@@ -13,7 +13,7 @@
   <g transform="translate(190 92)">
     <rect width="230" height="60" rx="14" fill="#232b2d"/>
     <text x="16" y="26" font-family="monospace" font-size="12" fill="#7f9499">$</text>
-    <text x="30" y="26" font-family="monospace" font-size="12" fill="#d9e4e7">adb sideload</text>
+    <text x="30" y="26" font-family="monospace" font-size="12" fill="#d9e4e7">adb -d sideload</text>
     <text x="30" y="44" font-family="monospace" font-size="12" fill="#69d5e8">rom.zip</text>
   </g>
   <g transform="translate(190 168)">

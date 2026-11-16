@@ -59,7 +59,7 @@ description_es: Instalación limpia desde firmware stock.
       <pre class="code install-cmds"><code></code></pre></li>
     <li>In the recovery, go to <strong>Factory reset → Format data / factory reset</strong>.</li>
     <li>Go back, choose <strong>Apply update → Apply from ADB</strong> and send the ROM from your PC:
-      <pre class="code"><code>adb sideload rom.zip</code></pre></li>
+      <pre class="code"><code>adb -d sideload rom.zip</code></pre></li>
     <li>When it finishes, choose <strong>Reboot system now</strong>.</li>
   </ol>
 </div>
@@ -73,7 +73,7 @@ description_es: Instalación limpia desde firmware stock.
       <pre class="code install-cmds"><code></code></pre></li>
     <li>En el recovery, ve a <strong>Factory reset → Format data / factory reset</strong>.</li>
     <li>Vuelve, elige <strong>Apply update → Apply from ADB</strong> y envía la ROM desde tu PC:
-      <pre class="code"><code>adb sideload rom.zip</code></pre></li>
+      <pre class="code"><code>adb -d sideload rom.zip</code></pre></li>
     <li>Cuando termine, elige <strong>Reboot system now</strong>.</li>
   </ol>
 </div>
