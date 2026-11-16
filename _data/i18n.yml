@@ -28,6 +28,7 @@ en:
   no_results: No devices match your search.
   active: Active
   discontinued: Discontinued
+  archived: Archived
   in_development: In Development
   mc_search: Search by device, codename or repo…
   mc_setup_for: "Setup for"
@@ -99,6 +100,7 @@ es:
   no_results: No hay dispositivos que coincidan.
   active: Activo
   discontinued: Descontinuado
+  archived: Archivada
   in_development: En desarrollo
   mc_search: Busca por dispositivo, codename o repo…
   mc_setup_for: "Configuración para"

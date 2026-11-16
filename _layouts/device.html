@@ -88,6 +88,7 @@ layout: default
             <div class="tags">
               <span class="tag" data-field="android-tag"{% unless rom.android %} hidden{% endunless %}>Android <span data-field="android">{{ rom.android }}</span></span>
               <span class="tag tag-dev" data-field="soon" data-i18n="in_development"{% unless soon %} hidden{% endunless %}>{{ t.in_development }}</span>
+              {% if rom.archived or rom.status == "discontinued" %}<span class="tag tag-plain" data-i18n="archived">{{ t.archived }}</span>{% endif %}
               {% if rom.variant %}<span class="tag">{{ rom.variant }}</span>{% endif %}
             </div>
           </div>
