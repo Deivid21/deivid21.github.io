@@ -26,27 +26,27 @@ roms:
     android: 17
     version: "24.0"
     status: active
-    date: 2026-11-13
-    download: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261113-UNOFFICIAL-fogos/lineage-24.0-20261113-UNOFFICIAL-fogos.zip
-    changelog: https://github.com/Deivid21/RELEASES/releases/tag/lineage-24.0-20261113-UNOFFICIAL-fogos
-    sha256: "f5722e575bd6cf0421e8cbdd231870ec2b0d40ac01d9856834f019429347cdc3"
+    date: 2026-11-16
+    download: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261116-UNOFFICIAL-fogos/lineage-24.0-20261116-UNOFFICIAL-fogos.zip
+    changelog: https://github.com/Deivid21/RELEASES/releases/tag/lineage-24.0-20261116-UNOFFICIAL-fogos
+    sha256: "584cdbf49a940db4a2a94b62819532fd886ee731bddc11d6f1772971a69e4976"
     filesize: "1.56 GB"
     security_patch: November 2026
     gapps: true
     forum: https://xdaforums.com/t/rom-17-official-lineageos-24-0-for-moto-g34-5g-moto-g45-5g-fogos.4808812/
     files:
       - name: boot.img
-        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261113-UNOFFICIAL-fogos/boot.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261116-UNOFFICIAL-fogos/boot.img
       - name: dtbo.img
-        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261113-UNOFFICIAL-fogos/dtbo.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261116-UNOFFICIAL-fogos/dtbo.img
       - name: vbmeta.img
-        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261113-UNOFFICIAL-fogos/vbmeta.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261116-UNOFFICIAL-fogos/vbmeta.img
       - name: vbmeta_system.img
-        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261113-UNOFFICIAL-fogos/vbmeta_system.img
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261116-UNOFFICIAL-fogos/vbmeta_system.img
       - name: vendor_boot.img
-        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261113-UNOFFICIAL-fogos/vendor_boot.img
-    notes: "Test build: November 2026 security patch, SELinux enforcing, GApps (MindTheGapps) included and Linux kernel 5.4.302. Also odm partition, dalvik heap and LMKD settings per RAM variant, Moto Camera 4 built from prebuilt source and missing camera libraries added. Missing ANC blobs for the camera added and SKU properties set for all partitions."
-    notes_es: "Build de prueba: parche de seguridad de noviembre de 2026, SELinux enforcing, GApps (MindTheGapps) incluidas y kernel Linux 5.4.302. Además: partición odm, ajustes de dalvik heap y LMKD según la variante de RAM, Moto Camera 4 compilada desde prebuilts y librerías de cámara que faltaban. Blobs ANC de cámara que faltaban y propiedades de SKU para todas las particiones."
+        url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261116-UNOFFICIAL-fogos/vendor_boot.img
+    notes: "Test build: November 2026 security patch, SELinux enforcing, GApps (MindTheGapps) included and Linux kernel 5.4.302. Also odm partition, dalvik heap and LMKD settings per RAM variant, Fluence NN audio processing disabled, Moto Camera 4 built from prebuilt source and missing camera libraries added. Missing ANC blobs for the camera, SKU properties set for all partitions and Fluence NN audio mixer paths removed."
+    notes_es: "Build de prueba: parche de seguridad de noviembre de 2026, SELinux enforcing, GApps (MindTheGapps) incluidas y kernel Linux 5.4.302. Además: partición odm, ajustes de dalvik heap y LMKD según la variante de RAM, procesamiento de audio Fluence NN desactivado, Moto Camera 4 compilada desde prebuilts y librerías de cámara que faltaban. Blobs ANC de cámara que faltaban, propiedades de SKU para todas las particiones y rutas de audio Fluence NN eliminadas."
   - name: LineageOS
     archived: true
     android: 16
