@@ -25,7 +25,9 @@ permalink: /
 {% assign mc = site.data.motcamera %}
 {% assign showcase = "rhode,bangkk,tundra" | split: "," %}
 <section class="hero home-hero">
-  <div class="container">
+  <div class="container home-hero-grid">
+    <img class="home-logo" src="{{ '/assets/img/favicon.svg' | relative_url }}" alt="{{ site.title }} logo" width="240" height="240">
+    <div class="home-hero-text">
     <p class="eyebrow" data-i18n="eyebrow">{{ t.eyebrow }}</p>
     <h1>{{ site.title }}</h1>
     <p class="lead">
@@ -35,6 +37,7 @@ permalink: /
     <div class="hero-actions">
       <a class="btn" href="{{ '/devices/' | relative_url }}" data-i18n="btn_view_devices">{{ t.btn_view_devices }}</a>
       <a class="btn btn-ghost" href="{{ site.telegram }}" target="_blank" rel="noopener" data-i18n="btn_telegram">{{ t.btn_telegram }}</a>
+    </div>
     </div>
   </div>
 </section>

@@ -143,6 +143,15 @@ html[data-theme="dark"] .theme-toggle .ic-dark { display: block; }
 .stats strong { font-size: 1.8rem; }
 .stats span { color: var(--muted); font-size: .9rem; }
 .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+/* Home: big logo next to the title (above it on phones) */
+.home-hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 40px; }
+.home-logo { grid-column: 2; grid-row: 1; width: clamp(160px, 22vw, 240px); height: auto; filter: drop-shadow(0 12px 32px rgba(0, 151, 167, .35)); }
+.home-hero-text { grid-column: 1; grid-row: 1; }
+@media (max-width: 720px) {
+  .home-hero-grid { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .home-logo { grid-column: 1; width: 120px; }
+  .home-hero-text { grid-row: 2; }
+}
 
 /* ── Buttons / tags ─────────────────────────────────── */
 .btn {
