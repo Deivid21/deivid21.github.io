@@ -1,4 +1,4 @@
-# Images flashed to install a ROM on each device, used by the "Install a ROM" guide.
+# Images flashed to install a ROM on each device, used by the "How to install a ROM" guide.
 # The guide flashes them in this order:
 #   vbmeta, vbmeta_system, boot, vendor_boot, dtbo, recovery
 # Devices still in development or coming soon are hidden from the guide until

@@ -1,12 +1,12 @@
 ---
-title: Install a ROM
+title: How to install a ROM
 description: Clean install from stock firmware.
 order: 2
 devices: [all]
 per_device: true
 image: /assets/img/guides/install-rom.svg
 updated: 2026-11-14
-title_es: Instalar una ROM
+title_es: Cómo instalar una ROM
 description_es: Instalación limpia desde firmware stock.
 ---
 
