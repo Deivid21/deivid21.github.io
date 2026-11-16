@@ -71,8 +71,8 @@ roms:
         url: https://github.com/Deivid21/RELEASES/releases/download/lineage-23.2-20261010-nightly-fogos-signed/vbmeta_system.img
       - name: vendor_boot.img
         url: https://github.com/Deivid21/RELEASES/releases/download/lineage-23.2-20261010-nightly-fogos-signed/vendor_boot.img
-    notes: "Last official LineageOS 23.2 nightly build (signed): October 2026 security patch, SELinux enforcing. No longer updated."
-    notes_es: "Última nightly oficial de LineageOS 23.2 (firmada): parche de seguridad de octubre de 2026, SELinux enforcing. Ya no se actualiza."
+    notes: "Last official LineageOS 23.2 nightly build (signed): October 2026 security patch, SELinux enforcing. No longer updated. Unmodified official nightly, mirrored for archival."
+    notes_es: "Última nightly oficial de LineageOS 23.2 (firmada): parche de seguridad de octubre de 2026, SELinux enforcing. Ya no se actualiza. Nightly oficial sin modificar, respaldada como archivo."
   - name: LineageOS
     archived: true
     android: 15
@@ -97,6 +97,6 @@ roms:
         url: https://github.com/Deivid21/RELEASES/releases/download/lineage-22.2-20251011-nightly-fogos-signed/vbmeta_system.img
       - name: vendor_boot.img
         url: https://github.com/Deivid21/RELEASES/releases/download/lineage-22.2-20251011-nightly-fogos-signed/vendor_boot.img
-    notes: "Last official LineageOS 22.2 nightly build (signed): October 2025 security patch, SELinux enforcing. No longer updated."
-    notes_es: "Última nightly oficial de LineageOS 22.2 (firmada): parche de seguridad de octubre de 2025, SELinux enforcing. Ya no se actualiza."
+    notes: "Last official LineageOS 22.2 nightly build (signed): October 2025 security patch, SELinux enforcing. No longer updated. Unmodified official nightly, mirrored for archival."
+    notes_es: "Última nightly oficial de LineageOS 22.2 (firmada): parche de seguridad de octubre de 2025, SELinux enforcing. Ya no se actualiza. Nightly oficial sin modificar, respaldada como archivo."
 ---

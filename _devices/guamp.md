@@ -68,8 +68,8 @@ roms:
         url: https://github.com/Deivid21/RELEASES/releases/download/lineage-22.2-20251006-nightly-guamp-signed/super_empty.img
       - name: vbmeta.img
         url: https://github.com/Deivid21/RELEASES/releases/download/lineage-22.2-20251006-nightly-guamp-signed/vbmeta.img
-    notes: "Last official LineageOS 22.2 nightly build (signed): September 2025 security patch, SELinux enforcing. No longer updated."
-    notes_es: "Última nightly oficial de LineageOS 22.2 (firmada): parche de seguridad de septiembre de 2025, SELinux enforcing. Ya no se actualiza."
+    notes: "Last official LineageOS 22.2 nightly build (signed): September 2025 security patch, SELinux enforcing. No longer updated. Unmodified official nightly, mirrored for archival."
+    notes_es: "Última nightly oficial de LineageOS 22.2 (firmada): parche de seguridad de septiembre de 2025, SELinux enforcing. Ya no se actualiza. Nightly oficial sin modificar, respaldada como archivo."
   - name: LineageOS
     archived: true
     android: 14
@@ -92,6 +92,6 @@ roms:
         url: https://github.com/Deivid21/RELEASES/releases/download/lineage-21.0-20241230-nightly-guamp-signed/recovery.img
       - name: vbmeta.img
         url: https://github.com/Deivid21/RELEASES/releases/download/lineage-21.0-20241230-nightly-guamp-signed/vbmeta.img
-    notes: "Last official LineageOS 21.0 nightly build (signed): December 2024 security patch, SELinux enforcing. No longer updated."
-    notes_es: "Última nightly oficial de LineageOS 21.0 (firmada): parche de seguridad de diciembre de 2024, SELinux enforcing. Ya no se actualiza."
+    notes: "Last official LineageOS 21.0 nightly build (signed): December 2024 security patch, SELinux enforcing. No longer updated. Unmodified official nightly, mirrored for archival."
+    notes_es: "Última nightly oficial de LineageOS 21.0 (firmada): parche de seguridad de diciembre de 2024, SELinux enforcing. Ya no se actualiza. Nightly oficial sin modificar, respaldada como archivo."
 ---

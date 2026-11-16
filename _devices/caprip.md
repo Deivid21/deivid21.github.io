@@ -70,8 +70,8 @@ roms:
         url: https://github.com/Deivid21/RELEASES/releases/download/lineage-23.2-20261007-nightly-caprip-signed/vbmeta_system.img
       - name: vendor_boot.img
         url: https://github.com/Deivid21/RELEASES/releases/download/lineage-23.2-20261007-nightly-caprip-signed/vendor_boot.img
-    notes: "Last official LineageOS 23.2 nightly build (signed): September 2026 security patch, SELinux enforcing. No longer updated."
-    notes_es: "Última nightly oficial de LineageOS 23.2 (firmada): parche de seguridad de septiembre de 2026, SELinux enforcing. Ya no se actualiza."
+    notes: "Last official LineageOS 23.2 nightly build (signed): September 2026 security patch, SELinux enforcing. No longer updated. Unmodified official nightly, mirrored for archival."
+    notes_es: "Última nightly oficial de LineageOS 23.2 (firmada): parche de seguridad de septiembre de 2026, SELinux enforcing. Ya no se actualiza. Nightly oficial sin modificar, respaldada como archivo."
   - name: LineageOS
     archived: true
     android: 15
@@ -96,8 +96,8 @@ roms:
         url: https://github.com/Deivid21/RELEASES/releases/download/lineage-22.2-20251008-nightly-caprip-signed/vbmeta_system.img
       - name: vendor_boot.img
         url: https://github.com/Deivid21/RELEASES/releases/download/lineage-22.2-20251008-nightly-caprip-signed/vendor_boot.img
-    notes: "Last official LineageOS 22.2 nightly build (signed): September 2025 security patch, SELinux enforcing. No longer updated."
-    notes_es: "Última nightly oficial de LineageOS 22.2 (firmada): parche de seguridad de septiembre de 2025, SELinux enforcing. Ya no se actualiza."
+    notes: "Last official LineageOS 22.2 nightly build (signed): September 2025 security patch, SELinux enforcing. No longer updated. Unmodified official nightly, mirrored for archival."
+    notes_es: "Última nightly oficial de LineageOS 22.2 (firmada): parche de seguridad de septiembre de 2025, SELinux enforcing. Ya no se actualiza. Nightly oficial sin modificar, respaldada como archivo."
   - name: LineageOS
     archived: true
     android: 14
@@ -122,8 +122,8 @@ roms:
         url: https://github.com/Deivid21/RELEASES/releases/download/lineage-21.0-20241225-nightly-caprip-signed/vbmeta_system.img
       - name: vendor_boot.img
         url: https://github.com/Deivid21/RELEASES/releases/download/lineage-21.0-20241225-nightly-caprip-signed/vendor_boot.img
-    notes: "Last official LineageOS 21.0 nightly build (signed): December 2024 security patch, SELinux enforcing. No longer updated."
-    notes_es: "Última nightly oficial de LineageOS 21.0 (firmada): parche de seguridad de diciembre de 2024, SELinux enforcing. Ya no se actualiza."
+    notes: "Last official LineageOS 21.0 nightly build (signed): December 2024 security patch, SELinux enforcing. No longer updated. Unmodified official nightly, mirrored for archival."
+    notes_es: "Última nightly oficial de LineageOS 21.0 (firmada): parche de seguridad de diciembre de 2024, SELinux enforcing. Ya no se actualiza. Nightly oficial sin modificar, respaldada como archivo."
   - name: LineageOS
     archived: true
     android: 13
@@ -148,6 +148,6 @@ roms:
         url: https://github.com/Deivid21/RELEASES/releases/download/lineage-20.0-20230630-nightly-caprip-signed/vbmeta_system.img
       - name: vendor_boot.img
         url: https://github.com/Deivid21/RELEASES/releases/download/lineage-20.0-20230630-nightly-caprip-signed/vendor_boot.img
-    notes: "Last official LineageOS 20.0 nightly build (signed): June 2023 security patch, SELinux enforcing. No longer updated."
-    notes_es: "Última nightly oficial de LineageOS 20.0 (firmada): parche de seguridad de junio de 2023, SELinux enforcing. Ya no se actualiza."
+    notes: "Last official LineageOS 20.0 nightly build (signed): June 2023 security patch, SELinux enforcing. No longer updated. Unmodified official nightly, mirrored for archival."
+    notes_es: "Última nightly oficial de LineageOS 20.0 (firmada): parche de seguridad de junio de 2023, SELinux enforcing. Ya no se actualiza. Nightly oficial sin modificar, respaldada como archivo."
 ---
