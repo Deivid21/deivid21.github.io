@@ -45,6 +45,28 @@ roms:
         url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261112-UNOFFICIAL-devon/vendor_boot.img
     notes: "Test build: November 2026 security patch, SELinux enforcing, GApps (MindTheGapps) included, Linux kernel 4.19.325-cip136 and a fix for the screen sometimes staying black and not turning off properly after locking. Also odm partition, dalvik heap and LMKD settings per RAM variant, blurs available (off by default), Moto Camera 4 built from prebuilt source, screen density set to 420 and missing camera libraries added."
     notes_es: "Build de prueba: parche de seguridad de noviembre de 2026, SELinux enforcing, GApps (MindTheGapps) incluidas, kernel Linux 4.19.325-cip136 y corrección de la pantalla que a veces quedaba en negro y no se apagaba bien al bloquear. Además: partición odm, ajustes de dalvik heap y LMKD según la variante de RAM, blurs disponibles (desactivados por defecto), Moto Camera 4 compilada desde prebuilts, densidad de pantalla en 420 y librerías de cámara que faltaban."
+  - name: Evolution X
+    android: 15
+    version: "10.9"
+    status: discontinued
+    date: 2025-09-14
+    download: https://cdn.evolution-x.org/devon/15/EvolutionX-15.0-20250914-devon-10.9-Official.zip
+    sha256: "97a06e42b5dd50ab3053b33c82a47151caba0f7b07f90a10214d0c7996ae0993"
+    filesize: "2.08 GB"
+    forum: https://xdaforums.com/t/rom-15-official-evolution-x-v10-6-for-moto-g32-devon-20250602.4741438/
+    files:
+      - name: boot.img
+        url: https://cdn.evolution-x.org/devon/15/boot/boot.img
+      - name: dtbo.img
+        url: https://cdn.evolution-x.org/devon/15/dtbo/dtbo.img
+      - name: vbmeta.img
+        url: https://cdn.evolution-x.org/devon/15/vbmeta/vbmeta.img
+      - name: vbmeta_system.img
+        url: https://cdn.evolution-x.org/devon/15/vbmeta_system/vbmeta_system.img
+      - name: vendor_boot.img
+        url: https://cdn.evolution-x.org/devon/15/vendor_boot/vendor_boot.img
+    notes: "Last official Evolution X build for Android 15. No longer updated."
+    notes_es: "Última build oficial de Evolution X para Android 15. Ya no se actualiza."
   - name: LineageOS
     archived: true
     android: 16

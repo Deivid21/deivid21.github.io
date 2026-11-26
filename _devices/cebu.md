@@ -44,6 +44,26 @@ roms:
         url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261112-UNOFFICIAL-cebu/vbmeta.img
     notes: "Test build: November 2026 security patch, SELinux enforcing, GApps (MindTheGapps) included, Linux kernel 4.19.325-cip136 and a fix for the screen sometimes staying black and not turning off properly after locking. Also odm partition, dalvik heap and LMKD settings per RAM variant, blurs available (off by default), Moto Camera 4 built from prebuilt source and libaidenoiser for the camera. SKU specific properties moved to the product partition."
     notes_es: "Build de prueba: parche de seguridad de noviembre de 2026, SELinux enforcing, GApps (MindTheGapps) incluidas, kernel Linux 4.19.325-cip136 y corrección de la pantalla que a veces quedaba en negro y no se apagaba bien al bloquear. Además: partición odm, ajustes de dalvik heap y LMKD según la variante de RAM, blurs disponibles (desactivados por defecto), Moto Camera 4 compilada desde prebuilts y libaidenoiser para la cámara. Propiedades específicas de cada SKU movidas a la partición product."
+  - name: Evolution X
+    android: 15
+    version: "10.9"
+    status: discontinued
+    date: 2025-09-14
+    download: https://cdn.evolution-x.org/cebu/15/EvolutionX-15.0-20250914-cebu-10.9-Official.zip
+    sha256: "4fa6739a8058a893671c14986de2087c6839a4fb31e814c57566f21f2ea1e0f3"
+    filesize: "2.14 GB"
+    forum: https://xdaforums.com/t/rom-15-official-evolution-x-v10-6-for-moto-g9-power-cebu-20250601.4741426/
+    files:
+      - name: boot.img
+        url: https://cdn.evolution-x.org/cebu/15/boot/boot.img
+      - name: dtbo.img
+        url: https://cdn.evolution-x.org/cebu/15/dtbo/dtbo.img
+      - name: recovery.img
+        url: https://cdn.evolution-x.org/cebu/15/recovery/recovery.img
+      - name: vbmeta.img
+        url: https://cdn.evolution-x.org/cebu/15/vbmeta/vbmeta.img
+    notes: "Last official Evolution X build for Android 15. No longer updated."
+    notes_es: "Última build oficial de Evolution X para Android 15. Ya no se actualiza."
   - name: LineageOS
     archived: true
     android: 16

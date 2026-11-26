@@ -44,6 +44,26 @@ roms:
         url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261112-UNOFFICIAL-guam/vbmeta.img
     notes: "Test build: November 2026 security patch, SELinux enforcing, GApps (MindTheGapps) included, Linux kernel 4.19.325-cip136 and a fix for the screen sometimes staying black and not turning off properly after locking. Also odm partition, dalvik heap and LMKD settings per RAM variant, blurs available (off by default), Moto Camera 2 built from prebuilt source, libaidenoiser for the camera, camera blobs from guamna_retail RZA31.Q2-146-14-22-2 and overlay configs from guamp_retail. SKU specific properties moved to the product partition."
     notes_es: "Build de prueba: parche de seguridad de noviembre de 2026, SELinux enforcing, GApps (MindTheGapps) incluidas, kernel Linux 4.19.325-cip136 y corrección de la pantalla que a veces quedaba en negro y no se apagaba bien al bloquear. Además: partición odm, ajustes de dalvik heap y LMKD según la variante de RAM, blurs disponibles (desactivados por defecto), Moto Camera 2 compilada desde prebuilts, libaidenoiser para la cámara, blobs de cámara de guamna_retail RZA31.Q2-146-14-22-2 y overlays de guamp_retail. Propiedades específicas de cada SKU movidas a la partición product."
+  - name: Evolution X
+    android: 15
+    version: "10.9"
+    status: discontinued
+    date: 2025-09-14
+    download: https://cdn.evolution-x.org/guam/15/EvolutionX-15.0-20250914-guam-10.9-Official.zip
+    sha256: "c7d1dac546fcad15e8bf72faa64d67fd4c23585495f15e0d51b17954985c976a"
+    filesize: "2.13 GB"
+    forum: https://xdaforums.com/t/rom-15-official-evolution-x-v10-6-for-moto-e7-plus-guam-20250601.4741427/
+    files:
+      - name: boot.img
+        url: https://cdn.evolution-x.org/guam/15/boot/boot.img
+      - name: dtbo.img
+        url: https://cdn.evolution-x.org/guam/15/dtbo/dtbo.img
+      - name: recovery.img
+        url: https://cdn.evolution-x.org/guam/15/recovery/recovery.img
+      - name: vbmeta.img
+        url: https://cdn.evolution-x.org/guam/15/vbmeta/vbmeta.img
+    notes: "Last official Evolution X build for Android 15. No longer updated."
+    notes_es: "Última build oficial de Evolution X para Android 15. Ya no se actualiza."
   - name: LineageOS
     archived: true
     android: 15

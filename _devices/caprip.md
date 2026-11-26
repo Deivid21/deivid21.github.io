@@ -46,6 +46,28 @@ roms:
         url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261112-UNOFFICIAL-caprip/vendor_boot.img
     notes: "Test build: November 2026 security patch, SELinux enforcing, GApps (MindTheGapps) included, Linux kernel 4.19.325-cip136 and a fix for the screen sometimes staying black and not turning off properly after locking. Also odm partition, dalvik heap and LMKD settings per RAM variant, blurs available (off by default), Moto Camera 4 built from prebuilt source and libaidenoiser for the camera. SKU specific properties moved to the product partition."
     notes_es: "Build de prueba: parche de seguridad de noviembre de 2026, SELinux enforcing, GApps (MindTheGapps) incluidas, kernel Linux 4.19.325-cip136 y corrección de la pantalla que a veces quedaba en negro y no se apagaba bien al bloquear. Además: partición odm, ajustes de dalvik heap y LMKD según la variante de RAM, blurs disponibles (desactivados por defecto), Moto Camera 4 compilada desde prebuilts y libaidenoiser para la cámara. Propiedades específicas de cada SKU movidas a la partición product."
+  - name: Evolution X
+    android: 15
+    version: "10.9"
+    status: discontinued
+    date: 2025-09-14
+    download: https://cdn.evolution-x.org/caprip/15/EvolutionX-15.0-20250914-caprip-10.9-Official.zip
+    sha256: "3b1aadcaf0225f1cc67316ea00a0d0a271f9f6cbd5b4d38facf9f9e9ec9b6eaa"
+    filesize: "2.10 GB"
+    forum: https://xdaforums.com/t/rom-15-official-evolution-x-v10-6-for-moto-g30-caprip-20250602.4741437/
+    files:
+      - name: boot.img
+        url: https://cdn.evolution-x.org/caprip/15/boot/boot.img
+      - name: dtbo.img
+        url: https://cdn.evolution-x.org/caprip/15/dtbo/dtbo.img
+      - name: vbmeta.img
+        url: https://cdn.evolution-x.org/caprip/15/vbmeta/vbmeta.img
+      - name: vbmeta_system.img
+        url: https://cdn.evolution-x.org/caprip/15/vbmeta_system/vbmeta_system.img
+      - name: vendor_boot.img
+        url: https://cdn.evolution-x.org/caprip/15/vendor_boot/vendor_boot.img
+    notes: "Last official Evolution X build for Android 15. No longer updated."
+    notes_es: "Última build oficial de Evolution X para Android 15. Ya no se actualiza."
   - name: LineageOS
     archived: true
     android: 16

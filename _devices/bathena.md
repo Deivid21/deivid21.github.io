@@ -43,6 +43,26 @@ roms:
         url: https://github.com/Deivid21/RELEASES/releases/download/lineage-24.0-20261112-UNOFFICIAL-bathena/vbmeta.img
     notes: "Test build: November 2026 security patch, SELinux enforcing, GApps (MindTheGapps) included, Linux kernel 4.19.325-cip136 and a fix for the screen sometimes staying black and not turning off properly after locking. Also odm partition, dalvik heap and LMKD settings per RAM variant, blurs available (off by default), Moto Camera 2 built from prebuilt source and libaidenoiser for the camera."
     notes_es: "Build de prueba: parche de seguridad de noviembre de 2026, SELinux enforcing, GApps (MindTheGapps) incluidas, kernel Linux 4.19.325-cip136 y corrección de la pantalla que a veces quedaba en negro y no se apagaba bien al bloquear. Además: partición odm, ajustes de dalvik heap y LMKD según la variante de RAM, blurs disponibles (desactivados por defecto), Moto Camera 2 compilada desde prebuilts y libaidenoiser para la cámara."
+  - name: Evolution X
+    android: 15
+    version: "10.9"
+    status: discontinued
+    date: 2025-09-14
+    download: https://cdn.evolution-x.org/bathena/15/EvolutionX-15.0-20250914-bathena-10.9-Official.zip
+    sha256: "f5b28a6ac777f0d1ffaf7d721f51c02f355dfaab20ad8c8728b69594a003c5ba"
+    filesize: "2.13 GB"
+    forum: https://xdaforums.com/t/rom-15-official-evolution-x-v10-6-for-motorola-defy-2021-bathena-20250601.4741422/
+    files:
+      - name: boot.img
+        url: https://cdn.evolution-x.org/bathena/15/boot/boot.img
+      - name: dtbo.img
+        url: https://cdn.evolution-x.org/bathena/15/dtbo/dtbo.img
+      - name: recovery.img
+        url: https://cdn.evolution-x.org/bathena/15/recovery/recovery.img
+      - name: vbmeta.img
+        url: https://cdn.evolution-x.org/bathena/15/vbmeta/vbmeta.img
+    notes: "Last official Evolution X build for Android 15. No longer updated."
+    notes_es: "Última build oficial de Evolution X para Android 15. Ya no se actualiza."
   - name: LineageOS
     archived: true
     android: 16
