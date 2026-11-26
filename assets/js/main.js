@@ -312,8 +312,9 @@ document.addEventListener('click', e => {
 // ── Official build info (LineageOS / Evolution X) ───────
 // Official ROM cards are filled with live data from each project. If a
 // request fails, the card keeps the values written in the device file.
+// Cards with their own download link (older builds) stay as written.
 (() => {
-  const cards = document.querySelectorAll('details.rom[data-type="official"]:not(.rom-soon):not(.rom-archived)');
+  const cards = document.querySelectorAll('details.rom[data-type="official"]:not(.rom-soon):not(.rom-archived):not([data-static])');
   const srcEl = document.getElementById('rom-sources');
   if (!cards.length || !srcEl) return;
   const SRC = JSON.parse(srcEl.textContent || '{}');
@@ -361,11 +362,15 @@ document.addEventListener('click', e => {
       const dev = devices.find(d => d.codename === codename);
       if (!dev) return null;
       const androidOf = Object.fromEntries(versions.map(v => [v.branch, String(v.version).split('_')[0]]));
-      const branch = versions.map(v => v.branch)
-        .filter(b => !b.endsWith('-vanilla') && dev.branches.includes(b) && (!android || androidOf[b] === android))[0];
-      if (!branch) return null;
-      const data = await get(fmt(src.builds, { branch, codename }));
-      const r = data.response && data.response[0];
+      // Newest branch with a build: the website's branch list can lag behind the OTA repo
+      const branches = versions.map(v => v.branch)
+        .filter(b => !b.endsWith('-vanilla') && (!android || androidOf[b] === android));
+      let branch, r;
+      for (branch of branches) {
+        const data = await get(fmt(src.builds, { branch, codename })).catch(() => null);
+        r = data && data.response && data.response[0];
+        if (r) break;
+      }
       if (!r) return null;
       return {
         available: true,

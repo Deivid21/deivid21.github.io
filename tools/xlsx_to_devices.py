@@ -21,7 +21,8 @@
 #   python3 tools/xlsx_to_devices.py tools/devices.xlsx _devices
 # Download/changelog links are built from the codename (see rom_links in _config.yml).
 # Rewrites every file in _devices/, keeping test builds (type: test), archived builds
-# (archived: true) and notes below the front matter.
+# (archived: true), older official builds with their own download: link and notes
+# below the front matter.
 import sys, os, glob, pandas as pd
 src, out = sys.argv[1], sys.argv[2]
 df = pd.read_excel(src, sheet_name='Devices', dtype=str)
@@ -40,7 +41,8 @@ for f in glob.glob(out + '/*.md'):
             cur.append(line)
         else:
             cur = None
-    tests = [''.join(b) for b in blocks if any(l.strip() in ('type: test', 'archived: true') for l in b)]
+    tests = [''.join(b) for b in blocks
+             if any(l.strip() in ('type: test', 'archived: true') or l.startswith('    download: ') for l in b)]
     kept[os.path.basename(f)[:-3]] = (tests, body)
     os.remove(f)
 order, skipped, made = 0, [], []
