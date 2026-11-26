@@ -596,6 +596,8 @@ document.querySelectorAll('pre.code').forEach(pre => {
     const id = decodeURIComponent(location.hash.slice(1));
     const card = id && document.getElementById(id);
     if (!card || !card.matches('details.rom')) return;
+    const group = card.closest('details.rom-archive');
+    if (group) group.open = true;
     card.open = true;
     card.classList.add('rom-target');
     setTimeout(() => card.classList.remove('rom-target'), 2400);

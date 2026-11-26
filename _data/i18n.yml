@@ -54,6 +54,7 @@ en:
   downloads: Downloads
   official_builds: Official Builds
   test_builds: Test Builds
+  archived_builds: Archived and discontinued builds
   info_status: Status
   info_android: Android
   info_version: Version
@@ -143,6 +144,7 @@ es:
   downloads: Descargas
   official_builds: Builds oficiales
   test_builds: Builds de prueba
+  archived_builds: Builds archivadas y descontinuadas
   info_status: Estado
   info_android: Android
   info_version: Versión
